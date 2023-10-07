@@ -1,0 +1,300 @@
+\documentclass[a4paper]{article}
+
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[lithuanian]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{Savarankiško darbo refleksija}
+\author{Vilius Paliokas}
+\date{2023/09/29}
+
+\begin{document}
+
+\maketitle
+
+\section{Lygtys}
+
+Differentiation is a concept of Mathematics studied in Calculus. There is an ongoing discussion as to who was the first to define differentiation: Leibniz or Newton \cite{bardi2006calculus}.
+
+Differentiation allows for the calculation of the slope of the tangent of a curve at any given point as shown in Figure \ref{exampleplot}.
+
+\begin{figure}[!htbp]
+\begin{center}
+\begin{tikzpicture}
+\draw[domain=-2:2, color=blue] plot (\x, {1 - (\x)^2}) node[above = .5cm, right, color=blue] {$f(x)=1-x^2$};
+\draw[domain=-2:2, color=red] plot(\x,-1 * \x + 1.25) node[above = .5cm, right, color=red] {Tangent at $x=.5$};
+\draw [thick, ->] (-3,0) -- (3,0) node [above] {$x$};
+\draw [thick, ->] (0,-3) -- (0,3) node [right] {$y$};
+\node at (.5,.75) {\textbullet};
+\end{tikzpicture}
+\end{center}
+\caption{The plot of $f(x)=1-x^2$ with a tangent at $x=.5$.}\label{exampleplot}
+\end{figure}
+
+
+\subsection{Kaip išspręsti $ ax^{2}+bx=0 $}
+
+\subsubsection{Teorinis sprendimas}
+
+Žingsniai: 
+
+\begin{enumerate}
+    \item Turime nepilną kvadratinę lygtį.
+
+    $ ax^{2}+ bx = 0; $
+    \item Išskaidome dauginamaisiais - iškeliame $ x $ prieš skliaustus:
+
+    $ x(ax + b) = 0 $
+    \item Iškėlus prieš skliaustus, jau turime vieną sprendinį ($ x $), kitą dar reikia susirasti:
+
+    $ ax+b = 0 $ $\;\;\;$ arba $\;\;\;$ $ x=0 $ 
+    \item Susitvarkome lygtį taip, kad vienoje pusėje atsirastų nariai su $ x $, o kitoje tik skaičiai. Tai padarysime atėmę iš abiejų pusių skaičių $ b $:
+
+    $ ax+b = 0 | - b $
+    \item  $ ax+b-b = 0-b $
+    \item Reikia pasidaryti, kad kintamasis $ x $ būtų plikas - be dauginio $ a $. Tai padarysime padalinę lygtį iš to dauginio $ a $:
+
+    $ ax = -b | : a $
+    \item $ \frac{ax}{a} = -\frac{b}{a} $
+    \item $ x = -\frac{b}{a} $
+\end{enumerate}
+Po 9 žingsnio turime du lygties sprendinius $ x = -\frac{b}{a} $ ir $ x=0 $ (3 žingsnis).
+
+
+\subsubsection{Pavyzdys \#1}
+
+Turime $ 2x^{2}-4x = 0; $
+
+Pagal formulę $ ax^{2}+ bx = 0 $:
+
+\begin{itemize}
+    \item $ a = 2; $
+    \item $ b = -4 $.
+\end{itemize}
+
+\begin{figure}[!htbp]
+    \begin{center}
+    \begin{tikzpicture}
+        \foreach \x in {-3, -2,...,-1,1,2} \draw (\x,2pt) --++ (0,-4pt) node [below] {\x};
+        \foreach \y in {-3,...,-1,1,2} \draw (2pt,\y) --++ (-4pt,0) node [left] {\y};
+    \draw[domain=-.5:2.5, color=blue] plot (\x, {2* (\x)^2-4*(\x)}) node[above = .5cm, right, color=blue] {$f(x)=2x^2-4x$};
+    \draw [thick, ->] (-3,0) -- (3,0) node [above] {$x$};
+    \draw [thick, ->] (0,-3) -- (0,3) node [right] {$y$};
+    \node at (0,0) {\textbullet};
+    \node at (2,0) {\textbullet};
+    \end{tikzpicture}
+    \end{center}
+    \caption{$f(x)=2x^2-4x$ grafikas su sprendiniais $2x^2-4x=0$ }\label{exampleplot}
+\end{figure}
+
+
+
+Žingsniai: 
+\begin{enumerate}
+
+    \item  Išskaidome dauginamaisiais - iškeliame $ x $ prieš skliaustus:
+
+    $ x(2x - 4) = 0 $;
+    \item  Iškėlus prieš skliaustus, jau turime vieną sprendinį ($ x $), kitą dar reikia susirasti:
+
+   $ 2x-4 = 0 $ $\;\;\;$ arba $\;\;\;$ $ \boldsymbol{x=0} $;
+   \item  Susitvarkome lygtį taip, kad vienoje pusėje atsirastų nariai su $ x $, o kitoje tik skaičiai. Tai padarysime pridėję abiem pusėms skaičių $ 4 $:
+
+   $ 2x-4 = 0 | + 4 $;
+   \item  $ 2-4+4 = 0+4 $;
+\item Reikia pasidaryti, kad kintamasis $ x $ būtų plikas - be dauginio $ 2 $. Tai padarysime padalinę lygtį iš to dauginio $ 2 $:
+
+    $ 2x = 4 | : 2 $;
+    \item $ \textcolor{blue}{\frac{2x}{2}} = \textcolor{red}{\frac{4}{2}} $;
+
+    $ \textcolor{blue}{\frac{2x}{2}}=\textcolor{blue}{x} $;
+   
+    $ \textcolor{red}{-\frac{4}{2}}=\textcolor{red}{2} $;
+   
+ \item $ \textcolor{blue}{x} = \textcolor{red}{2} $;
+\end{enumerate}
+
+Po 7 žingsnio turime du lygties sprendinius $ x = 2 $ ir $ x=0 $ (2 žingsnis).
+
+\subsubsection{Pavyzdys \#2}
+
+Turime $ 2x^2 + 3x^2 - 5x = 4x $. 
+
+Šis reiškinys neatitinka $ ax^{2}+ bx = 0 $ formulės. Todėl pirmiausia reikia bandyti susitvarkyti.
+
+\begin{enumerate}
+    \item Visus narius perkeliame į vieną pusę:
+    
+    $ 2x^2 + 3x^2 - 5x = 4x | - 4x; $ 
+    
+    $ 2x^2 + 3x^2 - 5x - 4x = 4x - 4x; $
+
+    $ 2x^2 + 3x^2 - 5x - 4x = 0; $
+
+    \item Sutraukiame panašius narius:
+    
+    $ \textcolor{blue}{2x^2} + \textcolor{blue}{3x^2} \textcolor{red}{- 5x} \textcolor{red}{- 4x} = 0; $
+
+    $ \textcolor{blue}{5x^2} \textcolor{red}{- 9x} = 0; $
+
+    \item Dabar jau reiškinys atitinka $ ax^{2}+ bx = 0 $ formulę. Galima išskaidyti dauginamaisiais - iškeliame prieš skliaustus $ x $:
+    
+    $ x(5x - 9) = 0 $;
+
+    \item Iš čia gauname vieną sprendinį:
+    
+    $ 5x-9 = 0 $ $\;\;\;$ arba $\;\;\;$ $ \boldsymbol{x=0} $;
+
+    \item Toliau sprendžiame pirmąją lygtį: 
+    
+    $ 5x-9 = 0 | + 9 $;
+
+    $ 5x-9+9 = 0+9 $;
+
+    $ 5x = 9 $;
+
+    $ 5x = 9|:5 $ arba $ 5x = 9|\cdot \frac{1}{5}$;
+
+    $ \frac{5x}{5} = \frac{9}{5} $ arba $ 5x\cdot\frac{1}{5} = 9\cdot \frac{1}{5}$;
+
+    abiejais atvejais $ x = 1.8 $.
+
+\end{enumerate}
+
+Gauname, kad $ 2x^2 + 3x^2 - 5x = 4x $ lygties sprendiniai yra $x=0$ ir $ x = 1.8 $ (galima dar rašyti $ x \in \{0, 1.8\} $).
+   
+\subsection{Kaip išspręsti $ ax^{2}+b=0 $}
+
+\subsubsection{Teorinis sprendimas}
+
+Žingsniai: 
+\begin{enumerate}
+
+    \item  Išskiriame $ ax^{2} $ (paliekame kairėje pusėje be $ b $):
+
+    $ ax^{2}+b=0 | -b $;
+    
+    $ ax^{2}+b-b=0-b $;
+    
+    $ ax^{2}=-b $;
+    
+    \item Kairėje pusėje reikia palikt $ x^2 $ - abi puses padaliname iš $ a $:
+
+    $ ax^{2}=-b |:a $;
+
+    $ \frac{ax^{2}}{a}=\frac{-b}{a}$;
+
+    Kairėje pusėje galima suprastinti skaitiklyje ir vardiklyje esančius $ a $:
+
+    $ x^{2}=\frac{-b}{a}$;
+
+    \item Ištraukiame šaknį iš abiejų pusių:
+    
+    Visos kvadratinės lygtys turi du sprendinius (išskyrus, $ x^2=0 $), tai ištraukus šaknį:
+
+    $ \sqrt{x^{2}}=\sqrt{\frac{-b}{a}}$;
+
+    $ x=\sqrt{\frac{-b}{a}}$;
+
+    ir 
+
+    $ \sqrt{x^{2}}=-\sqrt{\frac{-b}{a}}$;
+
+    $ x=-\sqrt{\frac{-b}{a}}$;
+
+
+\end{enumerate}
+
+Šis sprendimas turi prasmę, kol $ x \neq 0 $ (dalijimas iš nulio neturi reikšmės) ir $ \frac{-b}{a} \ge 0 $ (traukiant šaknį iš neigiamo skaičiaus gaunamas kompleksinis skaičius - mokykloje to nesimokoma).
+
+\subsubsection{Pavyzdys \#1}
+
+Turime $ 2x^{2}+8=0 $. Ši atitinka $ ax^{2}+b=0 $ formą. Sprendžiame pagal auksčiau duotą teorinį sprendimą:
+
+\begin{enumerate}
+    \item  Išskiriame $ ax^{2} $ (paliekame kairėje pusėje be $ b $):
+
+    $ 2x^{2}+8=0 | -8 $;
+    
+    $ 2x^{2}+8-8=0-8 $;
+    
+    $ 2x^{2}=-8 $;
+
+    \item Kairėje pusėje reikia palikt $ x^2 $ - abi puses padaliname iš $ 2 $:
+
+    $ 2x^{2}=-8 |:2 $;
+
+    $ \frac{2x^{2}}{2}=\frac{-8}{2}$;
+
+    Kairėje pusėje galima suprastinti skaitiklyje ir vardiklyje esančius $ a $, o dešinėje padalinti skaičius:
+
+    $ x^{2}=-4$;
+
+    \item Ištraukiame šaknį iš abiejų pusių:
+    
+    Visos kvadratinės lygtys turi du sprendinius (išskyrus, $ x^2=0 $), tai ištraukus šaknį:
+    
+    $ \sqrt{x^{2}}=\sqrt{-4}$;
+
+    $ x=\sqrt{-4}$;
+
+    ir 
+
+    $ \sqrt{x^{2}}=-\sqrt{-4}$;
+
+    $ x=-\sqrt{-4}$;
+
+\end{enumerate}
+
+Kadangi dešinėje pusėje esantis skaičius yra mažiau už nulį (-4<0), tai ši lygtis neturi realiųjų sprendinių.
+
+\subsubsection{Pavyzdys \#2}
+
+Turime $ 6x^{2}=3x^{2}+12 $. Ši lygtis neatitinka $ ax^{2}\pm b=0 $ formos. Todėl pirmiausia reikia bandyti susitvarkyti.
+
+\begin{enumerate}
+
+    \item Persikeliame narius su $ x^2 $ į vieną pusę (pasirenkame kairę), tai galima padaryti atėmus abi puses iš $ 3x^{2} $:
+    
+    $ 6x^{2}=3x^{2}+12|-3x^{2} $;
+    
+    $ 6x^{2}-3x^{2}=3x^{2}+12-3x^{2} $;
+
+    $ 3x^{2}=12 $;
+
+    \item Dabar reiškinys atitinka $ ax^{2}-b=0 $, nes tai yra tas pats kas $ ax^{2}=b $. Toliau sprendžiame pagal taisykles, reikia $ x^2 $ palikti be skaičiaus esančio priekyje, tai padarysime padaline iš skaičiaus esančio prieš $ x^{2} $:
+    
+    $ 3x^{2}=12 |: 3 $;
+
+    $ \frac{3x^{2}}{3}=\frac{12}{3}$;
+
+    Kairėje pusėje galima padalinti 3 iš 3, o dešinėje 12 iš 3:
+
+    $ x^{2}=4 $;
+
+    \item Dabar galima iš abiejų pusių ištraukti šaknį: 
+    
+    $ \sqrt{x^{2}}=\sqrt{4}$;
+
+    $ x=2$;
+
+    ir 
+
+    $ \sqrt{x^{2}}=-\sqrt{4}$;
+
+    $ x=-2$;
+
+\end{enumerate}
+
+Lygtis $ 6x^{2}=3x^{2}+12 $ turi du sprendinius: $ x=2 $ ir $x=-2$. Sprendinius visada galima pasitikrinti įdėjus atgal į lygtį.
+
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+\end{document}
