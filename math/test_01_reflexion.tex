@@ -4,15 +4,36 @@
 \usepackage{parskip} % Package to tweak paragraph skipping
 \usepackage{tikz} % Package for drawing
 \usepackage{tkz-euclide}
+\usetikzlibrary{fit,positioning}
+\usepackage{amsmath,amssymb}
+
 \usepackage{amsmath}
 \usepackage{hyperref}
-\usepackage[main=lithuanian, german]{babel}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
 \usepackage{tgpagella}
 \usepackage[L7x,T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
 
 \newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\tikzset{
+      venn box/.style={
+                  draw=black, very thick,
+                  rounded corners=10,
+                  inner xsep=10pt, inner ysep=15pt, outer ysep=5pt
+            },
+      venn numbers/.style={
+                  %    draw,
+                  inner ysep=0pt,
+                  align=center
+            },
+      venn title/.style={
+                  fill=black, text=white
+            }
+}
 
 \title{Savarankiško darbo refleksija}
 \author{Vilius Paliokas}
@@ -24,30 +45,95 @@
 
 \section{Lygtys}
 
-Differentiation is a concept of Mathematics studied in Calculus. There is an
-ongoing discussion as to who was the first to define differentiation: Leibniz
-or Newton \cite{bardi2006calculus}.
+\textbf{Lygtis}: matematinis teiginys, teigiantis dviejų reiškinių lygybę.
 
-Differentiation allows for the calculation of the slope of the tangent of a
-curve at any given point as shown in Figure \ref{exampleplot}.
+\textbf{Sprendinys}: reikšmė (arba reikšmių rinkinys), dėl kurios lygtis yra
+teisinga, kai jos kintamasis (dažniausiai $x$) pakeičiamas ja (reikšme).
 
-\begin{figure}[!htbp]
-      \begin{center}
-            \begin{tikzpicture}
-                  \draw[domain=-2:2, color=blue] plot (\x, {1 - (\x)^2})
-                  node[above =
-                              .5cm, right, color=blue] {$f(x)=1-x^2$};
-                  \draw[domain=-2:2, color=red] plot(\x,-1 * \x + 1.25)
-                  node[above =
-                              .5cm, right, color=red] {Tangent at $x=.5$};
-                  \draw [thick, ->] (-3,0) -- (3,0) node [above] {$x$};
-                  \draw [thick, ->] (0,-3) -- (0,3) node [right] {$y$};
-                  \node at (.5,.75) {\textbullet};
-            \end{tikzpicture}
-      \end{center}
-      \caption{The plot of $f(x)=1-x^2$ with a tangent at
-            $x=.5$.}\label{exampleplot}
-\end{figure}
+\subsection{Lygties sprendimas}
+
+Pagrindiniai žingsniai:
+
+\begin{enumerate}
+      \item \textbf{Supaprastinimas}: suprastinamos abi lygties pusės (panašių
+            narių jungimas, perkėlimai, skliaustų atskleidimai ir kt.);
+      \item \textbf{Izoliuojamas kintamasis}: Naudojami aritmetiniai veiksmai
+            ir atvirkštinės operacijos (jeigu lygybė, tai atimtis; jeigu
+            kėlimas laipsniu, tai šaknies traukimas ir t.t.), kad kintamasis
+            (dažniausiai
+            $x$) būtų vienintelis
+            kažkurioje tai lygties pusėje.
+      \item \textbf{Atsakymo pasitikrinimas}: gavus sprendinį, įdedamas vietoje
+            kintamojo ir patikrinama, kad abi pusės lygios.
+
+\end{enumerate}
+
+Pagrindiniai aspektai:
+\begin{enumerate}
+      \item \textbf{Atvirkštinės operacijos}:
+            naudojamos operacijos, kurios atšaukia viena kitą (pvz., sudėjimas
+            ir atėmimas, daugyba ir padalijimas).
+
+            \begin{table}[h]
+                  \centering
+                  \begin{tabular}{cc}
+                        \toprule
+                        Operacija                                & Atvirkštinė
+                        operacija
+                        \\
+                        \midrule
+                        Sudėtis $(+a)$                           & Atimtis
+                        $(-a)$
+                        \\
+                        Atimtis $(-a)$                           & Sudėtis
+                        $(+a)$
+                        \\
+                        Daugyba $(\times a)$                     & Dalyba
+                        $(\div a)$
+                        \\
+                        Dalyba $(\div a)$                        & Daugyba
+                        $(\times
+                              a)$
+                        \\
+                        Kėlimas kvadratu $(x^2)$                 & Kvadratinė
+                        šaknis
+                        $(\sqrt{x})$
+                        \\
+                        Kėlimas kubu $(x^3)$                     & Kubinė
+                        šaknis
+                        $(\sqrt[3]{x})$
+                        \\
+                        Kėlimas laipsniu $(x^a)$                 & Šaknis
+                        \((\sqrt[a]{x})\)
+                        \\
+                        Logaritmas pagrindu  \(b\) $(\log_b{x})$ & Kėlimas, kai
+                        pagrindas konstanta \(b\) $(b^x)$
+                        \\
+                        \bottomrule
+                  \end{tabular}
+                  \caption{Operacijos ir jų atvirkštinės operacijos}
+                  \label{tab:inverse_operations}
+            \end{table}
+
+      \item \textbf{Panašieji nariai}: Atliekamos operacijos su panašiais
+            nariais. Panašieji nariai - tai tie, kurie turi tą patį kintamąjį
+            ir pakelti
+            tuo pačiu laipsniu (daugiau žiūrėti nelygybių temoje).
+      \item \textbf{Lygties balansas}: Kad ir ką darytumėte vienai lygties
+            pusei, turite daryti su kita.
+\end{enumerate}
+
+Lygybėms galioja veiksmų eiliškumas - taisyklių rinkinys, kuris nurodo, kokius
+veiksmus reikia atlikti pirmiausia, kad būtų tinkamai apskaičiuota matematinė
+išraiška.
+Žemiau pateikiama operacijų atlikimo tvarka:
+
+\begin{enumerate}
+      \item Skliaustai;
+      \item Kėlimas laipsniu, šaknies traukimas, logaritmavimas;
+      \item Daugyba, dalyba (iš kairės į dešinę);
+      \item Atimtis, sudėtis (iš kairės į dešinę).
+\end{enumerate}
 
 \subsection{Kaip išspręsti $ ax^{2}+bx=0 $}
 
@@ -414,7 +500,11 @@ Naudojami simboliai:
 
 \end{enumerate}
 
-Pagrindiniai principai sprendžiant nelygybes:
+\subsection{Pagrindiniai principai sprendžiant nelygybes}
+
+Sprendžiant nelygybes, pritaikomi tokie pat principai, kaip ir lygtyse (ir
+atvirkščiai).
+Prisideda tik nelygybės apvertimas dauginant ar dalinant iš negiamo skaičiaus.
 
 \begin{enumerate}
       \item Kad ir ką darytumėte vienai nelygybės pusei, turite padaryti kitai,
@@ -459,12 +549,10 @@ Pagrindiniai principai sprendžiant nelygybes:
 
       \item Panašių narių tvarkymas.
 
-            Panašūs nariai turi tuos pačius kintamuosius ($x$, $y$, $z$,
-            skaičius
+            Panašūs nariai turi tuos pačius kintamuosius ($x$, $y$, $z$
             ir kt.), kuriuo pakelti tais pačiais laipsniais.
             Iš esmės jie atrodo taip pat, išskyrus koeficientą prie jo
-            (skaičius
-            prieš kintamąjį).
+            (skaičius prieš kintamąjį).
 
             Pavyzdžiai:
             \begin{itemize}
@@ -488,11 +576,326 @@ Pagrindiniai principai sprendžiant nelygybes:
                   \item $3x$ ir $3y$ nėra panašūs nariai, nes abu turi
                         skirtingus kintamuosius
                         $x$ ir $y$.
-                  \item $x^{2}$ ir $x$ nėra panašūs nariai, nes abu kintamieji pakelti skirtingais laipsniais (2 ir 1);
-                  \item $4xy$ ir $4xy^{2}$ nėra panašūs nariai, antrojo nario kintamasis $y$ pakeltas kvadratu.
+                  \item $x^{2}$ ir $x$ nėra panašūs nariai, nes abu kintamieji
+                        pakelti skirtingais laipsniais (2 ir 1);
+                  \item $4xy$ ir $4xy^{2}$ nėra panašūs nariai, antrojo nario
+                        kintamasis $y$ pakeltas kvadratu.
                         laipsniu.
             \end{itemize}
+
+            \begin{enumerate}[label*=\arabic*.]
+
+                  \item Konstantos ir kintamieji turi būti suprastinti, jeigu
+                        tai įmanoma:
+
+                        $2x+5>x+8$ tampa $x>3$ atėmus abiu puses iš $x$ ir $5$.
+
+                  \item Panašūs nariai gali būti sudėti arba atimti:
+
+                        $3x+2x>10$ tampa $5x>10$, o po to ir $x>2$.
+
+            \end{enumerate}
+
 \end{enumerate}
+
+\subsection{Atsakymo pasitikrinimas}
+
+Visada galima pasitikrinti nelygybės atsakymą. Pavyzdžiui turime nelygybę
+$2x+3<11$:
+
+\begin{enumerate}
+      \item Atimame abi pusęs iš 3
+
+            $2x+3-3<11-3$;
+
+            $2x<8$;
+
+      \item Padaliname abi pusęs iš 2
+
+            $\frac{2x}{2}<\frac{8}{2}$;
+
+            $x<4$;
+\end{enumerate}
+
+Radome, kad nelygybės sprendinys yra $x<4$ arba $x\in (-\infty;4)$. Galime
+pasitikrinti šį sprendinį įstatydami skaičių mažesnį negu 4, pavyzdžiui 3.
+Įstačius į pradinę nelygybę gauname, kad $2\cdot3+3<11$. Atlikus aritmetinius
+veiksmus gauname, kad $9<11$, kas yra tiesa ir tai reiškia, kad sprendinys yra
+teisingas.
+
+\subsection{Kaip spręsti $ax-b<0$ nelygybę?}
+
+\subsubsection{Teorinis sprendimas}
+
+Žingsniai, kad išspręstume $ax-b<0$ nelygybę:
+
+\begin{enumerate}
+      \item Prie abiejų pusių pridedame $b$:
+
+            $ax-b+b<0+b$;
+
+            $ax<b$;
+
+      \item Padaliname iš $a$, kad paliktumę kintąmjį $x$ be koeficiento
+            (daugiklio):
+
+            $\frac{ax}{a}<\frac{b}{a}$;
+
+            $x<\frac{b}{a}$;
+
+      \item Neužmirškite, jeigu skaičius $a$ yra neigiamas, reikia apversti
+            nelygybės ženklą:
+
+            $x>-\frac{b}{a}$;
+
+\end{enumerate}
+
+\subsubsection{Pavyzdys \#1}
+
+Turime $3x-5 < 0$. Sprendimas:
+
+\begin{enumerate}
+      \item Prie abiejų pusių pridedame $5$:
+
+            $3x-5+5<0+5$;
+
+            $3x<5$;
+
+      \item Padaliname abi puses iš $3$, kad paliktumę kintąmjį $x$ be
+            koeficiento (daugiklio):
+
+            $\frac{3x}{3}<\frac{5}{3}$;
+
+            $x<\frac{5}{3}$;
+
+\end{enumerate}
+
+Nelygybės sprendinys: $x\in (-\infty;\frac{5}{3})$.
+
+\subsubsection{Pavyzdys \#2}
+
+Turime $-3x+2\geq 5x-8$. Sprendimas:
+
+\begin{enumerate}
+      \item Visus narius su $x$ kintamuoju perkeliame į vieną pusę. Aš
+            pasirenku kelti į dešinę:
+
+            $-3x+2\geq 5x-8 | -5x$;
+
+            $-3x+2-5x \geq 5x-8-5x$;
+
+            $-8x+2 \geq -8$.
+
+      \item Visus skaičius be kintamųjų (konstantas) perkeliame į kitą pusę.
+            Šiuo atveju į kairę:
+
+            $-8x+2 \geq -8|-2$;
+
+            $-8x+2-2 \geq -8-2$;
+
+            $-8x \geq -10$;
+
+      \item Panaikiname skaičių prie $x$ padalindami abi puses iš jo:
+
+            $-8x \geq -10|:(-8)$;
+
+            $\frac{-8x}{-8} \leq \frac{-10}{-8}$ (atkreipkite dėmesį į ženklo
+            pasikeitimą);
+
+            $x \leq \frac{5}{4} $;
+
+\end{enumerate}
+
+Nelygybės sprendinys: $x\in (\infty;\frac{5}{4}]$.
+
+\section{Aibės}
+
+Aibė yra skirtingų elementų rinkinys. Jeigu elementas $a$ yra aibės $A$
+elementas, tai rašoma, kad $a \in A$. Jeigu elementas $b$ nėra aibės $A$
+elementas, tai rašoma, kad $b \notin A$. Aibės žymimos didžiąją raide, o jos
+elementai mažosiomis. Matematikos šaka nagrinėjanti aibes
+vadinama aibių teorija.
+
+Aibės pavyzdžiai:
+
+\begin{itemize}
+      \item mokyklos mokinių aibė;
+      \item saulės sistemos planetų aibė;
+      \item visų natūraliųjų skaičių aibė;
+      \item lygties sprendinių aibė;
+      \item ...
+\end{itemize}
+
+\subsection{Būdai užrašyti aibę}
+
+Pagal elementų skaičių, yra dviejų tipų aibės: baigtinės ir begalinės.
+Baigtines aibes galima lengvai išrašyti. Tokiam būdui naudojami figūriniai
+skliaustai $\{...\}$. Pavyzdžiui:
+
+$$ A=\{1;5;6;7;8;10;30\}; \quad B=\{c;b;e\}; $$
+
+Dvi aibės yra vienodos, jeigu šių elementai nesiskiria, nors ir skiriasi jų
+išdėstymo tvarka. Pavyzdžiui, $\{1,2,3\}=\{2,3,1\}$. Bet matematikoje sutarta,
+jeigu aibės elementai yra skaičiai, tai jie užrašomi didėjimo tvarka.
+
+Taip pat baigtines ir begalines aibes galima užrašyti tam tikromis taisyklėmis:
+
+\begin{itemize}
+      \item taisyklėmis.
+
+            $ B=\{x | x \text{ yra pirminis skaičius mažesnis už 10}\} $ - toks
+            užrašymas reikštų, kad aibę $ B $ sudaro pirminiai skaičiai mažesni
+            už 10. Tokią aibę dar būtų galima užrašyti šitaip $ B=\{2;3;5;7\}
+            $.
+
+      \item žodiniu apibūdinimu.
+
+            Tegul, aibė $ C $ yra sudaryta iš visų sveikųjų skaičių mažesnių už
+            100.
+
+      \item intervalu.
+
+            $ D = (2;5)$ - tokia aibė yra sudaryta iš visų realių skaičių nuo 2
+            neįskaitant iki 5 neįskaitant.
+
+            $ E = [2;5]$ - tokia aibė yra sudaryta iš visų realių skaičių nuo 2
+            įskaitant iki 5 įskaitant.
+      \item Veno diagramomis.
+
+            Nors tai nėra tekstinis aibės apibrėžimo būdas, Veno diagrama
+            vizualiai vaizduoja aibes ir jų ryšius (įprastai apskritimais).
+
+            \begin{venndiagram3sets}[labelOnlyA={1}, labelOnlyB={2},
+                        labelOnlyC={}, labelOnlyAB= {}, labelOnlyAC={},
+                        labelOnlyBC={9}, labelABC={3},
+                        vgap=.75cm]
+
+            \end{venndiagram3sets}
+\end{itemize}
+
+\subsection{Realiųjų skaičių aibė}
+
+Matematikoje, yra skaičių rinkiniai, kurie naudojami taip dažnai, kad jie turi
+specialius pavadinimus ir simbolius:
+
+\begin{enumerate}
+      \item Natūralūs ($\mathbb{N}$);
+      \item Sveikieji ($\mathbb{Z}$);
+      \item Racionalieji ($\mathbb{Q}$);
+      \item Iracionalieji ($\mathbb{I}$);
+      \item Realūs ($\mathbb{R}$);
+      \item ir kt.
+\end{enumerate}
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}[node distance=12pt]
+            \node[venn box] (N) {%
+                  $0 \quad 1 \quad 12 \quad 350 \quad 48 \quad 5 \quad 16$
+            };
+
+            \node[venn numbers, below=of N] (Z-N) {
+                  $-1 \quad {-5} \quad {-10} \quad {-39}$
+            };
+            \node[venn box, fit=(Z-N) (N)] (Z) {};
+
+            \node[venn numbers, below=of Z, align=center] (Q-Z) {
+            $25{,}3401401401\dots \quad 48{,}259$ \\[5pt]
+            $-0{,}101232323\dots \quad \dfrac52 \quad {-\dfrac73}$
+            };
+            \node[venn box, fit=(Q-Z) (Z)] (Q) {};
+
+            \node[venn numbers, below=of Q, inner sep=8pt, align=center, ] (Q')
+            {
+            $6{,}1010010001\dots \quad {-0{,}1234567\dots}$ \\[5pt]
+            $\sqrt{2} \quad \pi$
+            };
+
+            \node [venn box, inner sep=8pt, fit=(Q')] (Q') {};
+
+            \node [venn box, fit=(Q') (Q)] (R) {};
+
+            \tikzset{every node/.style=venn title}
+            \foreach \i/\j/\k in {N/Natūralūs/0, Z/Sveikieji/10pt,
+                        Q/Racionalūs/10pt,
+                        Q'/Iracionalūs/0pt, R/Realūs/15pt} {
+                        \draw node[anchor=north west] at ([shift={(10pt,
+                                          3pt)}]\i.north west) {\j}
+                        node[rounded corners] at ([yshift=-\k]\i.east)
+                        {$\mathbb{\i}$};
+                  }
+      \end{tikzpicture}
+      \label{fig:real_number_set}
+      \caption{Realių skaičių aibė ir jos poaibiai}
+\end{figure}
+
+Mokyliniame kurse yra mokomi tik 5 pagrindinės skaičių aibės. Bet reiktų
+žinoti, kad jų yra ir daugiau, pavyzdžiui menamasis vienetas ir kompleksniai
+skaičiai. Toliau apibūdinama realiųjų skaičių aibė ir jos poaibiai.
+
+\subsubsection{Natūralūs skaičiai}
+
+\begin{itemize}
+      \item \textbf{Apibrėžimas}: skaičiai naudojami skaičiuoti, nuo 1 iki
+            begalybės (kartais įtraukiamas ir 0).
+      \item \textbf{Simbolis}: $\mathbb{N}$.
+      \item \textbf{Pavyzdys}: $\mathbb{N}=\{1;2;3;4;5;6;7;8;9;\cdots\}$.
+\end{itemize}
+
+\subsubsection{Sveikieji skaičiai}
+
+\begin{itemize}
+      \item \textbf{Apibrėžimas}: 0, visi natūralieji skaičiai ir jiems
+            atvirkštiniai skaičiai (natūralieji skaičiai su minuso ženklu).
+      \item \textbf{Simbolis}: $\mathbb{Z}$.
+      \item \textbf{Pavyzdys}:
+
+            $\mathbb{Z}=\{\cdots;-9;-8;-7;-6;-5;-4;-3;-2;-1;0;1;2;3;4;5;6;7;8;9;\cdots\}$.
+\end{itemize}
+
+\subsubsection{Racionalieji skaičiai}
+
+\begin{itemize}
+      \item \textbf{Apibrėžimas}: Skaičiai, kurie gali būti užrašyti trupmena
+            $\frac{a}{b}$, kur $a$ ir $b$ sveikieji skaičiai, o $b \neq 0$.
+      \item \textbf{Simbolis}: $\mathbb{Q}$.
+      \item \textbf{Pavyzdys}: $\mathbb{Q}=\{\cdots;-\frac{8}{6}, -\frac{1}{1},
+                  \frac{0}{1}, \frac{1}{2}, \frac{22}{7}\cdots\}$.
+
+            Ankščiau aprašytą sveikųjų skaičių aibę $\mathbb{Z}$, taip pat
+            galima
+            išreikšti per racionaliųjų skaičių aibę: sveikieji skaičiai yra
+            tie,
+            racionalieji skaičiai $\frac{a}{b}$, kurių vardiklis $b$ yra lygus
+            $1$.
+\end{itemize}
+
+\subsubsection{Iracionalieji skaičiai}
+
+\begin{itemize}
+      \item \textbf{Apibrėžimas}: Skaičiai, kurių negalima išreikšti trupmena
+            $\frac{a}{b}$, kur $a$ ir $b$ sveikieji skaičiai. Šių skaičių
+            dešimtainė dalis yra nesikartojanti ir nesibaigianti.
+      \item \textbf{Simbolis}: $\mathbb{Q'}$ arba $\mathbb{R} \setminus
+                  \mathbb{Q}$ (realiųjų skaičių ir racionaliųjų skaičių aibės
+            skirtumas).
+      \item \textbf{Pavyzdys}: $\sqrt{2}$, $\pi$, $e$.
+\end{itemize}
+
+\subsubsection{Realių skaičių aibės ir poaibių hierachija}
+Visos aukščiau nurodytos aibės yra kažkokios tai kitos aibės poaibis. Šį ryšį
+galima pamatyti veno diagramose \ref{fig:real_number_set} paveiksle.
+
+\begin{itemize}
+      \item $\mathbb{N}$ yra sveikųjų skaičių aibės $\mathbb{Z}$ poaibis.
+      \item $\mathbb{Z}$ yra racionaliųjų skaičių aibės $\mathbb{Q}$ poaibis.
+      \item $\mathbb{Q}$ yra realiųjų skaičių aibės $\mathbb{R}$ poaibis.
+      \item Iracionalieji skaičiai taip pat yra realiųjų skaičių aibės $\mathbb{R}$ poaibis.
+\end{itemize}
+
+Šiuos ryšius galima taip pat pavaizduoti su simboliais:
+\[ \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}; \]
+
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
