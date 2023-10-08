@@ -1526,12 +1526,101 @@ Pagal atnaujintas matematikos programas, jums reikia žinoiti, kaip trupmenos
 vardiklyje panaikinti iracionalumą, kai vardiklyje yra iracionalieji skaičiai:
 $\sqrt{a}$, $\sqrt{a}+b$, $\sqrt{a}-b$.
 
-\subsection{Paprastas atvejis: šaknis vardiklyje}
+\subsection{Paprastas atvejis 1: šaknis vardiklyje, skaičius skaitiklyje}
 
+Jeigu trupmena atrodo taip - $\frac{a}{\sqrt{b}}$, kur $a$ ir $b$ yra skaičiai
+ir $\sqrt{b}$ yra iracionali kvadratinė šaknis, galima vardiklį ir skaitiklį
+padauginti iš vardiklio. Tokiu būdu bus panaikinta šaknis vardiklyje:
+\[\frac{a}{\sqrt{b}}=\frac{a}{\sqrt{b}}\cdot\frac{\sqrt{b}}{\sqrt{b}}=\frac{a\sqrt{b}}{b};\]
+Prisiminkite, kad sudauginus dvi vienodas šaknis gaunamas skaičius po šaknimi:
+\[ \pmb{\sqrt{b}\cdot\sqrt{b}}=b^{\frac{1}{2}}\cdot
+      b^{\frac{1}{2}}=b^{\frac{1}{2}+\frac{1}{2}}=\pmb{b}; \]
 
+\textbf{Pavyzdys}: reikia pašalinti iracionalumą iš
+\[ \frac{3}{\sqrt{2}} \]
+tai padauginame skaitiklį ir vardiklį iš šaknies
+\[ \frac{3}{\sqrt{2}} \cdot \frac{\sqrt{2}}{\sqrt{2}}= \frac{3\sqrt{2}}{2}; \]
+
+\subsection{Atvejis 2: šaknis vardiklyje, reiškinys skaitiklyje}
+
+Jeigu trupmena atrodo taip - $\frac{ax-c}{\sqrt{b}}$, kur $ax-c$
+\textbf{reiškinys}, o $b$ yra skaičius
+ir $\sqrt{b}$ yra iracionali kvadratinė šaknis, tai, kaip ir pirmu atveju,
+galima vardiklį ir skaitiklį
+padauginti iš vardiklio. Tokiu būdu bus panaikinta šaknis vardiklyje:
+\[\frac{ax-c}{\sqrt{b}}=\frac{ax-c}{\sqrt{b}}\cdot\frac{\sqrt{b}}{\sqrt{b}}=\frac{(ax-c)\sqrt{b}}{b}=\frac{ax\sqrt{b}-c\sqrt{b}}{b};\]
+
+\textbf{Būtina dauginti visą skaitiklį} iš vardiklio! Taip padaroma
+apskliaudžiant skaitklį, o po to atskliaudžiant sudauginamas kiekvienas narys.
+
+\textbf{Pavyzdys}: reikia pašalinti iracionalumą iš
+\[ \frac{3x+5}{\sqrt{2}} \]
+tai padauginame skaitiklį ir vardiklį iš šaknies
+\[ \frac{3x+5}{\sqrt{2}} \cdot \frac{\sqrt{2}}{\sqrt{2}}=
+      \frac{(3x+5)\sqrt{2}}{2} = \frac{3x\sqrt{2}+5\sqrt{2}}{2}; \]
+
+Jeigu matome, kad toliau suprastinti trupmenos neišeis, ją galima palikti ir su
+skliaustais vardiklyje.
+
+\subsection{Atvejis 3: binominis reiškinys vardiklyje}
+
+Jeigu trupmena atrodo taip - $\frac{a}{b+\sqrt{c}}$, kur $a$, $b$, $c$ skaičiai
+ir $\sqrt{b}$ yra iracionali kvadratinė šaknis. Šiuo atveju naikinant
+iracionalumą, reikia vardiklį ir skaitiklį padauginti \textbf{iš viso}
+vardiklio, bet \textbf{su skirtingu ženklu tarp narių}. Šiuo atveju, tarp $b$
+ir $\sqrt{c}$ yra \germanqq{+}, tai reikia padauginti iš $(b-\sqrt{c})$
+\[\frac{a}{b+\sqrt{c}}=\frac{a}{(b+\sqrt{c})}\cdot\frac{(b-\sqrt{c})}{(b-\sqrt{c})}=\frac{a(b-\sqrt{c})}{(b+\sqrt{c})(b-\sqrt{c})};
+\]
+
+\textbf{Būtina dauginti visą skaitiklį ir vardiklį} iš vardiklio! Reikia
+apskliausti!
+
+Toliau galima panaudoti greitosios daugybos formulę:
+\[(a-b)(a+b)=a^{2}-b^{2};\]
+\[\frac{a(b-\sqrt{c})}{(b+\sqrt{c})(b-\sqrt{c})} =
+      \frac{a(b-\sqrt{c})}{b^{2}-{(\sqrt{c})}^{2}} =
+      \frac{a(b-\sqrt{c})}{b^{2}-c} ;
+\]
+
+Toliau pagal situaciją sutraukiami, suprastinami panašūs nariai. Tas pats
+galioja ir situacijai, kai skaitiklyje yra dviejų narių atimtis
+-$\frac{a}{b-\sqrt{c}}$. Tokiu atveju skaitiklis ir vardiklis dauginami iš
+vardiklio pakeitus \germanqq{-} į \germanqq{+}:
+$$ (b-\sqrt{c}) \rightarrow (b+\sqrt{c}); $$
+
+\textbf{Pavyzdys} 1: reikia pašalinti iracionalumą iš
+\[ \frac{16}{1-\sqrt{5}}; \]
+tai padauginame skaitiklį ir vardiklį iš vardiklio pakeitus ženklą (šiuo atveju
+\germanqq{-} pakeičiam į \germanqq{+})
+$$\frac{16}{(1-\sqrt{5})}\cdot\frac{(1+\sqrt{5})}{(1+\sqrt{5})}=\frac{16(1+\sqrt{5})}{(1-\sqrt{5})(1+\sqrt{5})}=\frac{16(1+\sqrt{5})}{1^{2}-{(\sqrt{5})}^{2}}=\frac{16(1+\sqrt{5})}{1-5}=\frac{16(1+\sqrt{5})}{-4};$$
+
+Toliau dar galima suprastinti vardiklį ir skaitiklį (prisiminkite, kad
+prastinti galima, kai yra daugyba tarp narių).
+\[\frac{16(1+\sqrt{5})}{-4} = -4(1+\sqrt{5}) = -4-4\sqrt{5}; \]
+
+\textbf{Pavyzdys} 2: reikia pašalinti iracionalumą iš
+\[ \frac{3-\sqrt{6}}{\sqrt{3}+\sqrt{2}}; \]
+Galioja visos tos pačios taisyklės, kaip ir anksčiau. Padauginame \textbf{visą}
+skaitiklį ir \textbf{visą} vardiklį iš \textbf{viso} vardiklio, bet su pakeistu
+ženklu tarp narių (šiuo atveju pakeičiam \germanqq{-} į \germanqq{+})
+$$\frac{3-\sqrt{6}}{\sqrt{3}+\sqrt{2}}=\frac{(3-\sqrt{6})}{(\sqrt{3}+\sqrt{2})}\cdot\frac{(\sqrt{3}-\sqrt{2})}{(\sqrt{3}-\sqrt{2})}=\frac{(3-\sqrt{6})(\sqrt{3}-\sqrt{2})}{(\sqrt{3}+\sqrt{2})(\sqrt{3}-\sqrt{2})}$$
+
+Toliau sudauginame kiekvieną narį skliaustiuose su kitų skliaustių kiekvieniu nariu:
+$$\frac{(3-\sqrt{6})(\sqrt{3}-\sqrt{2})}{(\sqrt{3}+\sqrt{2})(\sqrt{3}-\sqrt{2})}=\frac{3\sqrt{3}-3\sqrt{2}-\sqrt{6}\sqrt{3}+\sqrt{2}\sqrt{6}}{{(\sqrt{3})}^2-{(\sqrt{2})}^2};$$
+
+Dar galime pakelti kvadratu, sutvarkyti panašius narius (su vienodais skaičiais šaknyse), sujungti vienodo laipsnio šaknis:
+$$\frac{3\sqrt{3}-3\sqrt{2}-\sqrt{6}\sqrt{3}+\sqrt{2}\sqrt{6}}{{(\sqrt{3})}^2-{(\sqrt{2})}^2}=\frac{3\sqrt{3}-3\sqrt{2}-\sqrt{6 \cdot 3}+\sqrt{2 \cdot 6}}{3-2}=3\sqrt{3}-3\sqrt{2}-\sqrt{18}+\sqrt{12};$$
+
+Iš šaknų galime dalinai ištraukti šaknį, išskaidant skaičius dauginamaisiais:
+
+$$3\sqrt{3}-3\sqrt{2}-\sqrt{18}+\sqrt{12}=3\sqrt{3}-3\sqrt{2}-\sqrt{9 \cdot 2}+\sqrt{4 \cdot 3}=3\sqrt{3}-3\sqrt{2}-\sqrt{9}\sqrt{2}+\sqrt{4}\sqrt{3};$$
+$$ 3\sqrt{3}-3\sqrt{2}-\sqrt{9}\sqrt{2}+\sqrt{4}\sqrt{3}=3\sqrt{3}-3\sqrt{2}-3\sqrt{2}+2\sqrt{3};$$ 
+
+Dabar jau turime panašiųjų narių, kuriuos galime sutvarkyti
+$$ 3\sqrt{3}-3\sqrt{2}-3\sqrt{2}+2\sqrt{3}=5\sqrt{3}-6\sqrt{2};$$ 
 
 \clearpage
 
-\bibliographystyle{plain}
-\bibliography{bibliography.bib}
+% \bibliographystyle{plain}
+% \bibliography{bibliography.bib}
 \end{document}
