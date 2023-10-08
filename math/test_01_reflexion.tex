@@ -5,6 +5,9 @@
 \usepackage{tikz} % Package for drawing
 \usepackage{tkz-euclide}
 \usetikzlibrary{fit,positioning}
+\usetikzlibrary {arrows.meta}
+\usetikzlibrary {patterns,patterns.meta}
+
 \usepackage{amsmath,amssymb}
 
 \usepackage{amsmath}
@@ -16,8 +19,20 @@
 \usepackage{enumitem}
 \usepackage{booktabs} % For better looking tables
 \usepackage{venndiagram}
-
+\usepackage{subfig}
 \newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+% Definition of circles
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+
+\colorlet{circle edge}{blue!50}
+\colorlet{circle area}{blue!20}
+
+\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
+      outline/.style={draw=circle edge, thick}}
+
+\setlength{\parskip}{5mm}
 
 \tikzset{
       venn box/.style={
@@ -111,7 +126,7 @@ Pagrindiniai aspektai:
                         \\
                         \bottomrule
                   \end{tabular}
-                  \caption{Operacijos ir jų atvirkštinės operacijos}
+                  \caption{operacijos ir jų atvirkštinės operacijos}
                   \label{tab:inverse_operations}
             \end{table}
 
@@ -826,7 +841,7 @@ specialius pavadinimus ir simbolius:
                   }
       \end{tikzpicture}
       \label{fig:real_number_set}
-      \caption{Realių skaičių aibė ir jos poaibiai}
+      \caption{realių skaičių aibė ir jos poaibiai}
 \end{figure}
 
 Mokyliniame kurse yra mokomi tik 5 pagrindinės skaičių aibės. Bet reiktų
@@ -839,7 +854,7 @@ skaičiai. Toliau apibūdinama realiųjų skaičių aibė ir jos poaibiai.
       \item \textbf{Apibrėžimas}: skaičiai naudojami skaičiuoti, nuo 1 iki
             begalybės (kartais įtraukiamas ir 0).
       \item \textbf{Simbolis}: $\mathbb{N}$.
-      \item \textbf{Pavyzdys}: $\mathbb{N}=\{1;2;3;4;5;6;7;8;9;\cdots\}$.
+      \item \textbf{Pavyzdys}: $\mathbb{N}=\{1;2;3;4;5;6;7;8;9;\ldots\}$.
 \end{itemize}
 
 \subsubsection{Sveikieji skaičiai}
@@ -850,7 +865,7 @@ skaičiai. Toliau apibūdinama realiųjų skaičių aibė ir jos poaibiai.
       \item \textbf{Simbolis}: $\mathbb{Z}$.
       \item \textbf{Pavyzdys}:
 
-            $\mathbb{Z}=\{\cdots;-9;-8;-7;-6;-5;-4;-3;-2;-1;0;1;2;3;4;5;6;7;8;9;\cdots\}$.
+            $\mathbb{Z}=\{\ldots;-9;-8;-7;-6;-5;-4;-3;-2;-1;0;1;2;3;4;5;6;7;8;9;\ldots\}$.
 \end{itemize}
 
 \subsubsection{Racionalieji skaičiai}
@@ -859,8 +874,8 @@ skaičiai. Toliau apibūdinama realiųjų skaičių aibė ir jos poaibiai.
       \item \textbf{Apibrėžimas}: Skaičiai, kurie gali būti užrašyti trupmena
             $\frac{a}{b}$, kur $a$ ir $b$ sveikieji skaičiai, o $b \neq 0$.
       \item \textbf{Simbolis}: $\mathbb{Q}$.
-      \item \textbf{Pavyzdys}: $\mathbb{Q}=\{\cdots;-\frac{8}{6}, -\frac{1}{1},
-                  \frac{0}{1}, \frac{1}{2}, \frac{22}{7}\cdots\}$.
+      \item \textbf{Pavyzdys}: $\mathbb{Q}=\{\ldots;-\frac{8}{6}, -\frac{1}{1},
+                  \frac{0}{1}, \frac{1}{2}, \frac{22}{7}\ldots\}$.
 
             Ankščiau aprašytą sveikųjų skaičių aibę $\mathbb{Z}$, taip pat
             galima
@@ -890,12 +905,433 @@ galima pamatyti veno diagramose \ref{fig:real_number_set} paveiksle.
       \item $\mathbb{N}$ yra sveikųjų skaičių aibės $\mathbb{Z}$ poaibis.
       \item $\mathbb{Z}$ yra racionaliųjų skaičių aibės $\mathbb{Q}$ poaibis.
       \item $\mathbb{Q}$ yra realiųjų skaičių aibės $\mathbb{R}$ poaibis.
-      \item Iracionalieji skaičiai taip pat yra realiųjų skaičių aibės $\mathbb{R}$ poaibis.
+      \item Iracionalieji skaičiai taip pat yra realiųjų skaičių aibės
+            $\mathbb{R}$ poaibis.
 \end{itemize}
 
 Šiuos ryšius galima taip pat pavaizduoti su simboliais:
 \[ \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}; \]
 
+\subsection{Veiksmai su aibėmis}
+
+Kaip ir su skaičiais, taip ir su aibėmis galima atlikti tam tikras veiksmus.
+Mokykliniame kurse reikia žinoti keturias operacijas: \textbf{sąjunga},
+\textbf{sankirta}, \textbf{skirtumas}, \textbf{poaibis}. Jų yra ir daugiau, bet
+sužinosite vėliau, jeigu mokysitės matematikos giliau.
+
+\subsubsection{Sąjunga}
+
+Dviejų aibių, $A$ ir $B$, sąjunga žymima $A \cup B$. Šio veiksmo rezultatas yra
+aibė sudaryta iš elementų, kurie yra arba aibėje $A$, arba aibėje $B$.
+
+Pavyzdžiui, turime aibes $A=\{1;2;3\}$ ir  $B=\{3;4;5\}$, tada $A \cup B =
+      \{1;2;3;4;5\}$. Aibė $A$ sudaryta iš elementų 1, 2, 3, o aibė $B$ - 3, 4,
+5. Tai šių aibių sąjunga yra nauja aibė, kuri sudaryta iš 1, 2, 3, 4, 5, 6.
+Kadangi abi $A$ ir $B$ aibės turi tą patį elementą 3, jo du kart neįtraukiame,
+nes aibė turi būti sudaryta tik iš skirtingų elementų.
+
+Šių aibių sąryšį galima atvaizduoti ir Veno diagramomis
+(\ref{fig:set_union} pav.):
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \draw[filled] \firstcircle node {$A$}
+            \secondcircle node {$B$};
+            \node[anchor=south] at (current bounding box.north) {$A \cup B$};
+      \end{tikzpicture}
+      \caption{aibių sąjunga} \label{fig:set_union}
+\end{figure}
+
+Taip pat, žinome, kad aibes galima nurodyti intervalais. Tarkime turime aibes
+$C=[-3;2)$ ir $D=(1;5]$. Prisiminkime, kad intervalai gali būti:
+\begin{itemize}
+      \item atviri: $(a;b)$ aibė sudaryta iš visų realių skaičių tarp $a$ ir
+            $b$, bet neįskaitant pačių $a$ ir $b$.
+      \item uždari: $[a;b]$ aibė sudaryta iš visų realių skaičių tarp $a$ ir
+            $b$, įskaitant pačius $a$ ir $b$.
+      \item pusiau-atviri: $[a;b)$ arba $(a;b]$ aibė sudaryta iš visų realių
+            skaičių tarp $a$ ir $b$, bet tik vienas iš skaičių $a$ arba $b$
+            įtrauktas į
+            aibę.
+\end{itemize}
+
+Ieškosime aibių $C$ ir $D$ sąjungos. Aibė $C$ yra sudaryta iš skaičių nuo -3
+(įskaitant) iki 2 (neįskaitant), o aibė $D$ yra sudaryta iš skaičių nuo 1
+(neįskaitant) iki 5 įskaitant. Šių aibių sąjunga bus visi skaičiai, kurie yra
+aibėje $C$ arba aibėje $D$ (arba abiejose). Šitai galima užrašyti:
+\[  C \cup D = [-3;2) \cup (1;5] \]
+Tokią aibę galima išreikšti dar paprasčiau. Kai imame dviejų aibių sąjungą,
+galutinis intervalas prasideda nuo mažiausios intervalų reikšmės (žiūrėti aibę
+$C$), kuri, šiuo atveju, lygi -3, ir tęsiasi iki didžiausios reikšmės, kuri yra
+5 (žiūrėti aibę $D$). Aibių sąjungos intervalą sudaro visi skaičiai tarp šių
+dviejų taškų (mažiausio ir didžiausio - $-3$ ir $5$). Taip pat galima pamatyti,
+kad intervalai nuo 1 (neįskaitant) iki 2 (neįskaitant) persidengia - priklauso
+abiems intervalams. Tokiu atveju galutinis rezultatas:
+\[  C \cup D = [-3;2) \cup (1;5] = [-3;5] \]
+Intervalus patogu atvaizduoti skaičių tiesėmis, tai sprendimą pavaizduosime
+tokiu būdu (\ref{fig:set_union_example_interval} pav.):
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \begin{scope}[>=latex]
+                  \draw [line width=0.7pt][->](-6,0)--(6,0);
+            \end{scope}
+            % Aibė D
+            \draw [pattern={Lines[angle=45,distance={3pt/sqrt(2)}]},pattern
+                  color=blue,line
+                  width=0.6pt](1,0)--(1,0.5)--(5,0.5)--(5,0)--cycle;
+            % Aibė C
+            \draw [pattern={Lines[angle=135,distance={3pt/sqrt(2)}]},pattern
+                  color=red,line
+                  width=0.6pt](-3,0)--(-3,0.5)--(2,0.5)--(2,0)--cycle;
+            \fill [color=black](-3,0.5) circle (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (2,0.5) circle
+            (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (1,0.5) circle
+            (2.3pt);
+            \fill [color=black] (5,0.5) circle (2.3pt);
+            \draw [line width=0.7pt](0,0)--(0,-0.3);
+            \pgftext[base,x=-3cm,y=-0.3cm,] {\small $-3$};
+            \pgftext[base,x=2cm,y=-0.3cm] {\small $2$};
+            \pgftext[base,x=0cm,y=-0.6cm] {\small $0$};
+            \pgftext[base,x=1cm,y=-0.3cm] {\small $1$};
+            \pgftext[base,x=5cm,y=-0.3cm] {\small $5$};
+      \end{tikzpicture}
+      \caption{$C$ ir $D$ aibių sąjunga} \label{fig:set_union_example_interval}
+\end{figure}
+
+Raudona spalva pavaizduota $C=[-3;2)$, o mėlyna $D =(1;5]$. Atkreipkite dėmesį
+į intervalo pradžios ir galo taškus. Pilnaviduriais rutuliukais pažymėti taškai
+reiškia, kad šis skaičius įeina į intervalą, o tuščiaviduriu - neįeina į
+intervalą. Iš skaičių tiesės galima matyti rezultatą - tai tas plotas, kur
+skaičių tiesė
+pažymėta raudonai arba mėlynai (arba abiem spalvomis).
+
+\subsubsection{Sankirta}
+
+Dviejų aibių, $A$ ir $B$, sankirta žymima $A \cap B$. Aibių sankirta yra
+aibė sudaryta iš elementų, kurie yra \textbf{bendri} aibei $A$ ir aibei $B$.
+
+Pavyzdžiui, turime vėl tas pačias aibes $A=\{1;2;3\}$ ir  $B=\{3;4;5\}$, tada
+$A \cap B = \{3\}$. Kadangi aibė $A$ ir $B$ bendrą elementą 3.
+
+Šių aibių sąryšį galima atvaizduoti ir Veno diagramomis
+(\ref{fig:set_intersection} pav.).
+
+\begin{figure}[!htbp]
+      \centering
+      % Set A and B
+      \begin{tikzpicture}
+            \begin{scope}
+                  \clip \firstcircle;
+                  \fill[filled] \secondcircle;
+            \end{scope}
+            \draw[outline] \firstcircle node {$A$};
+            \draw[outline] \secondcircle node {$B$};
+            \node[anchor=south] at (current bounding box.north) {$A \cap B$};
+      \end{tikzpicture}
+      \caption{aibių sankirta} \label{fig:set_intersection}
+\end{figure}
+
+Diagromeje matome akivaizdų bendrą plotą - sankirtą. Šis pažymėtas plotas
+vaizduoja $A \cap B$.
+
+Sankirta galima ir intervalams. Turime turime aibes $C=[-3;2)$ ir $D=(1;5]$.
+Apie šiuos intervalus plačiau galite paskaityti skyriuje apie sąjunga. Ieškant
+sankirtos, ieškosime, kuriose vietose intervalai turi tuos pačius elementus.
+
+Mažiausias skaičius, kuris yra abiejuose intervaluose - \textbf{šiek tiek
+      daugiau nei} 1. Šis skaičius (1) priklauso aibei $C$, nes $1 \in [-3;2)$,
+bet nepriklauso aibei $D$, nes prie intervalo nurodytas \germanqq{(}
+skliaustelis. Todėl ir bendras mažiausias skaičius yra \textbf{šiek tiek
+      daugiau nei} $1 (1.00\ldots1)$.
+
+Didžiausias skaičius priklausantis abiems intervalams yra \textbf{šiek tiek
+      mažiau nei} $2 (1.99\ldots)$. Nors ir 2 priklauso aibei $D$, bet
+nepriklauso
+aibe $C$, nes 2 neįtrauktas į intervalą - \germanqq{)} prie skaičiaus.
+
+Tokiu atveju mūsų aibių sankirta galima užrašyti:
+\[  C \cap D = \text{skliaustas } \text{mažiausas bendras elementas};
+      \text{didžiausias bendras elementas} \text{ skliaustas}  \]
+\[  C \cap D = (1; 2)\]
+
+Mūsų sankirta taip pat galime pamatyti, atvaizduojant intervalus skaičių
+tiesėje:
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \begin{scope}[>=latex]
+                  \draw [line width=0.7pt][->](-6,0)--(6,0);
+            \end{scope}
+            % Aibė D
+            \draw [pattern={Lines[angle=45,distance={3pt/sqrt(2)}]},pattern
+                  color=blue,line
+                  width=0.6pt](1,0)--(1,0.5)--(5,0.5)--(5,0)--cycle;
+            % Aibė C
+            \draw [pattern={Lines[angle=135,distance={3pt/sqrt(2)}]},pattern
+                  color=red,line
+                  width=0.6pt](-3,0)--(-3,0.5)--(2,0.5)--(2,0)--cycle;
+            \fill [color=black](-3,0.5) circle (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (2,0.5) circle
+            (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (1,0.5) circle
+            (2.3pt);
+            \fill [color=black] (5,0.5) circle (2.3pt);
+            \draw [line width=0.7pt](0,0)--(0,-0.3);
+            \pgftext[base,x=-3cm,y=-0.3cm,] {\small $-3$};
+            \pgftext[base,x=2cm,y=-0.3cm] {\small $2$};
+            \pgftext[base,x=0cm,y=-0.6cm] {\small $0$};
+            \pgftext[base,x=1cm,y=-0.3cm] {\small $1$};
+            \pgftext[base,x=5cm,y=-0.3cm] {\small $5$};
+      \end{tikzpicture}
+      \caption{$C$ ir $D$ aibių sankirta}
+      \label{fig:set_intersection_example_interval}
+\end{figure}
+
+Skaičių tiesėje aibių sankirta yra ta vieta, kur intervalai persikloja. Šiuo
+atveju ten kur raudona ir mėlyna spalvos kartu - nuo 1 (neįskaitant) iki 2
+(neįskaitant).
+
+Bendru atveju, jeigu intervalai neturi sankirtos, tai tokia aibė yra tuščia ir
+žymima $\{\}$
+(aibė be nurodytų elementų) arba $\varnothing$.
+
+\subsubsection{Skirtumas}
+
+Dviejų aibių, $A$ ir $B$, sankirta žymima $A \setminus B$. Šių aibių sankirta
+yra aibė sudaryta iš elementų, kurie priklauso $A$, bet nepriklauso $B$. Iki
+šiol aprašytos operacijos (sąjunga ir sankirta) yra simetriškos operacijos. Tai
+reiškia, kad apsukus narius (operandus) niekas nepasikeis.
+
+Pavyzdžiui, turime vėl tas pačias aibes $A=\{1;2;3\}$ ir  $B=\{3;4;5\}$, tada
+$A \cap B = \{3\}$, o $B \cap A = \{3\}$, tai reiškia, kad $ A \cap B = B \cap
+      A $.
+
+Taip pat ir su sąjunga: $A \cup B = \{1;2;3;4;5\}$, $B \cup A = \{1;2;3;4;5\}$,
+tai reiškia, kad $ A \cup B = B \cup A $.
+
+Nagrinėjamu atveju, aibės $A$ ir aibės $B$ skirtumas yra lygus $\{1;2\}$. Šią
+aibę sudaro visi elementai iš aibės $A$, išskyrus tuos, kurie yra ir aibėje
+$B$. Šiuo atveju aibė $A$ ir aibėjė $B$ turi bendrą elementą $3$, kurio ir
+neįrašome rezultate.
+
+Dabar apkeisime vietomis narius ir pažiūrėsime, kam lygus aibės $B$ ir $A$
+skirtumas. Tokią aibę sudarys visi aibės $B$ elementai, išskyrus bendrus
+elementus su aibe $A$. Vėl aibė $A$ ir aibėjė $B$ turi bendrą elementą $3$,
+todėl jo neįtrauksime rezultatą. Tai $B \setminus A = \{4;5\}$
+
+Aibių skirtumas nėra simetriška operacija, $A \setminus B \neq B \setminus A$,
+todėl svarbu kokia tvarka rašomos aibės.
+
+Šių aibių sąryšį galima atvaizduoti ir Veno diagramomis
+(\ref{fig:set_difference} pav.), mėlyni plotai žymi aibių skirtumus.
+
+\begin{figure}[!htbp]%
+      \centering
+      \subfloat[\centering aibių $A$ ir $B$ sankirta ]{{
+                        \begin{tikzpicture}
+                              \begin{scope}
+                                    \clip \firstcircle;
+                                    \draw[filled, even odd rule] \firstcircle
+                                    node {$A$}
+                                    \secondcircle;
+                              \end{scope}
+                              \draw[outline] \firstcircle
+                              \secondcircle node {$B$};
+                              \node[anchor=south] at (current bounding
+                              box.north)  {$A \setminus B$};
+                        \end{tikzpicture}
+                  }}%
+      \qquad
+      \subfloat[\centering  aibių $B$ ir $A$ sankirta]{
+            {
+                        \begin{tikzpicture}
+                              \begin{scope}
+                                    \clip \secondcircle;
+                                    \draw[filled, even odd rule] \firstcircle
+                                    \secondcircle
+                                    node {$B$};
+                              \end{scope}
+                              \draw[outline] \firstcircle node {$A$}
+                              \secondcircle;
+                              \node[anchor=south] at (current bounding
+                              box.north) {$B \setminus A$};
+                        \end{tikzpicture}
+                  }}%
+      \caption{Aibių sankirta}%
+      \label{fig:set_difference}%
+\end{figure}
+
+Aibių skirtumas galimas ir intervalams. Turime turime aibes $C=[-3;2)$ ir
+$D=(1;5]$. Apie šiuos intervalus plačiau galite paskaityti skyriuje apie
+sąjunga. Ieškant skirtumo, ieškosime, intervalo (-ų), kurių skaičiai priklauso
+pirmai aibei, bet nepriklauso antrąjai.
+
+Ieškosime $C \setminus D$. Pirmiausia suraskime, kurie skaičiai yra intervale
+$C$, bet nėra intevale $D$. Tokie skaičiai yra nuo -3 (įskaitant, dėl
+skliaustelio prie skaičiaus) iki 1 (įskaitant, nes šis skaičius nepriklauso
+aibei $D$, dėl skliaustelio, bet priklauso aibei $C$). Todėl galime užrašyti,
+kad aibių skirtumas $C \setminus D = [-3;1]$.
+
+Apkeiskime vietomis narius ir ieškokime $D \setminus C$. Pirmiausia suraskime,
+kurie skaičiai yra intervale
+$D$, bet nėra intevale $C$. Tokie skaičiai yra nuo 2, įskaitant. Skaičiai nuo 1
+(1,1; 1,2; 1,5, 1,99 ir t.t.) priklauso aibei $C$ ir aibei $D$. Todėl ir
+skirtumo intervalas, šiuo atveju, prasideda nuo 2, įskaitant. Galinis intervalo
+skaičius yra 5, įskaitant. Tai $D \setminus C = [2;5]$
+
+Skirtumus taip pat galime pamatyti, atvaizduojant intervalus skaičių
+tiesėje (\ref{fig:set_difference_number_line} pav.):
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \begin{scope}[>=latex]
+                  \draw [line width=0.7pt][->](-6,0)--(6,0);
+            \end{scope}
+            % Aibė D
+            \draw [pattern={Lines[angle=45,distance={3pt/sqrt(2)}]},pattern
+                  color=blue,line
+                  width=0.6pt](1,0)--(1,0.5)--(5,0.5)--(5,0)--cycle;
+            % Aibė C
+            \draw [pattern={Lines[angle=135,distance={3pt/sqrt(2)}]},pattern
+                  color=red,line
+                  width=0.6pt](-3,0)--(-3,0.5)--(2,0.5)--(2,0)--cycle;
+            \fill [color=black](-3,0.5) circle (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (2,0.5) circle
+            (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (1,0.5) circle
+            (2.3pt);
+            \fill [color=black] (5,0.5) circle (2.3pt);
+            \draw [line width=0.7pt](0,0)--(0,-0.3);
+            \pgftext[base,x=-3cm,y=-0.3cm,] {\small $-3$};
+            \pgftext[base,x=2cm,y=-0.3cm] {\small $2$};
+            \pgftext[base,x=0cm,y=-0.6cm] {\small $0$};
+            \pgftext[base,x=1cm,y=-0.3cm] {\small $1$};
+            \pgftext[base,x=5cm,y=-0.3cm] {\small $5$};
+      \end{tikzpicture}
+      \caption{$C$ ir $D$ intervalai}\label{fig:set_difference_number_line}
+\end{figure}
+
+Intervalas $C$ pažymėtas raudonai, intervalas $D$ pažymėtas mėlynai. $C
+      \setminus D$ yra skaičiai priklausantys aibei $C$, bet nepriklausantys
+aibei
+$D$, tai skaičių tiesėjė šita vieta yra pažymėta tik raudona spalva (mėlyna ir
+persiklojusios raudona ir mėlyna netinka).
+
+$D \setminus C$ yra skaičiai priklausantys aibei $D$, bet nepriklausantys aibei
+$C$, tai skaičių tiesėjė šita vieta yra pažymėta tik mėlyna spalva (raudona ir
+persiklojusios raudona ir mėlyna netinka).
+
+Bendru atveju, jeigu intervalai neturi skirtumo, tai tokia aibė yra tuščia ir
+žymima $\{\}$
+(aibė be nurodytų elementų) arba $\varnothing$.
+
+Paanalizuokime kitą situaciją, kai intervalai nepersikloja (skaičių tiesėje
+nėra plotų su abiem spalvomis arba nėra brukšnelių iš apačios ir viršaus).
+Turime aibes $F=[1; 3]$ ir $E=(5;7)$. Pavaizduokime šias aibes skaičių tiesėje
+(\ref{fig:set_difference_number_line_2} pav.):
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \begin{scope}[>=latex]
+                  \draw [line width=0.7pt][->](-1,0)--(8,0);
+            \end{scope}
+            % Aibė F
+            \draw [pattern={Lines[angle=45,distance={3pt/sqrt(2)}]},pattern
+                  color=blue,line
+                  width=0.6pt](1,0)--(1,0.5)--(3,0.5)--(3,0)--cycle;
+            % Aibė E
+            \draw [pattern={Lines[angle=135,distance={3pt/sqrt(2)}]},pattern
+                  color=red,line
+                  width=0.6pt](5,0)--(5,0.5)--(7,0.5)--(7,0)--cycle;
+            \fill [color=black](1,0.5) circle (2.3pt);
+            \fill [color=black] (3,0.5) circle (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (5,0.5) circle
+            (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (7,0.5) circle
+            (2.3pt);
+            \draw [line width=0.7pt](0,0)--(0,-0.3);
+            \pgftext[base,x=1cm,y=-0.3cm,] {\small $1$};
+            \pgftext[base,x=3cm,y=-0.3cm] {\small $3$};
+            \pgftext[base,x=0cm,y=-0.6cm] {\small $0$};
+            \pgftext[base,x=5cm,y=-0.3cm] {\small $5$};
+            \pgftext[base,x=7cm,y=-0.3cm] {\small $7$};
+      \end{tikzpicture}
+      \caption{$F$ ir $E$ intervalai}\label{fig:set_difference_number_line_2}
+\end{figure}
+
+$F \setminus E$ yra aibės $F$ visu elementai, išskyrus bendrus elementus su
+aibe $E$. Tarp aibių bendrų elementų nėra, nes skaičių tiesėje nematome
+persiklojusių plotų. Tai todėl
+\[F \setminus E = F = [1;3];\]
+Apkeitus narius vietomis - situacija ta pati, todėl
+\[E \setminus F = E = (5;7);\]
+
+Paanalizuokime dar vieną išskirtinę situaciją, kai vienas intervalas yra viduje
+kito - viena aibė yra kitos aibės poaibis. Turime aibes $G=[1;6]$ ir
+$H=(3;5)$. Čia aibė $H$ yra aibės $G$ poaibis. Kad surastumėme aibių skirtumą
+$G \setminus H$, reikia visų skaičių iš $G$, bet ne iš $H$. Atvaizdavus
+intervalus skaičių tiesėje (\ref{fig:set_difference_number_line_3} pav.),
+matome, kad vienas intervalas yra \germanqq{po} kitu intervalu.
+
+\begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}
+            \begin{scope}[>=latex]
+                  \draw [line width=0.7pt][->](-1,0)--(7,0);
+            \end{scope}
+            % set G
+            \draw [pattern={Lines[angle=45,distance={3pt/sqrt(2)}]},pattern
+                  color=blue,line
+                  width=0.6pt](1,0)--(1,0.5)--(6,0.5)--(6,0)--cycle;
+            % set H
+            \draw [pattern={Lines[angle=135,distance={3pt/sqrt(2)}]},pattern
+                  color=red,line
+                  width=0.6pt](3,0)--(3,0.5)--(5,0.5)--(5,0)--cycle;
+            \fill [color=black](1,0.5) circle (2.3pt);
+            \fill [color=black] (6,0.5) circle (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (3,0.5) circle
+            (2.3pt);
+            \fill [color=white,draw=black,line width=0.7pt] (5,0.5) circle
+            (2.3pt);
+            \draw [line width=0.7pt](0,0)--(0,-0.3);
+            \pgftext[base,x=1cm,y=-0.3cm,] {\small $1$};
+            \pgftext[base,x=6cm,y=-0.3cm] {\small $6$};
+            \pgftext[base,x=0cm,y=-0.6cm] {\small $0$};
+            \pgftext[base,x=3cm,y=-0.3cm] {\small $3$};
+            \pgftext[base,x=5cm,y=-0.3cm] {\small $5$};
+      \end{tikzpicture}
+      \caption{$G$ ir $H$ intervalai}\label{fig:set_difference_number_line_3}
+\end{figure}
+
+Tokiu atveju skaičiai, kurie priklauso \textbf{tik} aibei $G$ yra nuo 1,
+įskaitant, iki 3 (įskaitant, nes priklauso tik aibei $G$, bet nepriklauso $H$,
+nes \germanqq{(} skliaustelis). Bet matome, kad yra dar viena sritis dešinėje,
+kuri irgi priklauso tik aibei $G$. Tai dar turime sujungti kitą skaičių
+intervalą, kuris yra nuo 5, įskaitant (ta pati situacija, kaip ir su 3), iki
+6, įskaitant. Tai šį skirtumą galima užrašyti taip
+\[G \setminus H = [1;3] \cup [5;6];\]
+Patikrinkime, kas gausis apsukus narius - $ H \setminus G $. Turime parašyti
+intervalą (-us), kurie priklauso tik aibei $H$, bet nepriklauso $G$.
+Pasižiūrėjus į skaičių tiesę (\ref{fig:set_difference_number_line_3} pav.),
+matome, kad tokių sričių nėra. Tai aibių skirtumą galime užrašyti:
+\[H \setminus G = \varnothing = \{\} \]
+Bendru atveju, Kai viena aibė yra kitos aibės poaibis, aibių skirtumas
+paprastai gaunamas didesnės aibės intervalas (arba nesujungti intervalai), į
+kurį neįeina mažesnė aibė. Tikslūs intervalai priklausys nuo konkrečių
+susijusių aibių galinių taškų ir nuo to, ar jie įtraukti, ar neįtraukti.
+
+Taip pat, kai viena aibė yra kitos aibės poaibis, aibių skirtumas tarp mažesnės
+ir didesnės aibės visada bus tuščia aibė, nes mažesnėje aibėje nėra elementų,
+kurių nebūtų ir didesnėje aibėje.
+
+\clearpage
 
 \bibliographystyle{plain}
 \bibliography{bibliography.bib}
