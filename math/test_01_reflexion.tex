@@ -303,7 +303,7 @@ bandyti susitvarkyti.
 Gauname, kad $ 2x^2 + 3x^2 - 5x = 4x $ lygties sprendiniai yra $x=0$ ir $ x =
       1.8 $ (galima dar rašyti $ x \in \{0, 1.8\} $).
 
-\subsection{Kaip išspręsti $ ax^{2}+b=0 $}
+\subsection{Kaip išspręsti $ ax^{2}+b=0 $}\label{sec:ax_square_equal_number}
 
 \subsubsection{Teorinis sprendimas}
 
@@ -638,7 +638,7 @@ pasitikrinti šį sprendinį įstatydami skaičių mažesnį negu 4, pavyzdžiui
 veiksmus gauname, kad $9<11$, kas yra tiesa ir tai reiškia, kad sprendinys yra
 teisingas.
 
-\subsection{Kaip spręsti $ax-b<0$ nelygybę?}
+\subsection{Kaip spręsti $ax-b<0$ nelygybę?}\label{sec:ax_minus_b_inequality}
 
 \subsubsection{Teorinis sprendimas}
 
@@ -840,8 +840,7 @@ specialius pavadinimus ir simbolius:
                         {$\mathbb{\i}$};
                   }
       \end{tikzpicture}
-      \label{fig:real_number_set}
-      \caption{realių skaičių aibė ir jos poaibiai}
+      \caption{realių skaičių aibė ir jos poaibiai}\label{fig:real_number_set}
 \end{figure}
 
 Mokyliniame kurse yra mokomi tik 5 pagrindinės skaičių aibės. Bet reiktų
@@ -1330,6 +1329,206 @@ susijusių aibių galinių taškų ir nuo to, ar jie įtraukti, ar neįtraukti.
 Taip pat, kai viena aibė yra kitos aibės poaibis, aibių skirtumas tarp mažesnės
 ir didesnės aibės visada bus tuščia aibė, nes mažesnėje aibėje nėra elementų,
 kurių nebūtų ir didesnėje aibėje.
+
+\subsubsection{Poaibiai}
+
+Poaibis yra sąvoka apibūdinti tam tikrą santykį tarp aibių.
+
+Pastebėjimas: mokyklos kurse mokomosi poaibių, bet yra naudojamas tikrinio
+poaibio ženklas (vietoje $\subset$, turėtų būti naudojamas $\subseteq$), nors
+apibrėžimas yra (paprasto) poaibio.
+
+Apibrėžimas - kai aibė $E$ yra sudaryta iš aibės kurių nors aibės $A$ elementū,
+vadinama aibės $A$ poaibiu. Rašoma, kad $E \subset A $.
+
+Dar galima ir kitaip apibrėžti poaibį: aibė $A$ yra aibės $B$ poaibis, jei
+kiekvienas $A$ elementas yra ir $B$ elementas.
+
+Pagrindiniai poaibų aspektai:
+
+\begin{itemize}
+      \item Kiekviena aibė yra poaibis sau pačiai. ($A \subset A$, $B \subset
+                  B$ ir t.t.);
+      \item Tuščia aibė yra kiekvienos aibės poaibis. ($\varnothing \subset A$,
+            $\varnothing \subset B$ ir t.t.);
+\end{itemize}
+
+Pasižiūrėkime, kaip sudaromi poaibiai turimos aibės. Tarkime, turime aibę
+$A=\{15;20;60\}$. Tai šios aibės visi galimi poaibiai:
+\begin{enumerate}
+      \item $A$ arba $\{15;20;60\}$ (žiūrėti pagrindinius aspektus aukščiau);
+      \item $\varnothing$ (žiūrėti pagrindinius aspektus aukščiau);
+      \item $\{15\}$ (tik pirmas aibės elementas);
+      \item $\{20\}$ (tik antras aibės elementas);
+      \item $\{60\}$ (tik antras aibės elementas);
+      \item $\{15;20\}$ (pirmas ir antras aibės elementai);
+      \item $\{20;60\}$ (antras ir trečias aibės elementai);
+      \item $\{15;60\}$ (pirmas ir trečias aibės elementai);
+\end{enumerate}
+
+Taip pat aibę galima atvaizduoti ir veno diagramomis (\ref{fig:set_subsets}
+pav.):
+
+\begin{figure}[!htbp]%
+      \centering
+      \subfloat[\centering aibės $A$ poaibis $B$ ]{{
+                        \begin{tikzpicture}
+                              % Define circles
+                              \def\firstcircle{(0.50,0) circle (.45 cm)}
+                              \def\secondcircle{(0,0) circle (2 cm)}
+
+                              % Fill the inner circle A with the defined fill color
+                              \fill[circle area] \firstcircle;
+
+                              % Draw the circles and label them with the defined edge color
+                              \draw[line width=1pt, circle edge] \firstcircle
+                              node[text=black] {$B$};
+                              \draw[line width=1pt, circle edge] \secondcircle
+                              node[text=black, yshift=1.5cm] {$A$};
+
+                              % Draw the label above the figure
+                              \node[anchor=south] at (current bounding
+                              box.north) {$B
+                                          \subset A$};
+                        \end{tikzpicture}
+                  }}%
+      \qquad
+      \subfloat[\centering aibės $D$ poaibis $E$ ]{
+            {
+                        \begin{tikzpicture}
+                              % Define circles
+                              \def\firstcircle{(0,0) circle (1 cm)}
+                              \def\secondcircle{(0,0) circle (2 cm)}
+
+                              % Fill the inner circle A with the defined fill color
+                              \fill[circle area] \firstcircle;
+
+                              % Draw the circles and label them with the defined edge color
+                              \draw[line width=1pt, circle edge] \firstcircle
+                              node[text=black] {$E$};
+                              \draw[line width=1pt, circle edge] \secondcircle
+                              node[text=black, yshift=1.5cm] {$D$};
+
+                              % Draw the label above the figure
+                              \node[anchor=south] at (current bounding
+                              box.north) {$E
+                                          \subset D$};
+                        \end{tikzpicture}
+                  }}%
+      \caption{Aibių ir
+            poaibiai}\label{fig:set_subsets}%
+\end{figure}
+
+Poabiai galimi, kai aibės nurodytos intervalais. Tarkime turime aibe $Z =
+      [-500; 2023)$. Tokia aibė turi begalę poaibių, nes pati aibė yra
+begalinė. Sudarykime keleta šios aibės poaibių:
+\begin{enumerate}
+      \item pati aibė (žiūrėti pagrindinius aspektus aukščiau)
+
+            $Z \subset Z$ arba $[-500; 2023) \subset Z$;
+
+      \item tuščia aibė (žiūrėti pagrindinius aspektus aukščiau)
+
+            $ \varnothing \subset Z$ arba $\{\} \subset Z$;
+
+      \item Aibė su vienu elementu, kuris priklauso intervalui
+
+            $\{1998\} \subset Z$;
+
+      \item Aibė su su dviem elementais, kurie priklauso intervalui
+
+            $\{1009;1410\} \subset Z$;
+
+      \item Aibė su su trimis elementais, kurie priklauso intervalui
+
+            $\{3;11; 1990\} \subset Z$;
+
+      \item Aibė su \textit{n} elementų, kurie priklauso intervalui;
+      \item Kitas intervalas, kuris yra aibės intervalo ribose
+
+            $[0; 2023] \subset Z$;
+
+      \item Aibių sąjunga, kurių nariai yra aibės intervalo ribose
+
+            $ [0; 1010) \cup (1010; 1990] \subset Z$;
+
+      \item ir taip iki begalybės\ldots
+
+\end{enumerate}
+
+\subsection{Lygtys, nelygybės ir skaičių aibės}
+
+Sprendžiant matematikos užduotis mokykloje aibių tema, dažnai galime sutikti
+prašant išskirti specifinę sprendinių aibę. Pavyzdžiui:
+
+\begin{itemize}
+      \item \germanqq{Raskite lygties sveikųjų sprendinių aibę};
+      \item \germanqq{Raskite lygties natūraliųjų sprendinių aibę};
+      \item \germanqq{Raskite nelygybės natūraliuosius sprendinius};
+      \item \germanqq{Raskite nelygybės neigiamus sveikuosius sprendinius};
+      \item ir t.t.
+\end{itemize}
+
+Tokiems uždaviniams išspręsti reikalingas supratimas apie \textbf{lygtis},
+\textbf{nelygybes}, \textbf{skaičių aibes}.
+
+\subsection{Pavyzdys \#1}
+
+Turime užduotį: raskite $x^2=16$ lygties natūraliuosius sprendinius. Tokio tipo
+lygčių sprendimą galite rasti \ref{sec:ax_square_equal_number} skyriuje. Tokios
+lygties sprendiniai yra
+\[x=\{-4;4\};\]
+
+Užduotis prašom natūraliųjų sprendinių, o -4 nėra natūralusis ($-4 \notin
+      \mathbb{N} $), tai atsakymas:
+\[\text{Ats.:}\{4\};\]
+
+\subsection{Pavyzdys \#2}
+
+Turime užduotį: raskite $-5 \leq 2x + 3$ nelygybės \textbf{neigiamus}
+sveikuosius sprendinius. Tokio tipo
+lygčių sprendimą galite rasti \ref{sec:ax_minus_b_inequality} skyriuje.
+Išsprendus gauname, kad
+\[x\geq-4\]
+arba
+\[x=[-4;+\infty)\]
+Į pradinę nelygybę įdėjus skaičius (pagal gautą rezultatą) -4; -3; -2,5; 0;
+10,1; 100 ir t.t. (bet
+kokius skaičius didesnius arba lygius -4), gauname, kad gautas nelygybės
+rezultatas geras. Pagal užduotį šis atsakymas netinkamas, nes prašoma neigiamų
+sveikųjų skaičių. Pagal intervalą, galime lengvai išrašyti neigiamus
+sveikuosius skaičius: -4 (nes laužtinis skliaustas); -3; -2; -1. Tai atsakymas
+yra
+\[\text{Ats.:} \{-4; -3 ;-2; -1\};\]
+Sprendžiant tokį užduotį svarbu atsakyme neparašyti intervalo nuo -4,
+įskaitant, iki 0, neįskaitant: $[-4;0)$. Kadangi skaičiai į tokį intervalą
+įeina ir skaičiai $-3,6; 2,55;-\sqrt{2}$ ir t.t., kurie nėra sveikieji.
+
+Įmanoma atsakymą pateikti ir kitaip. Žinant aibių aprašymo taisykles, galima
+užrašyti ir jomis:
+\begin{equation}
+      \{x \in \mathbb{Z}, -4 \leq x < 0\};
+\end{equation}
+arba
+\begin{equation}
+      \{x \in \mathbb{Z}, -4 \leq x < \infty, x < 0\};
+\end{equation}
+
+Toks užrašymas (1 formulė) reiškia, kad aibė sudaryta iš $x$, kurie priklauso
+sveikųjų skaičių aibei ir yra tarp -4, įskaitant,
+ir 0, neįskaitant. Antru aveju (2 formulė), reiškia, kad aibė sudaryta iš
+elementų $x$, kurie priklauso sveikųjų skaičių aibei, yra didesni arba lygūs -4
+ir neigiami. Tokį užrašymą, pagal matematikos programą, žinoti reiktų.
+
+\section{Iracionalumo pašalinimas vardiklyje}
+
+Pagal atnaujintas matematikos programas, jums reikia žinoiti, kaip trupmenos
+vardiklyje panaikinti iracionalumą, kai vardiklyje yra iracionalieji skaičiai:
+$\sqrt{a}$, $\sqrt{a}+b$, $\sqrt{a}-b$.
+
+\subsection{Paprastas atvejis: šaknis vardiklyje}
+
+
 
 \clearpage
 
