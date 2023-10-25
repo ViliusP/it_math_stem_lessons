@@ -51,7 +51,7 @@ print(formatted)
 
 
 ## ------------------------------------
-## Using Flags for Formatting
+## Field width and alignment
 ## ------------------------------------
 value = 12.345
 formatted = f"Right aligned with width 10: {value:>10.2f}"
