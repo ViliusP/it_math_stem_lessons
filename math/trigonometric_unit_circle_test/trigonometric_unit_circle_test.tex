@@ -1,0 +1,237 @@
+\documentclass[a4paper]{article}
+\usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\title{Kontrolinis darbas nr. 2}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+\begin{document}
+\thispagestyle{empty}
+\section*{1 variantas}
+
+\begin{enumerate}
+      \item Apskaičiuokite:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](3)
+                  \task $\arcsin{\frac{1}{2}} + \arcsin{\frac{\sqrt{2}}{2}} $;
+                  \task $\arccos{-\frac{\sqrt{3}}{2}} + 2\arcsin{1} $;
+                  \task $\cos({2\arctg{\sqrt{3}} +
+                              \arctg{\frac{3}{3\sqrt{3}}}})  $;
+
+            \end{tasks}
+
+      \item Kuriame ketvirtje yra posūkio kampas $\alpha$, jeigu:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](2)
+                  \task $\sin \alpha = -0.8$, o $\cos \alpha > 0$;
+                  \task $\tg \alpha = \frac{2}{3}$, o $\sin \alpha < 0$;
+            \end{tasks}
+      \item Apskaičiuokite $\sin \alpha$, $\cos \alpha$, $\tg \alpha$, kai
+            stačiakampėje koordinačių plokštumoje pasukus spindulį $OX$ kampu $\alpha$ spindulio taškas $A(1; 0)$ perėjo į tašką $A_{1}$, kurio koordinatės yra:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](4)
+                  \task $(0; 1)$;
+                  \task $(1; 0)$;
+                  \task $(\frac{1}{2}; -\frac{\sqrt{3}}{2})$;
+                  \task $(\frac{\sqrt{2}}{2}; \frac{\sqrt{2}}{2})$;
+            \end{tasks}
+            % \item Apskaičiuokite reiškinių reikšmes:
+            %       \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](2)
+            %             \task $-\left|\log_{15}1+1-\sqrt{3}\right|+2\sqrt{3}$;
+            %             \task $5^{-2} - ((3 \cdot
+            %                   \log_{8}\frac{1}{8}-\sqrt{0,01}):(-2))$;
+            %       \end{tasks}
+
+            % \item Pašalinkite iracionalumą šaknyje: $\frac{6\sqrt{3}+3}{\sqrt{3}}$.
+
+            % \item Turime aibę $A$, kuri lygi nelygybės $-2x-5\geq5$ sprendinių aibei
+            %       ir aibę $B=(-\infty;12]$. Raskite:
+            %       \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](1)
+            %             \task $B \setminus A$;
+            %             \task Aibę $C$, kurią sudaro visi aibės $A$ natūralieji
+            %             skaičiai;
+            %             \task Tris aibės $C$ poaibius;
+            %       \end{tasks}
+\end{enumerate}
+
+\begin{table}[!htpb]
+      \centering
+      \begin{tabular}{|cccccccccccccccccc|}
+            \hline
+            \multicolumn{18}{|c|}{Užduočių vertės}
+
+            \\
+            \hline
+            \multicolumn{5}{|c|}{1.}
+                                                    &
+            \multicolumn{3}{c|}{2.}                 &
+            \multicolumn{4}{c|}{3.}
+                                                    & \multicolumn{2}{c|}{4.} &
+            \multicolumn{1}{c|}{5.}                 & \multicolumn{3}{c|}{6.}
+            \\ \hline
+            \multicolumn{1}{|c|}{a)}                & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 & \multicolumn{1}{c|}{d)} &
+            \multicolumn{1}{c|}{e)}                 &
+            \multicolumn{1}{c|}{a)}                 & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 &
+            \multicolumn{1}{c|}{a)}                 & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 &
+            \multicolumn{1}{c|}{d)}                 & \multicolumn{1}{c|}{a)} &
+            \multicolumn{1}{c|}{b)}                 &
+            \multicolumn{1}{c|}{\multirow{2}{*}{3}} & \multicolumn{1}{c|}{a)} &
+            \multicolumn{1}{c|}{b)}                 & c)
+            \\
+            \multicolumn{1}{|c|}{3}                 & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{3}                  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{6}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{}                   & \multicolumn{1}{c|}{5}  &
+            \multicolumn{1}{c|}{3}                  & 3
+            \\ \hline
+      \end{tabular}
+\end{table}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+\bigskip
+
+\section*{2 variantas}
+
+\begin{enumerate}
+      \item Raskite $x$ reikšmę, su kuria lygybė yra teisinga:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](5)
+                  \task $3^{x}=81$;
+                  \task $2^{x}=\frac{1}{32}$;
+                  \task $2^{x}=9$;
+                  \task $2^{x}=\sqrt[3]{2}$;
+                  \task $133^{x}=1$;
+            \end{tasks}
+
+      \item Raskite $x$  reikšmę, su kuria lygybė yra teisinga:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](3)
+                  \task $\log_{5} x=3$;
+                  \task $\lg x=\frac{1}{10}$;
+                  \task $\log_{16} x=-\frac{1}{2}$;
+            \end{tasks}
+
+      \item Raskite $x$ reikšmes, su kuriomis reiškinys turi prasmę:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](4)
+                  \task $\lg (x+1)$;
+                  \task $\sqrt{x+2}$;
+                  \task $\sqrt[5]{x^{2}+16}$;
+                  \task $\log_{x}99$;
+            \end{tasks}
+
+      \item Apskaičiuokite reiškinių reikšmes:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=10mm](2)
+                  \task $4\sqrt{2}-\left|\log_{2}32-8\sqrt{2}\right|$;
+                  \task $0,2 \cdot
+                        ((\log_{8}1+\sqrt[5]{\frac{1}{32}}):2^{-5}+0,4^2)$.
+            \end{tasks}
+      \item Pašalinkite iracionalumą šaknyje: $\frac{6\sqrt{3}}{\sqrt{3}+3}$.
+      \item Turime aibę $A$, kuri lygi nelygybės $-2x-5>5$ sprendinių aibei ir
+            aibę $B=(-\infty;4]$. Raskite:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](1)
+                  \task $A \setminus B$;
+                  \task Aibę $C$, kurią sudaro visi aibės B natūralieji
+                  skaičiai;
+                  \task Tris aibės $C$ poaibius;
+            \end{tasks}
+
+\end{enumerate}
+
+\begin{table}[!htpb]
+      \centering
+      \begin{tabular}{|cccccccccccccccccc|}
+            \hline
+            \multicolumn{18}{|c|}{Užduočių vertės}
+            \\
+            \hline
+            \multicolumn{5}{|c|}{1.}
+                                                    &
+            \multicolumn{3}{c|}{2.}                 &
+            \multicolumn{4}{c|}{3.}
+                                                    & \multicolumn{2}{c|}{4.} &
+            \multicolumn{1}{c|}{5.}                 & \multicolumn{3}{c|}{6.}
+            \\ \hline
+            \multicolumn{1}{|c|}{a)}                & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 & \multicolumn{1}{c|}{d)} &
+            \multicolumn{1}{c|}{e)}                 &
+            \multicolumn{1}{c|}{a)}                 & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 &
+            \multicolumn{1}{c|}{a)}                 & \multicolumn{1}{c|}{b)} &
+            \multicolumn{1}{c|}{c)}                 &
+            \multicolumn{1}{c|}{d)}                 & \multicolumn{1}{c|}{a)} &
+            \multicolumn{1}{c|}{b)}                 &
+            \multicolumn{1}{c|}{\multirow{2}{*}{3}} & \multicolumn{1}{c|}{a)} &
+            \multicolumn{1}{c|}{b)}                 & c)
+            \\
+            \multicolumn{1}{|c|}{3}                 & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{3}                  &
+            \multicolumn{1}{c|}{3}                  & \multicolumn{1}{c|}{3}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{6}  &
+            \multicolumn{1}{c|}{4}                  &
+            \multicolumn{1}{c|}{}                   & \multicolumn{1}{c|}{5}  &
+            \multicolumn{1}{c|}{3}                  & 3
+            \\ \hline
+      \end{tabular}
+\end{table}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
