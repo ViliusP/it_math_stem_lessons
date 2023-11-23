@@ -21,6 +21,7 @@
 \usepackage{venndiagram}
 \usepackage{subfig}
 \usepackage{multirow}
+\usepackage{tabularray}
 \newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
 
 \DeclareMathOperator{\tg}{tg}
@@ -67,25 +68,20 @@
                   \task $(\frac{\sqrt{2}}{2}; \frac{\sqrt{2}}{2})$;
             \end{tasks}
 
-      \item Supaprastinkite reiškinį, kad posūkio kampas būtų \textbf{nuo
-                  $\boldsymbol{0^\circ}$
-                  iki $\boldsymbol{90^\circ}$} ir tada apskaičiuokite jo
-            reikšmę
-            (\textbf{būtina parodyti veiksmų seką}):
+      \item Su kuriomis $x$ reikšmėmis reiškinys turi prasmę::
             \begin{tasks}[item-format={\normalfont},
-                        after-item-skip=4mm](3)
-                  \task $\tg (-780^\circ)$;
-                  \task $\cos 660^\circ$;
-                  \task $\sin 315^\circ$;
+                        after-item-skip=4mm](2)
+                  \task $\arctg(-5x^2+x+10)$;
+                  \task $\arccos(-5x-10)$;
             \end{tasks}
-
       \item Supaprastinkite reiškinį, kad posūkio kampas būtų nuo
             \textbf{$\boldsymbol{-90^\circ}$
                   iki  $\boldsymbol{0^\circ}$} ir tada apskaičiuokite jo
             reikšmę
             (\textbf{būtina parodyti veiksmų seką}):
             \begin{tasks}[item-format={\normalfont},
-                        after-item-skip=4mm](3)
+                        after-item-skip=4mm](4)
+                  \task $\tg (-780^\circ)$;
                   \task $\tg 330^\circ$;
                   \task $\cos (-780^\circ)$;
                   \task $\sin 660^\circ$;
@@ -105,55 +101,26 @@
 
 \begin{table}[!htpb]
       \centering
-      \begin{tabular}{|lllllllllllllll|}
-            \hline
-            \multicolumn{15}{|l|}{Užduočių vertė}
-
-            \\ \hline
-            \multicolumn{3}{|l|}{1}
-
-             & \multicolumn{2}{l|}{2}
-
-             & \multicolumn{4}{l|}{3}
-
-             &
-            \multicolumn{3}{l|}{4}
-
-             & \multicolumn{3}{l|}{5}
-
-            \\
-            \hline
-            \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 3\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}d\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 1\end{tabular}}
-             &
-            \begin{tabular}[c]{@{}l@{}}c\\ 1\end{tabular}
-            \\ \hline
-      \end{tabular}
+      \begin{tblr}{
+                  cell{1}{1} = {c=14}{},
+                  cell{2}{1} = {c=3}{},
+                  cell{2}{4} = {c=2}{},
+                  cell{2}{6} = {c=4}{},
+                  cell{2}{10} = {c=2}{},
+                  cell{2}{12} = {c=3}{},
+                  hlines,
+                  vlines,
+            }
+            Užduočių vertė &	       &	 &	   &	     &
+            &
+            &	   &	     &	      &        &	 &	   &	     \\
+            1	     &	       &	 & 2	   &	     & 3       &
+            &	   &	     & 4      &        & 5	 &	   &	     \\
+            {a\\ 1}	     & {b\\ 1} & {c\\ 2} & {a\\ 2} & {b\\ 2} & {a\\ 3}
+            & {b\\
+                        4} & {c\\ 4} & {d\\ 4} & {a\\3} & {b\\3} & {a\\ 1} &
+            {b\\ 1} & {c\\ 1}
+      \end{tblr}
 \end{table}
 
 \begin{small}
@@ -196,25 +163,20 @@
                   \task $(\frac{\sqrt{2}}{2}; \frac{\sqrt{2}}{2})$;
             \end{tasks}
 
-      \item Supaprastinkite reiškinį, kad posūkio kampas būtų \textbf{nuo
-                  $\boldsymbol{0^\circ}$
-                  iki $\boldsymbol{90^\circ}$} ir tada apskaičiuokite jo
-            reikšmę
-            (\textbf{būtina parodyti veiksmų seką}):
+      \item Su kuriomis $x$ reikšmėmis reiškinys turi prasmę::
             \begin{tasks}[item-format={\normalfont},
-                        after-item-skip=4mm](3)
-                  \task $\tg (-780^\circ)$;
-                  \task $\cos 660^\circ$;
-                  \task $\sin 315^\circ$;
+                        after-item-skip=4mm](2)
+                  \task $\arctg(-5x^2+x+10)$;
+                  \task $\arccos(-5x-10)$;
             \end{tasks}
-
       \item Supaprastinkite reiškinį, kad posūkio kampas būtų nuo
             \textbf{$\boldsymbol{-90^\circ}$
                   iki  $\boldsymbol{0^\circ}$} ir tada apskaičiuokite jo
             reikšmę
             (\textbf{būtina parodyti veiksmų seką}):
             \begin{tasks}[item-format={\normalfont},
-                        after-item-skip=4mm](3)
+                        after-item-skip=4mm](4)
+                  \task $\tg (-780^\circ)$;
                   \task $\tg 330^\circ$;
                   \task $\cos (-780^\circ)$;
                   \task $\sin 660^\circ$;
@@ -234,55 +196,26 @@
 
 \begin{table}[!htpb]
       \centering
-      \begin{tabular}{|lllllllllllllll|}
-            \hline
-            \multicolumn{15}{|l|}{Užduočių vertė}
-
-            \\ \hline
-            \multicolumn{3}{|l|}{1}
-
-             & \multicolumn{2}{l|}{2}
-
-             & \multicolumn{4}{l|}{3}
-
-             &
-            \multicolumn{3}{l|}{4}
-
-             & \multicolumn{3}{l|}{5}
-
-            \\
-            \hline
-            \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 3\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}d\\ 4\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}c\\ 2\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}a\\ 1\end{tabular}}
-             &
-            \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}b\\ 1\end{tabular}}
-             &
-            \begin{tabular}[c]{@{}l@{}}c\\ 1\end{tabular}
-            \\ \hline
-      \end{tabular}
+      \begin{tblr}{
+                  cell{1}{1} = {c=14}{},
+                  cell{2}{1} = {c=3}{},
+                  cell{2}{4} = {c=2}{},
+                  cell{2}{6} = {c=4}{},
+                  cell{2}{10} = {c=2}{},
+                  cell{2}{12} = {c=3}{},
+                  hlines,
+                  vlines,
+            }
+            Užduočių vertė &	       &	 &	   &	     &
+            &
+            &	   &	     &	      &        &	 &	   &	     \\
+            1	     &	       &	 & 2	   &	     & 3       &
+            &	   &	     & 4      &        & 5	 &	   &	     \\
+            {a\\ 1}	     & {b\\ 1} & {c\\ 2} & {a\\ 2} & {b\\ 2} & {a\\ 3}
+            & {b\\
+                        4} & {c\\ 4} & {d\\ 4} & {a\\3} & {b\\3} & {a\\ 1} &
+            {b\\ 1} & {c\\ 1}
+      \end{tblr}
 \end{table}
 
 \begin{small}
