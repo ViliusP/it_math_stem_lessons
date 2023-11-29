@@ -1,0 +1,235 @@
+\documentclass[a4paper]{article}
+\usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\title{Kontrolinis darbas nr. 2}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+\begin{document}
+\thispagestyle{empty}
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Apskaičiuokite:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](3)
+                  \task $\arccos{\frac{1}{2}} + \arccos{\frac{\sqrt{2}}{2}} $;
+                  \task $\arcsin{(-\frac{\sqrt{3}}{2})} + 2\arccos{1} $;
+                  \task $\sin({4\arctg{\sqrt{3}} +
+                              \arctg{\frac{3}{3\sqrt{3}}}})  $;
+
+            \end{tasks}
+
+      \item Kuriame ketvirtje yra posūkio kampas $\alpha$, jeigu:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](2)
+                  \task $\cos \alpha = \frac{1}{9}$, o $\sin \alpha < 0$;
+                  \task $\tg \alpha = -\frac{2}{4}$, o $\cos \alpha < 0$;
+            \end{tasks}
+      \item Apskaičiuokite $\sin \alpha$, $\cos \alpha$, $\tg \alpha$, kai
+            stačiakampėje koordinačių plokštumoje pasukus spindulį $OX$ kampu
+            $\alpha$ spindulio taškas $A(1; 0)$ perėjo į tašką $A_{1}$, kurio
+            koordinatės
+            yra:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](4)
+                  \task $(-1; 0)$;
+                  \task $(0; -1)$;
+                  \task $(\frac{1}{2}; -\frac{\sqrt{3}}{2})$;
+                  \task $(\frac{\sqrt{2}}{2}; -\frac{\sqrt{2}}{2})$;
+            \end{tasks}
+
+      \item Su kuriomis $x$ reikšmėmis reiškinys turi prasmę::
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](2)
+                  \task $\arctg(\sqrt{x-5})$;
+                  \task $\arcsin(9-4x)$;
+            \end{tasks}
+
+      \item Supaprastinkite reiškinį, kad posūkio kampas būtų nuo
+            \textbf{$\boldsymbol{-90^\circ}$
+                  iki  $\boldsymbol{0^\circ}$} ir tada apskaičiuokite jo
+            reikšmę
+            (\textbf{būtina parodyti veiksmų seką}):
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](4)
+                  \task $\tg 510^\circ$;
+                  \task $\tg 330^\circ$;
+                  \task $\sin (-780^\circ$);
+                        \task $\cos (-660^\circ$);
+            \end{tasks}
+
+      \item Kuriame koordinačių plokštumos OXY ketvirtyje ar ašyje yra
+            posukūkio kampas $\alpha$, jei:
+
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](3)
+                  \task $\alpha = -900^\circ$
+                  \task $\alpha = 2000^\circ$
+                  \task $\alpha = -1845^\circ$
+            \end{tasks}
+
+\end{enumerate}
+
+\begin{table}[!htpb]
+      \centering
+      \begin{tblr}{
+                  cell{1}{1} = {c=18}{},
+                  cell{2}{1} = {c=3}{},
+                  cell{2}{4} = {c=2}{},
+                  cell{2}{6} = {c=4}{},
+                  cell{2}{10} = {c=2}{},
+                  cell{2}{12} = {c=4}{},
+                  cell{2}{16} = {c=3}{},
+                  hlines,
+                  vlines,
+            }
+            Užduočių vertė &	   &	     &	       &	 &	   &
+            &	      & 	&	 &	  &	   &
+            &	     &	      &        &	&	 \\
+            1		 &	   &	     & 2       &	 & 3	   &
+            &	      & 	& 4	 &	  & 5	   &
+            &	     &	      & 6      &	&	 \\
+            {a\\ 1}	 & {b\\ 1} & {c\\ 2} & {a\\ 2} & {b\\ 2} & {a\\ 3} &
+            {b\\			    4} & {c\\ 4} & {d\\ 4} & {a\\3} & {b\\3} & {a\\2} &
+            {b\\2} & {c\\2} & {d\\2} & {a\\1} & {b\\1} & {c\\1}
+      \end{tblr}
+\end{table}
+
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+\subsection*{3 variantas}
+\begin{enumerate}
+      \item Apskaičiuokite:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](3)
+                  \task $\arccos{\frac{1}{2}} + \arccos{\frac{\sqrt{2}}{2}} $;
+                  \task $\arcsin{(-\frac{\sqrt{3}}{2})} + 2\arccos{1} $;
+                  \task $\sin({4\arctg{\sqrt{3}} +
+                              \arctg{\frac{3}{3\sqrt{3}}}})  $;
+
+            \end{tasks}
+
+      \item Kuriame ketvirtje yra posūkio kampas $\alpha$, jeigu:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](2)
+                  \task $\cos \alpha = \frac{1}{9}$, o $\sin \alpha < 0$;
+                  \task $\tg \alpha = -\frac{2}{4}$, o $\cos \alpha < 0$;
+            \end{tasks}
+      \item Apskaičiuokite $\sin \alpha$, $\cos \alpha$, $\tg \alpha$, kai
+            stačiakampėje koordinačių plokštumoje pasukus spindulį $OX$ kampu
+            $\alpha$ spindulio taškas $A(1; 0)$ perėjo į tašką $A_{1}$, kurio
+            koordinatės
+            yra:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](4)
+                  \task $(-1; 0)$;
+                  \task $(0; -1)$;
+                  \task $(\frac{1}{2}; -\frac{\sqrt{3}}{2})$;
+                  \task $(\frac{\sqrt{2}}{2}; -\frac{\sqrt{2}}{2})$;
+            \end{tasks}
+
+      \item Su kuriomis $x$ reikšmėmis reiškinys turi prasmę::
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](2)
+                  \task $\arctg(\sqrt{x-5})$;
+                  \task $\arcsin(9-4x)$;
+            \end{tasks}
+
+      \item Supaprastinkite reiškinį, kad posūkio kampas būtų nuo
+            \textbf{$\boldsymbol{-90^\circ}$
+                  iki  $\boldsymbol{0^\circ}$} ir tada apskaičiuokite jo
+            reikšmę
+            (\textbf{būtina parodyti veiksmų seką}):
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](4)
+                  \task $\tg 510^\circ$;
+                  \task $\tg 330^\circ$;
+                  \task $\sin (-780^\circ$);
+                        \task $\cos (-660^\circ$);
+            \end{tasks}
+
+      \item Kuriame koordinačių plokštumos OXY ketvirtyje ar ašyje yra
+            posukūkio kampas $\alpha$, jei:
+
+            \begin{tasks}[item-format={\normalfont},
+                        after-item-skip=4mm](3)
+                  \task $\alpha = -900^\circ$
+                  \task $\alpha = 2000^\circ$
+                  \task $\alpha = -1845^\circ$
+            \end{tasks}
+
+\end{enumerate}
+\begin{table}[!htpb]
+      \centering
+      \begin{tblr}{
+                  cell{1}{1} = {c=18}{},
+                  cell{2}{1} = {c=3}{},
+                  cell{2}{4} = {c=2}{},
+                  cell{2}{6} = {c=4}{},
+                  cell{2}{10} = {c=2}{},
+                  cell{2}{12} = {c=4}{},
+                  cell{2}{16} = {c=3}{},
+                  hlines,
+                  vlines,
+            }
+            Užduočių vertė &	   &	     &	       &	 &	   &
+            &	      & 	&	 &	  &	   &
+            &	     &	      &        &	&	 \\
+            1		 &	   &	     & 2       &	 & 3	   &
+            &	      & 	& 4	 &	  & 5	   &
+            &	     &	      & 6      &	&	 \\
+            {a\\ 1}	 & {b\\ 1} & {c\\ 2} & {a\\ 2} & {b\\ 2} & {a\\ 3} &
+            {b\\			    4} & {c\\ 4} & {d\\ 4} & {a\\3} & {b\\3} & {a\\2} &
+            {b\\2} & {c\\2} & {d\\2} & {a\\1} & {b\\1} & {c\\1}
+      \end{tblr}
+\end{table}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
