@@ -54,6 +54,10 @@
 \DeclareMathOperator{\arctg}{arctg}
 \newcommand{\arctgx}{\arctg x}
 
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
 \title{Kontrolinis darbas nr. 2}
 \author{Vilius Paliokas}
 \date{2023/10/17}
@@ -96,107 +100,132 @@
                         \end{adjustbox}
 
                   \item \parbox{0.8\textwidth}{
-                              Tada užrašoma naudojama teorema (jeigu naudojama
+                              Tada užrašoma naudojama teorema ar formulė (jeigu
+                              naudojama
                               teorema, turi būti parašyta: \germanqq{pagal
-                                    ...}) ar formulė:
+                                    ...}) :
                         }
 
                         \begin{minipage}{0.5\textwidth}
-                              Pagal sinusų teorema: $VL^{2}=LI^{2}+LI^{2}$.
+                              Pagal Pitagoro teorema: $VL^{2}=LI^{2}+VI^{2}$.
 
                         \end{minipage}
 
-                  \item \parbox{0.65\textwidth}{
-                              Toliau galima išsireikšti ieškomą kraštinę iš
+                  \item \parbox{0.7\textwidth}{
+                              Toliau galima išsireikšti kraštinę iš
                               raidinio reiškinio arba sustatyti turimas
                               reikšmes:
                         }
 
-                              $$VL^{2}=3^{2}+4^{2};$$
-                              $$VL^{2}=9+16;$$
-                              $$VL^{2}=25;$$
-                              $$VL=\sqrt{25}=5;$$
-                              $$\text{Ats.:} \; 25$$.
-                  \item Už teisingą teoremos pritaikymą užduočiai skiriami 
-                        
+                        $$VL^{2}=3^{2}+4^{2} \Rightarrow=
+                              VL^{2}=9+16 \Rightarrow VL=\sqrt{25}=5$$
+                        $$\text{Ats.:} \; 25;$$
+
+                  \item Už teisingą teoremos ar formulės parinkimą,
+                        pritaikymą
+                        ir užrašymą skiriamas 1 taškas.
             \end{enumerate}
 
-            % \begin{enumerate}
-            %       \item Pirmiausiai nusibraižome trikampį ir priskiriame raides
-            %             kraštinėms ar viršunėms
-            %             \textbf{naudojant betkurias savo vardo ir pavardės
-            %                   raides}.
+      \item Apskaičiuokite dviejų dviejų pasirinktų kampų dydžius ($0,1^\circ$
+            tikslumu), kai trikampio kraštinių ilgiai - 5, 13, 12.
 
-            %       \item 	\begin{minipage}[t]{\linewidth}
-            %                   \lipsum[1]
-            %                   \begin{wrapfigure}{l}{0.3\textwidth}
-            %                         % 'r' for right side, '5cm' for the width of the wrap area
-            %                         \begin{tikzpicture}[
-            %                                     my angle/.style = {draw,
-            %                                                 fill=teal!30,
-            %                                                 angle radius=7mm,
-            %                                                 angle
-            %                                                 eccentricity=1.1,
-            %                                                 right, inner
-            %                                                 sep=1pt,
-            %                                                 font=\footnotesize}
-            %                               ]
-            %                               \draw (0,0)
-            %                               coordinate[label=below:$A$] (a) --
-            %                               (4,0) coordinate[label=below:$C$] (c)
-            %                               --
-            %                               (4,4) coordinate[label=above:$B$] (b)
-            %                               --
-            %                               cycle;
-            %                               % \pic[my angle, "$\alpha=\SI{45}{\degree}$"] {angle =
-            %                               %       c--a--b};
-            %                         \end{tikzpicture}
-            %                   \end{wrapfigure}
-            %             \end{minipage}
+      \item Apskaičiuokite $\sin\beta$ ir $\tg \beta$, kai $cos \beta =
+                  \frac{8}{17}$ ir $\beta \in$ \rom{4} ketvirčiui (3 taškai).
 
-            %       \item bla baselineskip
-            %       \item bla bla
-            %       \item bla
-            % \end{enumerate}
+      \item Apskaičiuokite trikampio plotą, kai jo dvi kraštinės lygios
+            $8\:cm.$ ir $11\sqrt{2}\:cm.$, o kampas tarp šių kraštinių lygus
+            $45^\circ$ (2 taškai).
 
-      \item Apskaičiuokite trikampio kraštinės ilgį vieno metro tikslumu, kai
-            viena trikampio kraštinė lygi 120 metrų, kita 200 metrų, o kampas
-            tarp jų lygus
-            $128^\circ$.
-
-      \item Bla bla bla:
-
-      \item Kuriame ketvirtje yra posūkio kampas $\alpha$, jeigu:
-
-      \item Apskaičiuokite $\sin \alpha$, $\cos \alpha$, $\tg \alpha$, kai
+      \item Duotas trikampis, kurio viena kraštinė lygi 15, o kampai prie jos
+            $105^\circ$ ir $30^\circ$. Suskaičiuokite nežinomo kampo dydį
+            ($0,1^\circ$ tikslumu) ir
+            nežinomų kraštinių ilgius dešimtųjų tikslumu (3 taškai).
 
 \end{enumerate}
 
-\begin{table}[!htpb]
-      \centering
-      \begin{tblr}{
-                  cell{1}{1} = {c=18}{},
-                  cell{2}{1} = {c=3}{},
-                  cell{2}{4} = {c=2}{},
-                  cell{2}{6} = {c=4}{},
-                  cell{2}{10} = {c=2}{},
-                  cell{2}{12} = {c=4}{},
-                  cell{2}{16} = {c=3}{},
-                  hlines,
-                  vlines,
-            }
-            Užduočių vertė &	   &	     &	       &	 &	   &
-            &	      & 	&	 &	  &	   &
-            &	     &	      &        &	&	 \\
-            1		 &	   &	     & 2       &	 & 3	   &
-            &	      & 	& 4	 &	  & 5	   &
-            &	     &	      & 6      &	&	 \\
-            {a\\ 1}	 & {b\\ 1} & {c\\ 2} & {a\\ 2} & {b\\ 2} & {a\\ 3} &
-            {b\\			    4} & {c\\ 4} & {d\\ 4} & {a\\3} &
-            {b\\3} & {a\\2} &
-            {b\\2} & {c\\2} & {d\\2} & {a\\1} & {b\\1} & {c\\1}
-      \end{tblr}
-\end{table}
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+
+\subsection*{1 variantas}
+
+\begin{enumerate}
+      \item Užduočių sprendimo pavyzdys. Stačiojo trikampio dviejų statinių
+            ilgiai yra 3 ir 4. Apskaičiuokite įžambinės ilgį.
+
+            \begin{enumerate}
+
+                  \item
+
+                        \begin{adjustbox}{minipage={\linewidth}, valign=t}
+
+                              \begin{wrapfigure}{t}{0.17\linewidth}
+
+                                    \begin{resizebox}{0.17\textwidth}{!}{
+                                                \input{example_triangle}}
+                                    \end{resizebox}
+                                    \vspace{-2\baselineskip}
+
+                              \end{wrapfigure}
+
+                              \vspace*{0.15em}
+
+                              Pirmiausia nusibrėžiamas trikampis ir suteikiamos
+                              raidės viršunėms arba kraštinėmis naudojantis
+                              jūsų vardo ar pavardės raidėmis.
+                        \end{adjustbox}
+
+                  \item \parbox{0.8\textwidth}{
+                              Tada užrašoma naudojama teorema ar formulė (jeigu
+                              naudojama
+                              teorema, turi būti parašyta: \germanqq{pagal
+                                    ...}) :
+                        }
+
+                        \begin{minipage}{0.5\textwidth}
+                              Pagal Pitagoro teorema: $VL^{2}=LI^{2}+VI^{2}$.
+
+                        \end{minipage}
+
+                  \item \parbox{0.7\textwidth}{
+                              Toliau galima išsireikšti kraštinę iš
+                              raidinio reiškinio arba sustatyti turimas
+                              reikšmes:
+                        }
+
+                        $$VL^{2}=3^{2}+4^{2} \Rightarrow=
+                              VL^{2}=9+16 \Rightarrow VL=\sqrt{25}=5$$
+                        $$\text{Ats.:} \; 25;$$
+
+                  \item Už teisingą teoremos ar formulės parinkimą,
+                        pritaikymą
+                        ir užrašymą skiriamas 1 taškas.
+            \end{enumerate}
+
+      \item Apskaičiuokite dviejų dviejų pasirinktų kampų dydžius ($0,1^\circ$
+            tikslumu), kai trikampio kraštinių ilgiai - 5, 13, 12.
+
+      \item Apskaičiuokite $\sin\beta$ ir $\tg \beta$, kai $cos \beta =
+                  \frac{8}{17}$ ir $\beta \in$ \rom{4} ketvirčiui (3 taškai).
+
+      \item Apskaičiuokite trikampio plotą, kai jo dvi kraštinės lygios
+            $8\:cm.$ ir $11\sqrt{2}\:cm.$, o kampas tarp šių kraštinių lygus
+            $45^\circ$ (2 taškai).
+
+      \item Duotas trikampis, kurio viena kraštinė lygi 15, o kampai prie jos
+            $105^\circ$ ir $30^\circ$. Suskaičiuokite nežinomo kampo dydį
+            ($0,1^\circ$ tikslumu) ir
+            nežinomų kraštinių ilgius dešimtųjų tikslumu (3 taškai).
+
+\end{enumerate}
 
 \begin{small}
       \begin{enumerate*}[label={(\arabic*)}]
