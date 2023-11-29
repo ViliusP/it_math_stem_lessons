@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+      \coordinate (a) at (0,0);
+      \coordinate (b) at (4,0);
+      \coordinate (c) at (4,5);
+  
+      \draw (a) -- (b) node[midway, below]{3} -- (c) node[midway, right]{4} -- (a); % Modified labels
+  
+      \draw (a) node[anchor=east, align=center] {V};
+      \draw (b) node[anchor=west, align=center] {I};
+      \draw (c) node[anchor=south] {L};
+  \end{tikzpicture}
+  
