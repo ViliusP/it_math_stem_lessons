@@ -1,0 +1,181 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{skaičių seka | aritmetinė progresija | aritmetinės progresijos
+      \textit{n} narių suma | savarankiškas darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{skaičių seka | aritmetinė progresija | aritmetinės progresijos
+      \textit{n} narių suma | savarankiškas darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Savarankiškas darbas nr. 2}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\subsection*{2 variantas}
+
+\begin{enumerate}
+      \item Kokia yra pagrindinė aritmetinės progresijos savybė, kuri skiria ją
+            nuo įprastos skaičių sekos? Užrašykite dvi skaičių sekas: vieną
+            įprastą ir kitą aritmetinę progresiją. Pagrįskite kodėl pirmoji
+            seka nėra
+            aritmetinė progresija, o antroji yra.
+
+      \item Parašykite sekos ($a_{n}$) pirmuosius penkis
+            narius, kai jos \textit{n}-ojo nario formulė yra:
+
+            $a_{n}=\frac{10 - n^2}{2^{n} + 1}$;
+
+      \item Parašykite sekos ($b_{n}$) pirmuosius penkis
+            narius, kai jos seka užrašyta rekurentiškai:
+
+            $b_1 = 1, b_{2} = -1, b_{n+2}=2b_{n+1}-3b_{n}$;
+
+      \item Parašykite aritmetinės progresijos ($c_{n}$) pirmuosius penkis
+            narius, kai pirmi jos nariai yra: $-5$, $10$.
+
+      \item Raskite aritmetinės progressijos ($g_{n}$) \textit{n}-tojo nario
+            formulę, antrąjį narį,
+            skirtumą, 22 pirmųjų narių sumą, kai:
+            $g_{9} = -1$, $g_{22}=2$;
+      \item $ 8 $, $ x $, $ x+ 7$ skaičių seka yra aritmetinės progresijos
+            pirmieji trys nariai. Užrašykite šios aritmetinės progresijos
+            \textit{n}-tojo
+            nario formulę ir apskaičiuokite $S_{12}$.
+
+      \item \textit{(papildomas)} Sekos \textit{n}-tojo nario formulė yra $h_{n} = 2n+9$. 
+      \begin{enumerate}[label= (\alph*)]
+            \item Įrodykite, kad ši seka yra aritmetinė progresija.
+            \item Apskaičiuokite šios progresijos pirmųjų dviejų šimtų narių sumą.
+      \end{enumerate} 
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\vspace{10 em}
+
+
+\subsection*{2 variantas}
+
+\begin{enumerate}
+      \item Kokia yra pagrindinė aritmetinės progresijos savybė, kuri skiria ją
+            nuo įprastos skaičių sekos? Užrašykite dvi skaičių sekas: vieną
+            įprastą ir kitą aritmetinę progresiją. Pagrįskite kodėl pirmoji
+            seka nėra
+            aritmetinė progresija, o antroji yra.
+
+      \item Parašykite sekos ($a_{n}$) pirmuosius penkis
+            narius, kai jos \textit{n}-ojo nario formulė yra:
+
+            $a_{n}=\frac{10 - n^2}{2^{n} + 1}$;
+
+      \item Parašykite sekos ($b_{n}$) pirmuosius penkis
+            narius, kai jos seka užrašyta rekurentiškai:
+
+            $b_1 = 1, b_{2} = -1, b_{n+2}=2b_{n+1}-3b_{n}$;
+
+      \item Parašykite aritmetinės progresijos ($c_{n}$) pirmuosius penkis
+            narius, kai pirmi jos nariai yra: $-5$, $10$.
+
+      \item Raskite aritmetinės progressijos ($g_{n}$) \textit{n}-tojo nario
+            formulę, antrąjį narį,
+            skirtumą, 22 pirmųjų narių sumą, kai:
+            $g_{9} = -1$, $g_{22}=2$;
+      \item $ 8 $, $ x $, $ x+ 7$ skaičių seka yra aritmetinės progresijos
+            pirmieji trys nariai. Užrašykite šios aritmetinės progresijos
+            \textit{n}-tojo
+            nario formulę ir apskaičiuokite $S_{12}$.
+
+      \item \textit{(papildomas)} Sekos \textit{n}-tojo nario formulė yra $h_{n} = 2n+9$. 
+      \begin{enumerate}[label= (\alph*)]
+            \item Įrodykite, kad ši seka yra aritmetinė progresija.
+            \item Apskaičiuokite šios progresijos pirmųjų dviejų šimtų narių sumą.
+      \end{enumerate} 
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+
+\end{document}
