@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \coordinate (a) at (0,0);
+    \coordinate (b) at (4,0);
+    \coordinate (c) at (4,5);
+
+    \draw (a) -- (b) node[midway, below]{\large 3} -- (c) node[midway, right]{\large 4} -- (a); % Larger labels
+
+    \draw (a) node[anchor=east, align=center] {\Large L};
+    \draw (b) node[anchor=west, align=center] {\Large I};
+    \draw (c) node[anchor=south] {\Large V};
+\end{tikzpicture}
