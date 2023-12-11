@@ -1,0 +1,203 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{skaičių seka | aritmetinė progresija | aritmetinės progresijos
+      \textit{n} narių suma | savarankiškas darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{skaičių seka | aritmetinė progresija | aritmetinės progresijos
+      \textit{n} narių suma | savarankiškas darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Savarankiškas darbas nr. 2}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\subsection*{4 variantas}
+
+\begin{enumerate}
+      \item Kokia yra pagrindinė aritmetinės progresijos savybė, kuri skiria ją
+            nuo skaičių sekos, kuri nėra aritmetinė progresija? Užrašykite dvi
+            skaičių sekas: aritmetinę progresiją ir skaičių seka, kuri nėra
+            aritmetinė progresija. Pagrįskite kodėl viena seka nėra
+            aritmetinė progresija, o kita yra.
+
+      \item Parašykite sekos ($a_{n}$) pirmuosius penkis
+            narius, kai jos \textit{n}-ojo nario formulė yra:
+
+            $a_{n}=2^n+10-n^2$;
+
+      \item Parašykite sekos ($b_{n}$) pirmuosius penkis
+            narius, kai jos seka išreikšta rekurentiškai:
+
+            $b_1 = 0, b_2 = 1, b_{n+2}=b_{n+1}+b_{n}$;
+
+            Galite naudoti ir tokią n-tojo nario formulę: 
+            $b_{n}=b_{n-1}+b_{n-2}$;
+
+      \item Parašykite aritmetinės progresijos ($c_{n}$) pirmuosius penkis
+            narius, kai pirmi jos nariai yra: $99$, $75$.
+
+      \item Seka ($e_{n}$) yra aritmetinė progresija. Žinoma, kad $e_{4}=-3,25$ ir
+            $e_{70}=-120,75$.
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task* Įrodykite, kad $e_{n}$ sekos \textit{n}-tojo nario
+                  formulė yra $e_{n}=2-1,75(n-1)$;
+                  \task Apskaičiuokite $e_{9}$;
+                  \task Apskaičiuokite $S_{70}$;
+            \end{tasks}
+
+      \item $ -x $, $ 15 $, $ 2x - 15$ skaičių seka yra aritmetinės progresijos
+            pirmieji trys nariai. Apskaičiuokite pirmųjų 12 narių sumą.
+
+      \item Apskaičiuokite $ 15;-15;-45;-75;-80;-115;-150$ sekos visų narių sumą;
+
+      \item \textit{(papildomas, vertinimas tik išsprendus abi dalis)} Sekos
+            \textit{n}-tojo nario formulė yra
+            $h_{n} = 3n-4$. 
+            \begin{enumerate}[label= (\alph*)]
+                  \item Įrodykite, kad ši seka yra aritmetinė progresija.
+                  \item Apskaičiuokite šios sekos pirmųjų dviejų šimtų narių
+                        sumą.
+            \end{enumerate}
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus įrodymus, \textbf{užrašykite
+                  atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\subsection*{4 variantas}
+
+\begin{enumerate}
+      \item Kokia yra pagrindinė aritmetinės progresijos savybė, kuri skiria ją
+            nuo skaičių sekos, kuri nėra aritmetinė progresija? Užrašykite dvi
+            skaičių sekas: aritmetinę progresiją ir skaičių seka, kuri nėra
+            aritmetinė progresija. Pagrįskite kodėl viena seka nėra
+            aritmetinė progresija, o kita yra.
+
+      \item Parašykite sekos ($a_{n}$) pirmuosius penkis
+            narius, kai jos \textit{n}-ojo nario formulė yra:
+
+            $a_{n}=2^n+10-n^2$;
+
+      \item Parašykite sekos ($b_{n}$) pirmuosius penkis
+            narius, kai jos seka išreikšta rekurentiškai:
+
+            $b_1 = 0, b_2 = 1, b_{n+2}=b_{n+1}+b_{n}$;
+
+            Galite naudoti ir tokią n-tojo nario formulę: 
+            $b_{n}=b_{n-1}+b_{n-2}$;
+
+      \item Parašykite aritmetinės progresijos ($c_{n}$) pirmuosius penkis
+            narius, kai pirmi jos nariai yra: $99$, $75$.
+
+      \item Seka ($e_{n}$) yra aritmetinė progresija. Žinoma, kad $e_{4}=-3,25$ ir
+            $e_{70}=-120,75$.
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task* Įrodykite, kad $e_{n}$ sekos \textit{n}-tojo nario
+                  formulė yra $e_{n}=2-1,75(n-1)$;
+                  \task Apskaičiuokite $e_{9}$;
+                  \task Apskaičiuokite $S_{70}$;
+            \end{tasks}
+
+      \item $ -x $, $ 15 $, $ 2x - 15$ skaičių seka yra aritmetinės progresijos
+            pirmieji trys nariai. Apskaičiuokite pirmųjų 12 narių sumą.
+
+      \item Apskaičiuokite $ 15;-15;-45;-75;-80;-115;-150$ sekos visų narių sumą;
+
+      \item \textit{(papildomas, vertinimas tik išsprendus abi dalis)} Sekos
+            \textit{n}-tojo nario formulė yra
+            $h_{n} = 3n-4$. 
+            \begin{enumerate}[label= (\alph*)]
+                  \item Įrodykite, kad ši seka yra aritmetinė progresija.
+                  \item Apskaičiuokite šios sekos pirmųjų dviejų šimtų narių
+                        sumą.
+            \end{enumerate}
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus įrodymus, \textbf{užrašykite
+                  atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
