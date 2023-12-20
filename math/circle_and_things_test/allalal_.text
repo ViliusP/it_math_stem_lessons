@@ -1,0 +1,61 @@
+             % \begin{tikzpicture}[scale=0.5]
+                              %       \draw (0,0) circle (2cm);
+                              %       \draw (0,-2) -- (-1,0) -- (0,2);
+                              %       % Vertex to the left
+                              %       \filldraw [black] (0,0) circle (2pt)
+                              %       node[anchor=south] {O};
+                              %       % Center
+                              %       \filldraw [black] (0,2) circle (2pt)
+                              %       node[anchor=south] {A};
+                              %       \filldraw [black] (-1,0) circle (2pt)
+                              %       node[anchor=east] {B};
+                              %       \filldraw [black] (0,-2) circle (2pt)
+                              %       node[anchor=north] {C};
+                              % \end{tikzpicture}       &
+
+
+                                       \begin{tikzpicture}[scale=0.5]
+                                    \draw (0,0) circle (2cm);
+                                    \draw (-1.41,-1.41) -- (1,-1) --
+                                    (1.41,-1.41);
+                                    % Vertex to the bottom right
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=south] {O};
+                                    % Center
+                                    \filldraw [black] (-1.41,-1.41) circle
+                                    (2pt)
+                                    node[anchor=south]
+                                          {A};
+                                    \filldraw [black] (1,-1) circle (2pt)
+                                    node[anchor=south] {B};
+                                    \filldraw [black] (1.41,-1.41) circle (2pt)
+                                    node[anchor=north west]
+                                          {C};
+                              \end{tikzpicture}
+
+
+                                          % \begin{tikzpicture}[scale=0.75]
+            %       % Draw the circle
+            %       \draw (0,0) circle (2cm);
+
+            %       % Define points A, B, and C
+            %       \filldraw [black] (0,0) circle (2pt) node[anchor=north] {O};
+            %       \filldraw [black] (2,0) circle (2pt) node[anchor=west] {A};
+            %       \filldraw [black] (-2,0) circle (2pt) node[anchor=east] {B};
+            %       \filldraw [black] (0,2) circle (2pt) node[anchor=south] {C};
+
+            %       % Draw arc for angle
+            %       \draw (2,0) arc (0:180:2cm);
+
+            %       % Draw the central angle AOB
+            %       \draw (0,0) -- (2,0);
+            %       \draw (0,0) -- (-2,0);
+
+            %       % Draw the inscribed angle ACB
+            %       \draw (0,2) -- (2,0);
+            %       \draw (0,2) -- (-2,0);
+
+            %       % Label the angles
+            %       % \draw (1,0.3) node {Central Angle};
+            %       % \draw (0,1) node[anchor=east] {Inscribed Angle};
+            % \end{tikzpicture}

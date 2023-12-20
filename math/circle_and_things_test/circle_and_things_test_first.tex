@@ -1,0 +1,459 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1.45cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{changepage}
+
+\usepackage{pgfplots}
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{shapes}
+\usetikzlibrary{intersections,pgfplots.fillbetween}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{skritulys | plotas | lanko ilgis
+      | įbrėžtinis kampas | centrinis kampas | nuopjova | išpjova}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{skritulys | plotas | lanko ilgis
+      | įbrėžtinis kampas | centrinis kampas | nuopjova | išpjova}
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas nr. 2}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\subsection*{1 variantas}
+
+Užduočių sprendimo taisyklės:
+
+\begin{enumerate}[label= (\alph*), after=\vspace{-\baselineskip}]
+
+      \item Jeigu reikia, pirmiausia nubrėžiamas brėžinys ir suteikiamos
+            raidės viršunėms arba kraštinėmis naudojantis.
+
+      \item Užrašoma naudojama teorema, formulė ar taisyklė (jeigu
+            naudojama teorema, turi būti parašyta: \germanqq{pagal
+                  \ldots } arba \germanqq{kadangi \ldots } arba \germanqq{nes \ldots }). Jeigu buvo
+            nubrėžtas brėžinys, formulėje, teoremoje ar taisyklėje naudojamos
+            brėžinio raides.
+\end{enumerate}
+
+\vspace{0.25cm}
+\par\noindent\rule{\textwidth}{0.5pt}
+\vspace{1mm}
+
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \item \textit{(2 taškai)} Apskaičiuokite kampus $BCA$ ir $BAC$, kai
+                  kampo $ABC$ dydis yra $50^\circ$, BA - skersmuo.
+
+                  \begin{tikzpicture}[scale=0.5]
+                        % Draw the circle
+                        \draw (0,0) circle (2cm);
+
+                        % Define points A, B, and shifted C
+                        \filldraw [black] (0,0) circle (2pt) node[anchor=north]
+                              {O};
+                        \filldraw [black] (2,0) circle (2pt) node[anchor=west]
+                              {A};
+                        \filldraw [black] (-2,0) circle (2pt) node[anchor=east]
+                              {B};
+                        \filldraw [black] (1,1.732) circle (2pt)
+                        node[anchor=south
+                                    west] {C};
+                        % Shifted C to the right
+
+                        % Draw arc for angle
+                        \draw (2,0) arc (0:180:2cm);
+
+                        % Draw the central angle AOB
+                        \draw (0,0) -- (2,0);
+                        \draw (0,0) -- (-2,0);
+
+                        % Draw the inscribed angle ACB
+                        \draw (1,1.732) -- (2,0);
+                        \draw (1,1.732) -- (-2,0);
+
+                        % Optional labels for the angles
+                        % \draw (1,0.3) node {Central Angle};
+                        % \draw (0.5,1) node {Inscribed Angle};
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+\hfill % This command adds space between the minipages if needed
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \setcounter{enumi}{1} % This continues the numbering from the previous enumerate
+            \item \textit{(1 taškas)} Apskaičiuokite kampą $BCA$, kai kampo
+                  $BOA$ dydis yra $90^\circ$.
+
+                  \begin{tikzpicture}[scale=0.5]
+                        % Draw the circle
+                        \draw (0,0) circle (2cm);
+
+                        % Define points A, B, and C
+                        \filldraw [black] (0,0) circle (2pt) node[anchor=north]
+                              {O};
+                        \filldraw [black] (2,0) circle (2pt) node[anchor=west]
+                              {A};
+                        \filldraw [black] (1,1.732) circle (2pt)
+                        node[anchor=south]
+                              {B};
+                        \filldraw [black] (-1.732,1) circle (2pt)
+                        node[anchor=east]
+                              {C};
+
+                        % Draw arc for angle
+                        \draw (2,0) arc (0:120:2cm);
+
+                        % Draw the central angle AOB
+                        \draw (0,0) -- (2,0);
+                        \draw (0,0) -- (1,1.732);
+
+                        % Draw the inscribed angle ACB
+                        \draw (-1.732,1) -- (2,0);
+                        \draw (-1.732,1) -- (1,1.732);
+
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+
+\begin{enumerate}
+      \setcounter{enumi}{2} % This continues the numbering from the previous enumerate
+
+      \item \textit{(2 taškai)} Centrinis kampas yra $28^\circ$ didesnis už
+            įbrėžtinį kampą, besiremiantį į tą patį lanką. Apskaičiuokite
+            abiejų kampų
+            dydžius.
+      \item \textit{(4 taškai)} Naudodamiesi brėžinio duomenis, nustatykite,
+            kurie iš kampų yra įbrėžtiniai, kurie centriniai. Jeigu tokių kampų
+            nėra,
+            parašykite \germanqq{nėra}.
+
+            \begin{table}[h]
+                  \begin{adjustwidth}{-1cm}{-1cm}
+                        % Adjust the values as needed
+                        \centering
+
+                        \begin{tabular}{m{3cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}|m{3cm}}
+                              \hline
+                              a)
+                                                                          &
+                              b)
+                                                                          &
+                              c)
+                                                                          &
+                              d)
+                                                                          &
+                              e)
+                                                                          &
+                              f)
+                              \\
+                              \hline
+                              \centering
+                              \begin{tikzpicture}[scale=0.5]
+                                    \draw (0,0) circle (2cm);
+                                    \draw (-2,0) -- (0,2) -- (2,0);
+                                    % Correctly inscribed
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=south] {O};
+                                    % Center
+                                    \filldraw [black] (-2,0) circle (2pt)
+                                    node[anchor=east] {A};
+                                    \filldraw [black] (0,2) circle (2pt)
+                                    node[anchor=south] {B};
+                                    \filldraw [black] (2,0) circle (2pt)
+                                    node[anchor=west] {C};
+                              \end{tikzpicture}       &
+                              \centering
+                              \begin{tikzpicture}[scale=0.5]
+                                    \draw (0,0) circle (2cm);
+                                    \draw (2,0) -- (0,-1) -- (-2,0);
+                                    % Vertex inside the circle
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=south] {O};
+                                    % Center
+                                    \filldraw [black] (-2,0) circle (2pt)
+                                    node[anchor=east] {A};
+                                    \filldraw [black] (0,-1) circle (2pt)
+                                    node[anchor=north] {B};
+                                    \filldraw [black] (2,0) circle (2pt)
+                                    node[anchor=west] {C};
+                              \end{tikzpicture}       &
+                              \centering
+                              \begin{tikzpicture}[scale=.5]
+                                    % Draw the circle
+                                    \draw (0,0) circle (2cm);
+
+                                    % Draw the radius and label it as "R"
+                                    \draw (0,0) -- (2,0) node[midway,below] {};
+
+                                    % Draw the tangent line and label it as "T"
+                                    \draw (2,0) -- (0,-2) node[midway,right]{};
+
+                                    % Draw the radius and label it as "R"
+                                    \draw (-2,0) -- (0,0) node[midway,below]
+                                    {};
+
+                                    % Vertex inside the circle
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=north] {O};
+
+                                    % Center
+                                    \filldraw [black] (-2,0) circle (2pt)
+                                    node[anchor=east] {A};
+
+                                    \filldraw [black] (0,-2) circle (2pt)
+                                    node[anchor=south] {B};
+
+                                    \filldraw [black] (2,0) circle (2pt)
+                                    node[anchor=west] {C};
+                                    % Bigger Angle AOC (180 degrees)
+                                    \draw (0.5,0) arc (0:180:0.5cm);
+                                    \node at (0.2,1) {$180^\circ$};
+
+                              \end{tikzpicture} &
+                              \centering
+                              \begin{tikzpicture}[scale=0.5]
+                                    \draw (0,0) circle (2cm);
+                                    \draw (1.41,1.41) -- (-1,-1) --
+                                    (-1.41,1.41);
+                                    % Diagonal vertex
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=south] {O};
+                                    % Center
+                                    \filldraw [black] (-1.41,1.41) circle (2pt)
+                                    node[anchor=south east]
+                                          {A};
+                                    \filldraw [black] (-1,-1) circle (2pt)
+                                    node[anchor=west] {B};
+                                    \filldraw [black] (1.41,1.41) circle (2pt)
+                                    node[anchor=south west]
+                                          {C};
+
+                              \end{tikzpicture} &
+                              \centering
+                              \begin{tikzpicture}[scale=0.45]
+                                    % Draw the circle
+                                    \draw (0,0) circle (2cm);
+
+                                    % Coordinates for the points where the right angle will touch the circle
+                                    \coordinate (O) at (0,0);
+
+                                    \coordinate (A) at (0:2cm);
+                                    \coordinate (B) at ($(A)!2cm!90:(0,0)$);
+                                    % 1cm away from A, at a 90 degree angle
+                                    \coordinate (C) at ($(A)!2cm!-90:(0,0)$);
+                                    % 1cm away from A, at a 0 degree angle
+
+                                    % Vertex inside the circle
+                                    \filldraw [black] (O) circle (2pt)
+                                    node[anchor=north] {O};
+
+                                    \filldraw [black] (A) circle (2pt)
+                                    node[anchor=west] {A};
+
+                                    \filldraw [black] (B) circle (2pt)
+                                    node[anchor=west] {B};
+
+                                    \filldraw [black] (C) circle (2pt)
+                                    node[anchor=west] {C};
+
+                                    % Draw the right angle
+                                    \draw (B) -- (A) -- (O);
+                                    \draw (A) -- (C);
+
+                                    % Right angle symbols
+                                    \pic [draw, angle radius=2.15mm] {right
+                                          angle=B--A--O};
+                                    \pic [draw, angle radius=1.9mm] {right
+                                          angle=O--A--C};
+                              \end{tikzpicture}
+                                                                          &
+                              \centering
+                              \begin{tikzpicture}[scale=0.5]
+                                    \draw (0,0) circle (2cm);
+                                    \draw (0,0) -- (2,0) ;
+                                    % Central angle
+                                    \draw (0,0) -- (1.41,1.41) ;
+
+                                    \draw (0,0) -- (-1.37,1.457) ;
+                                    % Central angle
+                                    \filldraw [black] (0,0) circle (2pt)
+                                    node[anchor=north east] {O};
+                                    % Center
+                                    \filldraw [black] (2,0) circle (2pt)
+                                    node[anchor=west] {A};
+                                    \filldraw [black] (1.41,1.41) circle (2pt)
+                                    node[anchor=south west]
+                                          {B};
+                                    \filldraw [black] (-1.37,1.457) circle
+                                    (2pt)
+                                    node[anchor=south east]
+                                          {C};
+                              \end{tikzpicture}
+                        \end{tabular}
+                  \end{adjustwidth}
+            \end{table}
+      \item \textit{(2 taškai)} Skritulys, kurio spindulys $14\;cm$,
+            nubraižytas centrinis kampas lygus $200^\circ$. Apskaičiuokite šios
+            išpjovos:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task lanko ilgį;
+                  \task plotą;
+            \end{tasks}
+
+      \item \textit{(2 taškai)} Skritulio plotas $72\;cm^2$. Apskaičiuokite
+            skritulį ribojančio apskritimo ilgį ($0,1\;cm$ tikslumu).
+
+      \item \textit{(3 taškai)} Apskaičiuokite užbrūkšniuotos figūros plotą:
+
+            \begin{tikzpicture}[scale=.75]
+                  % Draw the circle
+                  \draw (0,0) circle (2cm);
+
+                  % Coordinates for the points where the right angle will touch the circle
+                  \coordinate (O) at (0,0);
+                  \coordinate (K) at (320:2cm);
+                  \coordinate (P) at (220:2cm);
+
+                  % Vertex inside the circle
+                  \filldraw [fill=white] circle (2cm);
+
+                  % Fill the minor segment with a pattern
+                  \filldraw[pattern=crosshatch, pattern color=gray]
+                  (K) -- (P) arc[start angle=220, end angle=320, radius=2cm] --
+                  cycle;
+
+                  % Marking the points
+                  \filldraw [black] (O) circle (2pt) node[anchor=south] {O};
+                  \filldraw [black] (K) circle (2pt) node[anchor=north,
+                              yshift=-1mm]
+                        {K};
+                  \filldraw [black] (P) circle (2pt) node[anchor=north,
+                              yshift=-1mm]
+                        {P};
+
+                  % Mark the angle
+                  \pic [draw, angle radius=0.5cm, angle eccentricity=1.45,
+                        "$110^\circ$"]
+                  {angle=P--O--K};
+
+                  % Draw lines
+                  \draw (O) -- (P);
+                  \draw (O) -- (K);
+
+                  \draw (O) -- (K) node[midway, above, sloped] {$5\;cm$};
+            \end{tikzpicture}
+
+      \item \textit{(3 taškai)} Apskaičiuokite užbrūkšniuotos figūros plotą ($0,1\;cm^2$ tikslumu), kai į ketvirtadalį skritulio įbrėžtas kvadratas, kurio plotas yra $16\;cm^2$.
+
+            \begin{tikzpicture}[scale=1.5]
+                  % Define the radius
+                  \def\radius{2}
+
+                  % Calculate the side length of the square
+                  \pgfmathsetmacro\squareside{\radius/sqrt(2)}
+
+                  % Draw the quarter circle
+                  \draw (0,0) -- (\radius,0) arc (0:90:\radius) -- cycle;
+
+                  % Draw the square inside the quarter circle with increased border thickness
+                  \draw[line width=0.75pt] (0,0) rectangle
+                  (\squareside,\squareside);
+
+                  % Fill the area of the quarter circle outside the square with a pattern
+                  \begin{scope}
+                        \fill[pattern=north east lines, pattern color=gray]
+                        (0,0) --
+                        (\radius,0) arc (0:90:\radius) -- cycle;
+                        \clip (0,0) rectangle (\squareside,\squareside);
+                        \fill[white] (0,0) -- (\radius,0) arc (0:90:\radius) --
+                        cycle;
+                  \end{scope}
+
+                  % Label the vertices of the square with circles and text
+                  \filldraw (0,0) circle (1pt) node[below left] {B};
+                  \filldraw (\squareside,0) circle (1pt) node[below
+                              right] {C};
+                  \filldraw (\squareside,\squareside) circle (1pt)
+                  node[above right]
+                        {D};
+                  \filldraw (0,\squareside) circle (1pt) node[above
+                              left] {E};
+            \end{tikzpicture}
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
