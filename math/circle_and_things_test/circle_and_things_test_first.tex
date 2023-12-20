@@ -1,6 +1,6 @@
 \mathchardef\period=\mathcode`.
 \documentclass[a4paper]{article}
-\usepackage[top=1.45cm, bottom=1.45cm, left=1cm, right=1cm]{geometry}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
 
 \usepackage{parskip} % Package to tweak paragraph skipping
 \usepackage{tikz} % Package for drawing
@@ -103,12 +103,16 @@ Užduočių sprendimo taisyklės:
 \par\noindent\rule{\textwidth}{0.5pt}
 \vspace{1mm}
 
+\begin{enumerate}
+      \item \textit{(2 taškai)} Kas yra centrinis kampas? Kas yra įbrėžtinis kampas? Koks ryšys tarp įbrėžtinio ir centrinio kampų, kai jie remiasi į tą patį lanką? Koks ryšys tarp dviejų įbrėžtinių kampų, kurie remiasi į tą patį lanką? 
+\end{enumerate}
+
 \begin{minipage}{0.5\textwidth}
       \begin{enumerate}
             \item \textit{(2 taškai)} Apskaičiuokite kampus $BCA$ ir $BAC$, kai
                   kampo $ABC$ dydis yra $50^\circ$, BA - skersmuo.
 
-                  \begin{tikzpicture}[scale=0.65]
+                  \begin{tikzpicture}[scale=0.575]
                         % Draw the circle
                         \draw (0,0) circle (2cm);
 
@@ -148,7 +152,7 @@ Užduočių sprendimo taisyklės:
             \item \textit{(1 taškas)} Apskaičiuokite kampą $BCA$, kai kampo
                   $BOA$ dydis yra $90^\circ$.
 
-                  \begin{tikzpicture}[scale=0.65]
+                  \begin{tikzpicture}[scale=0.575]
                         % Draw the circle
                         \draw (0,0) circle (2cm);
 
@@ -257,19 +261,20 @@ Užduočių sprendimo taisyklės:
                                     \draw (-2,0) -- (0,0) node[midway,below]
                                     {};
 
-                                    \draw (0,-2) -- (0,0) node[midway,below]
+                                    \draw (0,-2) -- (-2,0) node[midway,below]
                                     {};
 
+                            
                                     % Vertex inside the circle
                                     \filldraw [black] (0,0) circle (2pt)
-                                    node[anchor=north east] {O};
+                                    node[anchor=north] {O};
 
                                     % Center
                                     \filldraw [black] (-2,0) circle (2pt)
                                     node[anchor=east] {A};
 
                                     \filldraw [black] (0,-2) circle (2pt)
-                                    node[anchor=south east] {B};
+                                    node[anchor=south] {B};
 
                                     \filldraw [black] (2,0) circle (2pt)
                                     node[anchor=west] {C};
@@ -374,7 +379,7 @@ Užduočių sprendimo taisyklės:
 
       \item \textit{(3 taškai)} Apskaičiuokite užbrūkšniuotos figūros plotą:
 
-            \begin{tikzpicture}[scale=.75]
+            \begin{tikzpicture}[scale=.70]
                   % Draw the circle
                   \draw (0,0) circle (2cm);
 
@@ -416,7 +421,7 @@ Užduočių sprendimo taisyklės:
             ($0,1\;cm^2$ tikslumu), kai į ketvirtadalį skritulio įbrėžtas kvadratas, kurio
             plotas yra $16\;cm^2$.
 
-            \begin{tikzpicture}[scale=1.5]
+            \begin{tikzpicture}[scale=1.25]
                   % Define the radius
                   \def\radius{2}
 
