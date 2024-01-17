@@ -1,0 +1,371 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{changepage}
+
+\usepackage{pgfplots}
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{angles, quotes}
+\usetikzlibrary{shapes}
+\usetikzlibrary{intersections,pgfplots.fillbetween}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{plotas | perimetras | skritulys | trikampis | keturkampiai }
+\fancyfoot[R]{plotas | perimetras | skritulys | trikampis | keturkampiai}
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Planimetrija, Kontrolinis darbas, plotas ir perimtras }
+\author{Vilius Paliokas}
+\date{2024/01/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\subsection*{2 variantas}
+
+\begin{itemize}[after=\vspace{-\baselineskip}]
+
+      \item[--] Jeigu reikia, pirmiausia nubrėžiamas brėžinys ir suteikiamos
+            raidės viršunėms arba kraštinėmis.
+
+      \item[--] Užrašoma naudojama teorema, formulė ar taisyklė (jeigu
+            naudojama teorema, turi būti parašyta: \germanqq{pagal
+                  \ldots } arba \germanqq{kadangi \ldots } arba \germanqq{nes
+                  \ldots }). Jeigu buvo
+            nubrėžtas brėžinys, formulėje, teoremoje ar taisyklėje naudojamos
+            brėžinio raides.
+\end{itemize}
+
+\vspace{0.25cm}
+\par\noindent\rule{\textwidth}{0.5pt}
+
+\begin{enumerate}
+      \item \textit{(1 taškai)} Kvadrato įstrižainė lygi 18. Kam lygus šio
+            kvadratos plotas?
+
+      \item \textit{(1 taškai)} Puskritulio skersmuo lygus $11\;cm$. Koks šio
+            puskritulio plotas?
+
+\end{enumerate}
+
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \setcounter{enumi}{2} % This continues the numbering from the previous enumerate
+            \item \textit{(1 taškas)} Stačiakampio $ABCD$ įstrižainė yra
+                  $24\;cm$
+                  ilgio, o kampo tarp įstrižainės $AC$ ir  kraštinės $AD$ lygus
+                  santykis lygus $\frac{\sqrt{3}}{2}$.
+                  Apskaičiuokite stačiakampio plotą.
+
+                  \begin{tikzpicture}[thick, scale=.18]
+                        % The diagonal forms a 30-60-90 triangle
+                        % The sides of the rectangle are in the ratio 1 : sqrt(3)
+                        % If the diagonal (hypotenuse) is 24, the sides are:
+                        % shorter side (opposite to 30°) = 24 / 2 = 12
+                        % longer side (opposite to 60°) = 12 * sqrt(3)
+                        \pgfmathsetmacro{\shorterside}{24 / 2}
+                        \pgfmathsetmacro{\longerside}{\shorterside * sqrt(3)}
+
+                        % Define coordinates
+                        \coordinate (A) at (0,0);
+                        \coordinate (B) at (\longerside,0);
+                        \coordinate (C) at (\longerside,\shorterside);
+                        \coordinate (D) at (0,\shorterside);
+
+                        % Draw rectangle
+                        \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+                        % Draw diagonal
+                        \draw (A) -- (C);
+
+                        % Label points
+                        \node at (A) [below left] {$A$};
+                        \node at (B) [below right] {$B$};
+                        \node at (C) [above right] {$C$};
+                        \node at (D) [above left] {$D$};
+
+                        % Label diagonal
+                        \draw (A) -- node[sloped, above, midway] {$24\,cm$}
+                        (C);
+
+                        % Mark the 60 degree angle
+                        \draw (B) rectangle ++(-1, 1);
+                        \draw pic[draw=black, -, angle eccentricity=1, angle
+                                    radius=.5cm] {angle=C--A--D};
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \setcounter{enumi}{3} % This continues the numbering from the previous enumerate
+            \item \textit{(3 taškai)} Paveiksle pavaizduota lygiašonė trapecija
+                  ABCD
+                  ($AB||CD$, $AD = BC$). Yra žinoma, kad $AB =
+                        12$,
+                  $CD = 24$,
+                  $\angle DAB = 135^\circ$. Apskaičiuokite trapecijos plotą ir
+                  perimetrą.
+
+                  \begin{tikzpicture}[scale=.16, thick]
+                        % Define coordinates
+                        \coordinate (A) at (0,0);
+                        \coordinate (B) at (12,0);
+                        \coordinate (C) at (18,-12);
+                        % BC = 12
+                        \coordinate (D) at (-6,-12);
+                        % CD = 16
+                        % AB = 25
+                        % DA = 15, but this is not directly used because AB || CD
+
+                        % Draw trapezoid
+                        \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+                        % Label points
+                        \node at (A) [above left] {$A$};
+                        \node at (B) [above right] {$B$};
+                        \node at (C) [below right] {$C$};
+                        \node at (D) [below left] {$D$};
+
+                        \tkzMarkSegment[color=black,pos=.5,mark=|](A,D)
+                        \tkzMarkSegment[color=black,pos=.5,mark=|](B,C)
+
+                        % Label sides
+                        % \draw (B) -- node[left] {$12$} (C);
+                        \draw (C) -- node[below] {$24$} (D);
+                        \draw (A) -- node[above] {$12$} (B);
+                        % \draw (D) -- node[below right] {$15$} (A);
+                        \pic [draw, -,
+                              angle radius=3mm, angle eccentricity=2,
+                              "$135^\circ$"] {angle = D--A--B};
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+
+\begin{enumerate}
+      \setcounter{enumi}{4} % This continues the numbering from the previous enumerate
+      \item \textit{(3 taškai)} Lygiagretainio $ABCD$ aukštinė $BE$ daliją
+            kraštinę $AD$ į atkarpas $AE = 18\;cm$ ir $ED = 12\;cm$. Vienas
+            lygiagretainio kampas lygus $60^\circ$. Apskaičiuokite
+            lygiagretainio:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task perimetrą;
+                  \task plotą.
+            \end{tasks}
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus teorijos klausimus ir įrodymus,
+            \textbf{užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+\subsection*{2 variantas}
+
+\begin{itemize}[after=\vspace{-\baselineskip}]
+
+      \item[--] Jeigu reikia, pirmiausia nubrėžiamas brėžinys ir suteikiamos
+            raidės viršunėms arba kraštinėmis.
+
+      \item[--] Užrašoma naudojama teorema, formulė ar taisyklė (jeigu
+            naudojama teorema, turi būti parašyta: \germanqq{pagal
+                  \ldots } arba \germanqq{kadangi \ldots } arba \germanqq{nes
+                  \ldots }). Jeigu buvo
+            nubrėžtas brėžinys, formulėje, teoremoje ar taisyklėje naudojamos
+            brėžinio raides.
+\end{itemize}
+
+\vspace{0.25cm}
+\par\noindent\rule{\textwidth}{0.5pt}
+
+\begin{enumerate}
+      \item \textit{(1 taškai)} Kvadrato įstrižainė lygi 18. Kam lygus šio
+            kvadratos plotas?
+
+      \item \textit{(1 taškai)} Puskritulio skersmuo lygus $11\;cm$. Koks šio
+            puskritulio plotas?
+
+\end{enumerate}
+
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \setcounter{enumi}{2} % This continues the numbering from the previous enumerate
+            \item \textit{(1 taškas)} Stačiakampio $ABCD$ įstrižainė yra
+                  $24\;cm$
+                  ilgio, o kampo tarp įstrižainės $AC$ ir  kraštinės $AD$ lygus
+                  santykis lygus $\frac{\sqrt{3}}{2}$.
+                  Apskaičiuokite stačiakampio plotą.
+
+                  \begin{tikzpicture}[thick, scale=.18]
+                        % The diagonal forms a 30-60-90 triangle
+                        % The sides of the rectangle are in the ratio 1 : sqrt(3)
+                        % If the diagonal (hypotenuse) is 24, the sides are:
+                        % shorter side (opposite to 30°) = 24 / 2 = 12
+                        % longer side (opposite to 60°) = 12 * sqrt(3)
+                        \pgfmathsetmacro{\shorterside}{24 / 2}
+                        \pgfmathsetmacro{\longerside}{\shorterside * sqrt(3)}
+
+                        % Define coordinates
+                        \coordinate (A) at (0,0);
+                        \coordinate (B) at (\longerside,0);
+                        \coordinate (C) at (\longerside,\shorterside);
+                        \coordinate (D) at (0,\shorterside);
+
+                        % Draw rectangle
+                        \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+                        % Draw diagonal
+                        \draw (A) -- (C);
+
+                        % Label points
+                        \node at (A) [below left] {$A$};
+                        \node at (B) [below right] {$B$};
+                        \node at (C) [above right] {$C$};
+                        \node at (D) [above left] {$D$};
+
+                        % Label diagonal
+                        \draw (A) -- node[sloped, above, midway] {$24\,cm$}
+                        (C);
+
+                        % Mark the 60 degree angle
+                        \draw (B) rectangle ++(-1, 1);
+                        \draw pic[draw=black, -, angle eccentricity=1, angle
+                                    radius=.5cm] {angle=C--A--D};
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+      \begin{enumerate}
+            \setcounter{enumi}{3} % This continues the numbering from the previous enumerate
+            \item \textit{(3 taškai)} Paveiksle pavaizduota lygiašonė trapecija
+                  ABCD
+                  ($AB||CD$, $AD = BC$). Yra žinoma, kad $AB =
+                        12$,
+                  $CD = 24$,
+                  $\angle DAB = 135^\circ$. Apskaičiuokite trapecijos plotą ir
+                  perimetrą.
+
+                  \begin{tikzpicture}[scale=.16, thick]
+                        % Define coordinates
+                        \coordinate (A) at (0,0);
+                        \coordinate (B) at (12,0);
+                        \coordinate (C) at (18,-12);
+                        % BC = 12
+                        \coordinate (D) at (-6,-12);
+                        % CD = 16
+                        % AB = 25
+                        % DA = 15, but this is not directly used because AB || CD
+
+                        % Draw trapezoid
+                        \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+                        % Label points
+                        \node at (A) [above left] {$A$};
+                        \node at (B) [above right] {$B$};
+                        \node at (C) [below right] {$C$};
+                        \node at (D) [below left] {$D$};
+
+                        \tkzMarkSegment[color=black,pos=.5,mark=|](A,D)
+                        \tkzMarkSegment[color=black,pos=.5,mark=|](B,C)
+
+                        % Label sides
+                        % \draw (B) -- node[left] {$12$} (C);
+                        \draw (C) -- node[below] {$24$} (D);
+                        \draw (A) -- node[above] {$12$} (B);
+                        % \draw (D) -- node[below right] {$15$} (A);
+                        \pic [draw, -,
+                              angle radius=3mm, angle eccentricity=2,
+                              "$135^\circ$"] {angle = D--A--B};
+                  \end{tikzpicture}
+      \end{enumerate}
+\end{minipage}
+
+\begin{enumerate}
+      \setcounter{enumi}{4} % This continues the numbering from the previous enumerate
+      \item \textit{(3 taškai)} Lygiagretainio $ABCD$ aukštinė $BE$ daliją
+            kraštinę $AD$ į atkarpas $AE = 18\;cm$ ir $ED = 12\;cm$. Vienas
+            lygiagretainio kampas lygus $60^\circ$. Apskaičiuokite
+            lygiagretainio:
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task perimetrą;
+                  \task plotą.
+            \end{tasks}
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus teorijos klausimus ir įrodymus,
+            \textbf{užrašykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
