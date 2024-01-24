@@ -1,0 +1,289 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+\usepackage{afterpage}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{pusmečio pabaiga | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{pusmečio pabaiga | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - progresijos}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\newcommand\blankpage{%
+      \null
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \newpage}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item \textit{(1 taškas)} Duots dvi skaičiųs aibės: $A=\{-5; -1; 0; 2; 3;
+                  5; 7\}$ ir $B=\{-5; -2; 0; 1; 7; 9\}$. Nustatykite, kiek
+            elementų priklauso aibių
+            $A$ ir $B$ sankirtai.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task 3
+                  \task 7
+                  \task 10
+                  \task 13
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Su kuria $b$ reikšme lygybė yra teisinga
+            $\sqrt[6]{33}\cdot\sqrt[3]{33}=33^b$?
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task $b=-2$
+                  \task $b=2$
+                  \task $b=\frac{1}{2}$
+                  \task $b=\frac{1}{4}$
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Su kuria $a$ reikšme lygybė yra teisinga
+            $2\log_{3} 4-\log_{3} 8 + 2= \log_{3} a$?
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task $a=12$
+                  \task $a=-2$
+                  \task $a=18$
+                  \task $a=6$
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Kam lygu pusė $8^{22}$ skaičiaus? Atsakymą
+            pateikite laipsniu $a^n$; čia $n \in \mathbb{N}$.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task $2^{66}$
+                  \task $8^{11}$
+                  \task $2^{65}$
+                  \task $4^{65}$
+            \end{tasks}
+      \item \textit{(1 taškas)} Skaičių $\sqrt[4]{7^6}$ parašykite
+            $a\cdot\sqrt[4]{b}$ pavidalu; čia $a, b \in \mathbb{N}$.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task $4\sqrt[4]{49}$
+                  \task $49\sqrt[4]{343}$
+                  \task $49\sqrt[4]{343}$
+                  \task $7\sqrt[4]{49}$
+            \end{tasks}
+            % Adjust the width as needed
+
+            \begin{minipage}[t]{0.725\linewidth}
+                  \item \textit{(1 taškas)} Paveiksle pavaizduotas vienetinis
+                  apskritimas, kurio centras yra taškas $O$. Remdamiesi
+                  paveikslu, nustatykite
+                  taško $M$ koordinates.
+                  \vspace{2mm}
+                  \begin{tasks}[item-format={\normalfont},
+                              after-item-skip=3mm,
+                              label=\Alph*), label-format={\bfseries},
+                              column-sep=10pt](2)
+                        \task $(-\frac{\sqrt{3}}{2};-\frac{1}{2})$
+                        \task $(-\frac{1}{2};-\frac{\sqrt{3}}{2})$
+                        \task $(-\frac{1}{2};-\frac{\sqrt{3}}{2})$
+                        \task $(-\frac{\sqrt{3}}{2};\frac{1}{2})$
+                  \end{tasks}
+
+            \end{minipage}
+            \begin{minipage}[t]{0.25\linewidth}
+                  \adjustbox{valign=t}{
+                        \begin{tikzpicture}[font=\small, scale=1.4]
+                              % Coordinate plane
+                              \draw[->] (-1.5,0) -- (1.5,0) node[below] {$x$};
+                              \draw[->] (0,-1.5) -- (0,1.5) node[left] {$y$};
+
+                              % Unit circle (thicker)
+                              \draw[line width=0.6pt] (0,0) circle (1);
+
+                              % Coordinates on the unit circle
+                              \node[above left] at (0,0) {$O$};
+                              \node[above right, yshift=-.5pt, xshift=-2pt] at
+                              (0,1) {$1$};
+                              \node[below right, yshift=.5pt, xshift=-2pt] at
+                              (1,0) {$1$};
+                              \node[below left, yshift=.5pt, xshift=2pt] at
+                              (0,-1) {$-1$};
+                              \node[below left, yshift=-.5pt, xshift=2pt] at
+                              (-1,0) {$-1$};
+
+                              % Radius
+                              \draw (0,0) -- (-150:1) node[midway, left] {};
+
+                              % Angle arc with arrow at -120 degrees
+                              \draw[->] (0.4,0) arc (0:-150:0.4);
+
+                              % Angle label at -120 degrees
+                              \node at (-60:0.6) {-150\textdegree};
+
+                              \draw[fill=black] (-150:1) circle (0.8pt)
+                              node[below, yshift=-.5pt, xshift=-2pt] {$M$};
+                        \end{tikzpicture}
+                  }
+            \end{minipage}
+
+      \item \textit{(1 taškas)} Reiškinys $log_{0,3}(3x-2)$ turi prasmę, kai.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task $x\in(\frac{2}{3};\infty)$
+                  \task $x\in(2;\infty)$
+                  \task $x\in(-\infty;3)$
+                  \task $x\in(-\infty;\frac{2}{3})$
+            \end{tasks}
+      \item \textit{(1 taškas)} Yra žinoma, kad $\cos\alpha=-0,8$ ir
+            $180^\circ<\alpha<270^\circ$. Tuomet $\sin\alpha=$
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](4)
+                  \task -0,6
+                  \task -0,4
+                  \task 0,4
+                  \task 0,6
+            \end{tasks}
+      \item \textit{(1 taškas)} Pagal receptą, varškės spurgoms pagaminti
+            reikia $500\,gr.$, $200\,gr.$ miltų, $3\,vnt$ kiaušinių... Klarkas
+            turi $300\,gr.$
+            varškės. Kiek gramų miltų reikės Klarkui, jeigu jis gamins varškės
+            spurgas pagal šį receptą?
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](5)
+                  \task 180 gr.
+                  \task 250 gr.
+                  \task 120 gr.
+                  \task 160 gr.
+                  \task 100 gr.
+            \end{tasks}
+      \item \textit{(1 taškas)} Duotos dvi aibės: $A=\{-3;-2;-1;0;1;3;4\}$ ir
+            $B=\{-5;-3;-1;3;5\}$. Kam lygus aibių $B$ ir $A$ skirtumas?
+            \vspace{7mm}
+
+      \item \textit{(1 taškas)} Didžiausia galima reiškinio
+            $\frac{12}{3+\sin^2\alpha}$ reikmė yra:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](6)
+                  \task 5
+                  \task 6
+                  \task 12
+                  \task 1
+                  \task 3
+                  \task 4
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Panaikinkite iracionalumą vardiklyje
+            $\frac{3}{\sqrt{7}-2}$.
+            \vspace{7mm}
+
+      \item \textit{(1 taškas)}   Eksperimento metu išmatuotas šviesos greitis
+            buvo $3.00 \cdot 10^{8}$
+            m/s, o tikrasis šviesos greitis yra $2.998 \cdot 10^{8}$ m/s.
+            Apskaičiuokite matavimo absoliučiąją paklaidą.
+            \vspace{7mm}
+
+      \item \textit{(2 taškas)} Kiekvienas sekos narys, pradedant nuo antrojo,
+            gaunamas prieš
+            tai
+            buvusį narį sumažinus $20\%$. Yra žinoma, kad šeštasis šios sekos
+            narys lygus
+            2048. Raskite septintąjį šios sekos narį.
+            \vspace{7mm}
+
+      \item \textit{(2 taškas)} Geometrinės progresijos $6x+2$, $x+3$, $x-3$,
+            ... nariai yra
+            neteigiami skaičiai. Raskite pirmųjų trijų skaičių sumą.
+            \vspace{7mm}
+
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}, topsep=0pt, partopsep=0pt]
+            \item \textbf{Visur}, išskyrus įrodymus, \textbf{užrašykite
+                  atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\pagenumbering{gobble}
+
+\def\width{19}
+\def\hauteur{28}
+
+\begin{tikzpicture}[x=1cm, y=1cm, semitransparent]
+      % \draw[step=1mm, line width=0.1mm, black!30!white] (0,0) grid (\width,\hauteur);
+      \draw[step=4mm, line width=0.2mm, black!60!white] (0,0) grid
+      (\width,\hauteur);
+      % \draw[step=5cm, line width=0.5mm, black!50!white] (0,0) grid (\width,\hauteur);
+      % \draw[step=1cm, line width=0.3mm, black!90!white] (0,0) grid (\width,\hauteur);
+\end{tikzpicture}
+\end{document}
