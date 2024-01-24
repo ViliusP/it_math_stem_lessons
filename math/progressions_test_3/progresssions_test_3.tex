@@ -1,0 +1,225 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{skaičių seka | aritmetinė progresija | geometrinė progresijų suma
+      | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{skaičių seka | aritmetinė progresija | geometrinė progresijų suma
+      | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - progresijos}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Geometrinės progresijos n-tojo nario formulė yra $b_{n}=4 \cdot
+                  2^{n-1}$.
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](1)
+                  \task \textit{(1 taškas)} Apskaičiuokite šios progresijos
+                  šeštąjį narį;
+                  \task \textit{(1 taškas)} Raskite k reikšmę, kai $b_k=1024$;
+            \end{tasks}
+
+      \item \textit{(2 taškai)} Nurodykite, ar pateikta skaičių seka yra
+            aritmetinė progresija, geometrinė progresija ar nei aritmetinė, nei
+            geometrinė progresija:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{1}{10}; \frac{1}{100}; \frac{1}{1000};
+                        \frac{1}{10000}$;
+                  \task $2,5;;6,25;15,39,0625$;
+                  \task $2; 4; 9; 16; 25$;
+                  \task $-1;-2;-3;-4;-5$;
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Nei mažėjančios, nei didėjančios geometrinės
+            progresijos pirmasis
+            narys lygus -2, o trečiasis lygus -72. Kam lygus antrasis šios
+            progresijos narys?
+
+      \item \textit{(1 taškas)} Kuri iš žemiau aprašytų sekų yra
+            \underline{mažėjanti} aritmetinė progresija:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](2)
+                  \task $c_n = 3n-1$;
+                  \task $-1; -5; -25; -75$;
+                  \task $-8; -5; -2; 1; 4$;
+                  \task $b_n=b_1\cdot q^{n-1}$, $b_1 = 5$, $q = 5,5$;
+            \end{tasks}
+      \item \textit{(1 taškas)}  Duota $n$ skirtingų natūraliųjų skaičių,
+            sudarančių didėjančią
+            aritmetinę progresiją. Skaičius $n$ yra ne mažesnis už 3. Ar šių
+            skaičių suma
+            gali būti lygi 21? Jeigu yra, pateikite tokią skaičių seką.
+      \item \textit{(1 taškas)}  Yra žinomi du pirmieji aritmetinės progresijos
+            nariai: $a_1 = 3$ ir $a_2 = 18$. Apskaičiuokite penktąjį šios
+            progresijos narį
+            $a_5$.
+      \item Aritmetinės progresijos $a_1, a_2, a_3, \ldots$ pirmųjų $n$ narių
+            suma yra $S_{n} = 4n^2-3n$.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task \textit{(1 taškas)} Apskaičiuokite $S_5$ ir $S_6$
+                  reikšmes.
+                  \task \textit{(1 taškas)} Apskaičiuokite $a_1$ ir $a_6$
+                  reikšmes;
+            \end{tasks}
+      \item \textit{(3 taškai)} Raskite geometrinės progresijos 10 pirmųjų
+            narių
+            suma, kai sekos pirmieji trys nariai yra $x-12$, $x-4$,
+            $-\frac{x}{35}$;
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus įrodymus, \textbf{užrašykite
+                  atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Geometrinės progresijos n-tojo nario formulė yra $b_{n}=4 \cdot
+                  2^{n-1}$.
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](1)
+                  \task \textit{(1 taškas)} Apskaičiuokite šios progresijos
+                  šeštąjį narį;
+                  \task \textit{(1 taškas)} Raskite k reikšmę, kai $b_k=1024$;
+            \end{tasks}
+
+      \item \textit{(2 taškai)} Nurodykite, ar pateikta skaičių seka yra
+            aritmetinė progresija, geometrinė progresija ar nei aritmetinė, nei
+            geometrinė progresija:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{1}{10}; \frac{1}{100}; \frac{1}{1000};
+                        \frac{1}{10000}$;
+                  \task $2,5;;6,25;15,39,0625$;
+                  \task $2; 4; 9; 16; 25$;
+                  \task $-1;-2;-3;-4;-5$;
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Nei mažėjančios, nei didėjančios geometrinės
+            progresijos pirmasis
+            narys lygus -2, o trečiasis lygus -72. Kam lygus antrasis šios
+            progresijos narys?
+
+      \item \textit{(1 taškas)} Kuri iš žemiau aprašytų sekų yra
+            \underline{mažėjanti} aritmetinė progresija:
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm,
+                        label=\Alph*, label-format={\bfseries}](2)
+                  \task $c_n = 3n-1$;
+                  \task $-1; -5; -25; -75$;
+                  \task $-8; -5; -2; 1; 4$;
+                  \task $b_n=b_1\cdot q^{n-1}$, $b_1 = 5$, $q = 5,5$;
+            \end{tasks}
+      \item \textit{(1 taškas)}  Duota $n$ skirtingų natūraliųjų skaičių,
+            sudarančių didėjančią
+            aritmetinę progresiją. Skaičius $n$ yra ne mažesnis už 3. Ar šių
+            skaičių suma
+            gali būti lygi 21? Jeigu yra, pateikite tokią skaičių seką.
+      \item \textit{(1 taškas)}  Yra žinomi du pirmieji aritmetinės progresijos
+            nariai: $a_1 = 3$ ir $a_2 = 18$. Apskaičiuokite penktąjį šios
+            progresijos narį
+            $a_5$.
+      \item Aritmetinės progresijos $a_1, a_2, a_3, \ldots$ pirmųjų $n$ narių
+            suma yra $S_{n} = 4n^2-3n$.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task \textit{(1 taškas)} Apskaičiuokite $S_5$ ir $S_6$
+                  reikšmes.
+                  \task \textit{(1 taškas)} Apskaičiuokite $a_1$ ir $a_6$
+                  reikšmes;
+            \end{tasks}
+      \item \textit{(3 taškai)} Raskite geometrinės progresijos 10 pirmųjų
+            narių
+            suma, kai sekos pirmieji trys nariai yra $x-12$, $x-4$,
+            $-\frac{x}{35}$;
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur}, išskyrus įrodymus, \textbf{užrašykite
+                  atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
