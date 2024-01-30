@@ -158,7 +158,7 @@ def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=Non
 
         # Add a legend with a border and adjust its position
         legend = ax.legend(loc='upper center', frameon=True,
-                           bbox_to_anchor=(0.5, -0.1))
+                           bbox_to_anchor=(0.5, -0.025))
         legend.get_frame().set_edgecolor('black')
 
         # Save the figure before showing it

@@ -242,19 +242,19 @@ vadinamas funkcijos grafiko transformacija. Matematikos bendrajame kurse reikia
 žinoti 4 tipų transformacijas. Šių transformacijų pavyzdžiai matomi žemiau:
 
 \begin{figure*}[h]
-  \begin{minipage}{0.18\textwidth}
+  \begin{minipage}{0.19\textwidth}
     \includegraphics[width=\linewidth]{./graphs/quadratic_func_lsh_2.pdf}
     \label{fig:first}
   \end{minipage}\hfill
-  \begin{minipage}{0.18\textwidth}
+  \begin{minipage}{0.19\textwidth}
     \includegraphics[width=\linewidth]{./graphs/quadratic_func_shrink_2.pdf}
     \label{fig:second}
   \end{minipage}\hfill
-  \begin{minipage}{0.18\textwidth}
+  \begin{minipage}{0.19\textwidth}
     \includegraphics[width=\linewidth]{./graphs/quadratic_func_flipped.pdf}
     \label{fig:third}
   \end{minipage}\hfill
-  \begin{minipage}{0.18\textwidth}
+  \begin{minipage}{0.19\textwidth}
     \includegraphics[width=\linewidth]{./graphs/quadratic_func_ush_2.pdf}
     \label{fig:fourth}
   \end{minipage}
@@ -317,28 +317,80 @@ aprašytoms transformacijoms
 \hyperref[tbl:after_transformations]{\ref*{tbl:after_transformations}
   lentelėje}. Tam naudosime jau anksčiau naudotą $f(x)=x^2$ funkciją.
 Pažiūrėsime, koks pokytis, kai nubrėžus $f(x)+2$,  $f(x)-2$,
-$2f(x)$,$\frac{1}{2}f(x)$,$-f(x)$. Šituos brėžinius rasite
+$2f(x)$,$\frac{1}{2}f(x)$,$-f(x)$. Šiuos brėžinius rasite
 \hyperref[sec:function_transformation_example]{\pageref*{fig:function_transformation_example}
-  puslapyje}
-  
+  puslapyje}.
+
+Matome, kad padvigubinus funkcijos $f(x)$ reikšmę ($2 \cdot f(x)$),
+ji išsitempia, o taškų $y$ koordinatės reikšmės padvigubėja, pavyzdžiui taškas
+$(2; 4)$ tapo $(2;4 \cdot 2)=(2;8)$
+
+Pridėjus prie $f(x)$ reikšmių 2, gauname paslinkta grafiką per du vienetus
+aukštyn. Visų taškų $y$ reikšmė padidėja per du vienetus. Pavyzdžiui taškas
+$(2; 4)$ tapo $(2;4 + 2)=(2;6)$
+
+Grafiką galime sutraukti, jis tampa plokštesnis. Tai padarėme funkciją $f(x)$
+padauginus iš $\frac{1}{2}$. Visos taškų $y$ reikšmės sumažėjo perpus. Taškas
+$(2; 4)$ tapo $(2;4 \cdot \frac{1}{2})=(2;2)$
+
+Kaip paslinkome grafiką aukštyn, taip galima ir paslinkti žemyn. Tą padarome
+atimdami (arba pridėdami neigiamą reikšmę) iš funkcijos $f(x)$. Pavyzdyje
+funkcijos $f(x)-2$ grafikas skiriasi tuo, kad jis pasislinkęs žemyn per du
+vienetus - visi taškų oordinatės\footnote{Plokštumos taškai $(x;y)$
+matematikoje dar vadinami abcise ir ordinate: $
+  (\overbrace{x}^{\text{abscisė}};
+  \overbrace{y}^{\text{ordinatė}})$} reikšmė sumažinta per du
+vienetus.
+
+Paprasčiausia transformacija - apvertimas $OX$ ašies atžvilgiu.
+Šios principus palieku išsiaiškinti savarankiškai.
+
 \begin{figure*}[p]
   \begin{fullwidth}
     \centering
     % First row
     \hspace*{-205pt} % Adjust this value as needed
-    \includegraphics[width=0.22\linewidth]{./graphs/quadratic_func_primary.pdf}\hspace{5pt}
-    \includegraphics[width=0.22\linewidth]{./graphs/quadratic_func_transform_2.pdf}\hspace{5pt}
-    \includegraphics[width=0.24\linewidth]{./graphs/quadratic_func_transform_3.pdf}
+    \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_primary.pdf}
+    \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_2.pdf}\hspace{5pt}
+    \includegraphics[width=0.25\linewidth]{./graphs/quadratic_func_transform_3.pdf}
     \\\vspace{\baselineskip}
 
     % Second row
     \hspace*{-205pt} % Keep this value consistent with the first row
-    \includegraphics[width=0.22\linewidth]{./graphs/quadratic_func_transform_4.pdf}\hspace{5pt}
+    \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_4.pdf}\hspace{5pt}
     \includegraphics[width=0.24\linewidth]{./graphs/quadratic_func_transform_5.pdf}\hspace{5pt}
-    \includegraphics[width=0.22\linewidth]{./graphs/quadratic_func_transform_6.pdf}
+    \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_6.pdf}
   \end{fullwidth}
   \label{fig:function_transformation_example}
 \end{figure*}
+
+\subsection{Postūmiai OX ašimi}\label{sec:translation_OX_axis}
+
+Liko išsiaiškinti dar du postūmių tipus: grafiko slinkimą kairėn ir dešinėn OX
+ašimi.
+
+\begin{table}[!htpb]
+  \centering
+  \begin{tabular}{
+      S |
+      S[separate-uncertainty = true] |
+      S[table-format = 5]
+    }
+    \toprule
+    Transformacija    & {Kaip pasikeičia $f(x)$ grafiko
+        taškai}
+                      & {Grafiko vizualinis pokytis}    \\
+    \midrule
+    {$f(x+d)$, $d>0$} & {$(a,b)\mapsto(a-d, b)$}
+                      & {Pasislenka į kairę per $d$}           \\
+    {$f(x-d)$, $d>0$} & {$(a,b)\mapsto(a+d, b)$}
+                      & {Pasislenka į dešinę $d$}       \\
+    \bottomrule
+  \end{tabular}
+  \vspace{16pt} % Adjust the space as needed
+  \caption{Funkcijų transformacijos, modifikuojant jos argumentą $x$}.
+  \label{tbl:after_transformations}
+\end{table}
 
 \section{Page Layout}\label{sec:page-layout}
 \subsection{Headings}\label{sec:headings}
