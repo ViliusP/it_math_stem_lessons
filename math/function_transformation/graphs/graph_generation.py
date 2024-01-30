@@ -127,7 +127,7 @@ def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=Non
                 ax.plot(X_full[visible_indices[0]:start_index], Y_full[visible_indices[0]:start_index], linestyle='--', color='white', alpha=0.5)
                 ax.plot(X_full[end_index:visible_indices[-1]], Y_full[end_index:visible_indices[-1]], linestyle='--', color='white', alpha=0.5)
 
-        ax.set_yticks([tick for tick in y_ticks if y_min <= tick <= y_max])
+        ax.set_yticks([tick for tick in y_ticks if y_min <= tick <= y_max and tick != 0])
         
         # Move left y-axis and bottom x-axis to zero
         ax.spines['bottom'].set_position('zero')
