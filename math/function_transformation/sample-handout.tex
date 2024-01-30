@@ -8,11 +8,20 @@
 
 %\geometry{showframe} % display margins for debugging page layout
 
+\usepackage[main=lithuanian]{babel}
 \usepackage[utf8]{inputenc}
 
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{pgfplots}
+
+\usepackage{booktabs}
+\usepackage{isotope}
+\usepackage{siunitx}
+\sisetup{
+  per-mode = fraction,
+  load-configurations = abbreviations,
+}
 
 \usepackage{graphicx} % allow embedded images
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
@@ -53,25 +62,283 @@
 
 % \printclassoptions
 \section{Funkcijos samprata}\label{se c:page-layout}
-% \begin{figure}
-%   \input{./function_transformation/graphs/histogram.pgf}
-%   %  \checkparity This is an \pageparity\ page.%
-%   \caption{Hilbert curves of various degrees $n$.
-%     \emph{Notice that this figure only takes up the main textblock width.}}
-%   \label{fig:textfig}
-%   %\zsavepos{pos:textfig}
-%   \setfloatalignment{b}
-% \end{figure}
-\begin{figure}
-  \begin{center}
-      \input{/home/vilius/development/source_code/it_math_stem_lessons/math/function_transformation/graphs/histogram.pgf}
-  \end{center}
-  %   \caption{Hilbert curves of various degrees $n$.
-%     \emph{Notice that this figure only takes up the main textblock width.}}
-%   \label{fig:textfig}
-%   %\zsavepos{pos:textfig}
-%   \setfloatalignment{b}
+
+Dažnu atveju, funkcija yra asocijuojama su $f(x)$ žymėjimu, o šį mes skaitome
+\textit{ef nuo iks}. Po $f(x)$ visada seka kažkoks tai
+reiškinys, dažniausiai tai būna tiesinis reiškinys $ax+b$ (pvz.:
+$f(x)=x+1$) ar
+kvadratinis reiškinys $ax^2+bx+c$ (pvz.: $f(x)=x^2$). O vėliau, mokyklos kurse
+sutiksime ir kitokio
+tipo funkcijas.
+
+Toliau prisiminsime apie aibes ir pamatysime, kaip jos susijusios su
+funkcijomis.
+
+\subsection{Apie aibes}\label{sec:about_sets}
+
+Kadangi jau susipažinome su aibėmis, galime pasigilinti, kaip aibės
+susijusios su funkcijomis. Bet pirma prisiminsime keletą aibių
+teorijos\footnote{Aibių teorija yra matematikos šaka, kurioje nagrinėjamos
+  aibės - objektų rinkiniai} aspektų. \textbf{Aibė} - rinkinys	objektų, kurie
+vadinasi aibės elementais. Aibės elementu gali būti bet kas (obuoliai,
+planetos, mašinos), o jie yra susieti viena (ar daugiau) bendra
+savybę. Matematikoje nagrinėjami matematiniai objektai, mokyklos matematikos
+programoje nagrinėjamos
+tik skaičių aibės. Jeigu elementas $x$ priklauso aibei $X$, tai užrašoma $x \in
+  X$. Jeigu elementas $x$ nepriklauso aibei $X$, tai rašome $x \notin X$.
+
+Priklausomai nuo elementų skaičiaus aibėje, aibės gali būti baigtinės arba
+begalinės. Baigtinės aibės atveju mes galime suskaičiuoti šios elementus, juos
+nesunkiai visus išvardinti. Pavyzdžiui turime aibę
+$$A=\{0; 1; 4; 9; 16; 25\} $$
+Ši aibė turi baigtinį kiekį elementų - ją sudaro 6 elementai. Natūraliųjų
+skaičių aibė $\mathbb{N}$ yra vienas iš begalinės aibės pavyzdžių, ši aibė turi
+be galo daug
+elementų ($1;2;3;4;5;6;7;8\ldots$).
+
+\subsection{Aibės ir funkcijos}\label{sec:about_sets_and_functions}
+
+O dabar bandysime atsakyti į klausimą, kaip susijusios aibės ir funkcija.
+Tarkime turime dvi aibes $X$ ir $Y$ (paskui bus ir konkretūs pavyzdžiai).
+Paprastumo dėlei, šios aibės bus baigtinės abi sudarytos iš keturių elementų:
+
+$$X = \{x_{1},x_{2},x_{3},x_{4}\};$$
+$$Y = \{y_{1},y_{2},y_{3},y_{4}\};$$
+
+Šių grafinis atvaizdavimas pažymėtas žemiau,
+\ref{fig:function_as_sets_elements_relation} paveiksle. Kol kas pavaizduotas
+rodykles ignoruokime.
+
+\begin{figure}[!htpb]
+  \includegraphics{./graphs/functions_as_graphs.pdf}
+  \caption{Funkcija, kaip aibių elementų sąryšiai}
+  \label{fig:function_as_sets_elements_relation}
+  \setfloatalignment{c}
 \end{figure}
+
+O dabar svarbiausia dalis. Kiekvienam aibės $X$ elementui priskyrus elementą iš
+aibės $Y$ gauname tam tikrus ryšius tarp šių dviejų aibių. Tarkime, anksčiau
+paminėtiems elementams iš aibės $X$ priskirkime elementą iš aibės $Y$:
+\begin{itemize}
+  \item $x_1 \rightarrow y_2$;
+  \item $x_2 \rightarrow y_1$;
+  \item $x_3 \rightarrow y_3$;
+  \item $x_4 \rightarrow y_4$;
+\end{itemize}
+
+Šiuos ryšius tarp dviejų aibių elementų galime matyti
+\ref{fig:function_as_sets_elements_relation} paveiksle, jie pavaizduoti
+rodyklėmis. Rodyklė $\rightarrow$ yra priskirimo veiksmas matematikoje. Jeigu
+visų aibės $X$ elementų priskyrimo aibės $Y$ elementams veiksmą pavadintume
+$f$, tai galėtume
+pažymėti:
+$$ f: X \rightarrow Y  \quad\text{arba}\quad  X \xrightarrow{f} Y$$
+
+Iki šio momento turėjote pamatyti pažįstamų dalykų: $f$, $x$, $y$. Jei
+kiekvienas aibės $X$ elementas yra susijęs su vienu ir tik vienu kitos aibės
+$Y$ elementu, tai toks priskyrimas (ryšys) vadinamas
+\textbf{funkcija}\footnote{Labai
+  svarbi šio apibrėžimo dalis yra ta, kad vienas (ir tik vienas) elementas
+  priskiriamas kitam aibės elementui, kitu atveju tai negali vadintis
+  funkcija}. O tai užrašoma $y=f(x)$.
+
+\subsection{Funkcijos sąvokos}\label{sec:function_related_defintions}
+
+Kalbant apie funkcijas, būtina žinoti su funkcija susijusiąs sąvokas. Šios
+sąvokos ateina iš funkcijos apibrėžimo:
+
+\begin{itemize}
+  \item $x$ - funkcijos nepriklausomas kintamasis arba funkcijos argumentas;
+  \item $y$ - funkcijos priklausomas kintamasis arba funkcijos reikšmė;
+  \item $X$ - visos galimos $x$ reikšmės arba funkcijos $f(x)$ apibrėžimo
+        sritis. Ši sritis dažnai žymima $D(f)$;
+  \item $Y$ - visos galimos $y$ reikšmės arba funkcijos $f(x)$ reikšmių sritis.
+        Ši sritis dažnai žymima $E(f)$;
+  \item $f$ - taisykė, pagal kurią $x$ reikšmėms priskiriamos $y$ reikšmės;
+\end{itemize}
+
+Šių sąvokų atikmenis galima pamatyti anksčiau pavaizduotame
+\ref{fig:function_as_sets_elements_relation} paveiksle. Pavyzdžiui, paveiksle
+mėlyni rutuliukai $x_1, x_2, x_3, x_4$ yra funkcijų argumentai, o jų visuma
+(apibrėžta sritis) yra apibrėžimo sritis. Reikšmių sritis yra apibrėžta sritis
+su raudonai $y_1, y_2, y_3, y_4$ taškais. Visų rodyklių visuma yra taisyklė
+$f$, pagal kurią vieni aibės (apibrėžimo srities) elementai priskiriami kitiems
+aibės (reikšmių srities) elementams.
+
+\subsection{Funkcijos pavyzdys}\label{sec:function_example}
+
+Turime dvi aibes:
+$$X =\{0; 1; 2; 3; 4; 5\}$$
+$$Y =\{0; 1; 4; 9; 16; 25\}$$
+
+Dabar priskirkime aibės $X$ vienam ir tik vienam kitos aibės $Y$ elementą:
+\begin{itemize}
+  \item $0 \rightarrow 0$;
+  \item $1 \rightarrow 1$;
+  \item $2 \rightarrow 4$;
+  \item $3 \rightarrow 9$;
+  \item $4 \rightarrow 16$;
+  \item $5 \rightarrow 25$;
+\end{itemize}
+
+Šį priskyrimą pavadinkime $f$. Dabar, šių skaičių ryšį galima parašyti $y=f(x)$
+arba $f(x)=y$  forma:
+\begin{itemize}
+  \item $f(0) = 0$;
+  \item $f(1) = 1$;
+  \item $f(2) = 4$;
+  \item $f(3) = 9$;
+  \item $f(4)= 16$;
+  \item $f(5) = 25$;
+\end{itemize}
+
+Šiuos ryšius galima pavaizduoti ir grafiškai:
+
+\begin{figure}[!htpb]
+  \includegraphics{./graphs/functions_as_graphs_example1.pdf}
+  \caption{Aibės $X =\{0; 1; 2; 3; 4; 5\}$ elementų priskyrimas aibės $Y =\{0;
+      1; 4; 9; 16; 25\}$ elementams}
+  \label{fig:function_as_set_example}
+  \setfloatalignment{c}
+\end{figure}
+
+Šią funkcinę priklausomybę galima ir apibūdinti:
+\begin{itemize}
+  \item Funkcijos apibrėžimo sritis yra $\{0; 1; 2; 3; 4; 5\}$;
+  \item Funkcijos reikšmių sritis yra $\{0; 1; 4; 9; 16; 25\}$;
+  \item Mažiausia reikšmė ($y$) yra 0, kai argumentas ($x$) yra lygus 0;
+  \item Didžiausia reikšmė ($y$) yra 25, kai argumentas ($x$) yra lygus 5;
+\end{itemize}
+
+\subsection{Funkcijos reiškinys}\label{sec:function_example}
+
+Funkciją galima aprašyti reiškiniu. Ta daroma, nes neįmanoma išrašyti visų
+begalinių ryšių tarp dviejų begalinių aibių. Šiuos reiškinius jau analizavote
+ir ankstesnėse klasėse. Anksčiau pateiktame pavyzdyje, galima įžvelgti tam
+tikrą dėsningumą. Funkcijos reikšmės buvo gautos argumentus pakėlus kvadratu.
+Tokią bendrą taisyklę visiems skaičiams ($x\in \mathbb{R}$) galima užrašyti
+taip:
+$$f(x)=x^2$$
+
+\begin{marginfigure}%
+
+  \includegraphics[width=\linewidth]{./graphs/quadratic_function_plot_example.pdf}
+  \caption{$f(x)=x^2$ grafikas $OXY$ koordinačių plokštumoje}
+  \label{fig:example_quadratic_plot}
+\end{marginfigure}
+
+Tai reiškia, kad kiekviena funkcijos reikšmė gaunama argumentą, iš apibrėžimo
+srities, pakėlus kvadratu. Tokiu būdu gaunama begalė argumentų $x$ ir reikšmių
+$y$ skaičių porų
+$(x; y)$. Šiuos taškus atvaizdavus koordinačių plokštumoje $OXY$ gaunamas
+funkcijos grafikas (\hyperref[fig:example_quadratic_plot]{paveikslas
+  \ref*{fig:example_quadratic_plot}}).
+
+\section{Grafikų transformacija}\label{sec:graph_transformation}
+
+Tarkime turime žinome, kaip atrodo funkcijos grafikas, jį modifikuojame taip,
+kad sukurtume panašus, bet kitoks to grafikos variantas. Toks procesas
+vadinamas funkcijos grafiko transformacija. Matematikos bendrajame kurse reikia
+žinoti 4 tipų transformacijas. Šių transformacijų pavyzdžiai matomi žemiau:
+
+\begin{figure*}[h]
+  \begin{minipage}{0.22\textwidth}
+    \includegraphics[width=\linewidth]{./graphs/quadratic_func_lsh_2.pdf}
+    \label{fig:first}
+  \end{minipage}\hfill
+  \begin{minipage}{0.30\textwidth}
+    \includegraphics[width=\linewidth]{./graphs/quadratic_func_shrink_2.pdf}
+    \label{fig:second}
+  \end{minipage}\hfill
+  \begin{minipage}{0.21\textwidth}
+    \includegraphics[width=\linewidth]{./graphs/quadratic_func_flipped.pdf}
+    \label{fig:third}
+  \end{minipage}\hfill
+  \begin{minipage}{0.21\textwidth}
+    \includegraphics[width=\linewidth]{./graphs/quadratic_func_ush_2.pdf}
+    \label{fig:fourth}
+  \end{minipage}
+  \caption{$f(x)=x^2$ grafiko transformacijos: $y=f(x-2)$, $y=\frac{1}{2}f(x)$,
+    $y=2f(x)$, $y=f(x)+2$ }
+\end{figure*}
+
+Šie visi grafikai atrodo panašiai, bet skiriasi nuo pradinės funkcijos
+$f(x)=x^2$ grafiko, nes atlitkos tam tikros transformacijos:
+
+\begin{itemize}
+  \item Postūmis OX ašimi $y=f(x+a)$, čia $a \in \mathbb{R}$;
+  \item Postūmis OY ašimi $y=f(x)+b$, čia $b \in \mathbb{R}$;
+  \item Ištempimas, sutraukimas $y=c \cdot\ f(x)$, čia $c \in \mathbb{R}$;
+  \item Apvertimas OX ašies atžvilgiu $y=-f(x)$;
+\end{itemize}
+
+Toliau giliau analizuosime šių transformacijų poveikį grafikams, jų taškams.
+Įsivaizduokime turime funkcijos $f(x)$ tašką $(a, b)$, tai tokiu atveju $f(a) =
+  b$. \hyperref[tbl:after_transformations]{\ref*{tbl:after_transformations}
+  lentelėje
+} pavaizduota, kaip keičiasi funkcijos taškai $(a, b)$ ir grafikas,
+modifikuojant
+funkcijos $f(x)$ reikšmę.
+
+\begin{table*}[!htpb]
+  \centering
+  \begin{tabular}{
+      S |
+      S[separate-uncertainty = true] |
+      S[table-format = 5]
+    }
+    \toprule
+    Transformacija                    & {Kaip pasikeičia $f(x)$ grafiko
+        taškai}
+                                      & {Grafiko vizualinis pokytis}        \\
+    \midrule
+    {$f(x)+d$, $d>0$}                 & {$(a,b)\mapsto(a, b+d)$}
+                                      & {Kyla viršun per $d$}               \\
+    {$f(x)-d$, $d>0$}                 & {$(a,b)\mapsto(a, b-d)$}
+                                      & {Leidžiasi žemyn per $d$}           \\
+    {$c \cdot f(x)$, $c>0$}           & {$(a,b)\mapsto(a, c \cdot b)$}
+                                      & {Išsitempia vertikaliai per $c$}    \\
+    {$\frac{1}{c} \cdot f(x)$, $c>0$} & {$(a,b)\mapsto(a, \frac{1}{c} \cdot
+          b)$}
+                                      & {Susitraukia vertikaliai per $c$}   \\
+    {$-f(x)$}                         & {$(a,b)\mapsto(a, -b)$}
+                                      & {Apsiverčia $OX$ ašies atžvilgiu}   \\
+    \bottomrule
+  \end{tabular}
+  \vspace{16pt} % Adjust the space as needed
+  \caption{Funkcijų transformacijos, modifikuojant jos reikšmę}.
+  \label{tbl:after_transformations}
+\end{table*}
+
+\subsection{Pavyzdys}\label{sec:function_transformation_example}
+
+Pavaizduosime konkrečius pavyzdžius
+aprašytoms transformacijoms
+\hyperref[tbl:after_transformations]{\ref*{tbl:after_transformations}
+  lentelėje}. Tam naudosime jau anksčiau naudotą $f(x)=x^2$ funkciją.
+Pažiūrėsime, koks pokytis, kai nubrėžus $f(x)+2$,  $f(x)-2$,
+$2f(x)$,$\frac{1}{2}f(x)$,$-f(x)$. Šituos brėžinius rasite
+\hyperref[sec:function_transformation_example]{\pageref*{fig:function_transformation_example}
+  puslapyje}
+  
+\begin{figure*}[p]
+  \begin{fullwidth}
+    \centering
+    % First row
+    \hspace*{-205pt} % Adjust this value as needed
+    \includegraphics[width=0.32\linewidth]{./graphs/quadratic_func_primary.pdf}\hspace{5pt}
+    \includegraphics[width=0.25\linewidth]{./graphs/quadratic_func_transform_2.pdf}\hspace{5pt}
+    \includegraphics[width=0.32\linewidth]{./graphs/quadratic_func_transform_3.pdf}
+    \\\vspace{\baselineskip}
+
+    % Second row
+    \hspace*{-205pt} % Keep this value consistent with the first row
+    \includegraphics[width=0.3\linewidth]{./graphs/quadratic_func_transform_4.pdf}\hspace{5pt}
+    \includegraphics[width=0.3\linewidth]{./graphs/quadratic_func_transform_5.pdf}\hspace{5pt}
+    \includegraphics[width=0.3\linewidth]{./graphs/quadratic_func_transform_6.pdf}
+  \end{fullwidth}
+  \label{fig:function_transformation_example}
+\end{figure*}
 
 \section{Page Layout}\label{sec:page-layout}
 \subsection{Headings}\label{sec:headings}
