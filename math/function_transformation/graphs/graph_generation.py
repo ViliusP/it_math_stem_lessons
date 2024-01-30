@@ -186,14 +186,14 @@ plot_function_as_sets(X, Y, f, filename="functions_as_graphs_example1.pdf")
 
 
 def quadratic_formula(a=1, h=0, v=0):
-    return lambda x: a * (x - h)**2 + v
+    return lambda x: a * (x + h)**2 + v
 
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(),
-           label='$f(x) = x^2$', filename='quadratic_function_plot_example.pdf')
+           label='$f(x) = x^2$', filename='quadratic_function_plot_example.pdf', values_range=(-2, 15))
 
-plot_graph(domain=(-2, 6), func=quadratic_formula(h=2),
-           label='$f(x) = (x-2)^2$', filename='quadratic_func_lsh_2.pdf')
+plot_graph(domain=(-6, 2), func=quadratic_formula(h=2),
+           label='$f(x) = (x+2)^2$', filename='quadratic_func_lsh_2.pdf', values_range=(-2, 15))
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(v=2),
            label='$f(x) = x^2+2$', filename='quadratic_func_ush_2.pdf', values_range=(-2, 15))
@@ -222,3 +222,10 @@ plot_graph(domain=(-4, 4), func=quadratic_formula(v=-2),
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=-1),
            label='$-f(x) = -x^2$', filename='quadratic_func_transform_6.pdf',  values_range=(-15, 2), y_tick_step=2)
+
+# Horizontal shifts
+plot_graph(domain=(-2, 6), func=quadratic_formula(h=-2),
+           label='$f(x-2) = (x-2)^2$', filename='quadratic_func_transform_rshifted_2.pdf',  values_range=(-2, 15), y_tick_step=2)
+
+plot_graph(domain=(-6, 2), func=quadratic_formula(h=2),
+           label='$f(x+2) = (x+2)^2$', filename='quadratic_func_transform_lshifted_2.pdf',  values_range=(-2, 15), y_tick_step=2)
