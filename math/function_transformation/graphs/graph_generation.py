@@ -94,32 +94,41 @@ def plot_function_as_sets(X, Y, f, filename: str):
                     bbox_inches='tight')
 
 
-def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=None, y_tick_step=None):
+def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=None, y_tick_step=None, include_dashed_lines=True):
     with plt.xkcd():
         plt.rcParams['font.family'] = 'Uberhand Text Pro'
 
         fig, ax = plt.subplots()
 
-        # Slightly expand the domain for plotting
-        expanded_domain = [domain[0] - (domain[1] - domain[0]) * 0.05,
-                           domain[1] + (domain[1] - domain[0]) * 0.05]
-
-        # Generate X values from the expanded domain and compute Y values using the function
-        X_full = np.linspace(expanded_domain[0], expanded_domain[1], 400)
+        # Generate X values from the domain and compute Y values using the function
+        X_full = np.linspace(domain[0], domain[1], 1000)
         Y_full = func(X_full)
 
+        # Determine the visible range based on values_range
+        y_min, y_max = values_range if values_range else (min(Y_full), max(Y_full))
+        ax.set_ylim(y_min, y_max)
+
         # Plot the main part of the function
-        ax.plot(X_full, Y_full, label=label)
+        ax.plot(X_full, Y_full, label=label, color='blue')  # Ensure main plot is blue
 
-        # Calculate dash length based on the length of X_full and Y_full
-        dash_length = int(0.05 * len(X_full))
+        # Define Y-axis ticks
+        y_ticks = np.arange(y_min, y_max + 1, y_tick_step if y_tick_step is not None else tick_step)
 
-        # Add blue dashed lines at the beginning and end of the plot
-        ax.plot(X_full[:dash_length], Y_full[:dash_length],
-                linestyle='--', color='white', dashes=[3, 4])
-        ax.plot(X_full[-dash_length:], Y_full[-dash_length:],
-                linestyle='--', color='white', dashes=[3, 4])
+        # Add dashed lines at the start and end if include_dashed_lines is True
+        if include_dashed_lines:
+            # Find indices of the visible points
+            visible_indices = np.where((Y_full >= y_min) & (Y_full <= y_max))[0]
+            if len(visible_indices) > 0:
+                n_points = 40  # Number of points for the dashed lines
+                start_index = max(visible_indices[0] + n_points, 0)
+                end_index = min(visible_indices[-1] - n_points, len(X_full) - 1)
 
+                # Draw dashed lines for the first and last n visible points
+                ax.plot(X_full[visible_indices[0]:start_index], Y_full[visible_indices[0]:start_index], linestyle='--', color='white', alpha=0.5)
+                ax.plot(X_full[end_index:visible_indices[-1]], Y_full[end_index:visible_indices[-1]], linestyle='--', color='white', alpha=0.5)
+
+        ax.set_yticks([tick for tick in y_ticks if y_min <= tick <= y_max])
+        
         # Move left y-axis and bottom x-axis to zero
         ax.spines['bottom'].set_position('zero')
         ax.spines['left'].set_position('zero')
@@ -130,51 +139,30 @@ def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=Non
         ax.set_aspect('equal')
 
         # Make arrows with labels
-        ax.plot(1, 0, ls="", marker=">", ms=10, color="k",
+        ax.plot((1), (0), ls="", marker=">", ms=10, color="k",
                 transform=ax.get_yaxis_transform(), clip_on=False, zorder=5)
-        ax.text(1.1, 0, 'X', transform=ax.get_yaxis_transform(),
+        ax.text(1, 1, 'X', transform=ax.get_yaxis_transform(),
                 ha='center', va='center')
 
-        ax.plot(0, 1, ls="", marker="^", ms=10, color="k",
+        ax.plot((0), (1), ls="", marker="^", ms=10, color="k",
                 transform=ax.get_xaxis_transform(), clip_on=False, zorder=5)
-        ax.text(0, 1.1, 'Y', transform=ax.get_xaxis_transform(),
+        ax.text(1, 1, 'Y', transform=ax.get_xaxis_transform(),
                 ha='center', va='center')
 
-        # Set X-axis and Y-axis ticks using the same tick step, exclude zero
-        ax.set_xticks([tick for tick in np.arange(
-            domain[0], domain[1] + 1, tick_step) if tick != 0])
+        # Set X-axis ticks using the same tick step, exclude zero
+        ax.set_xticks([tick for tick in np.arange(domain[0], domain[1] + 1, tick_step) if tick != 0])
 
-        # Set Y-axis range if values_range is provided
-        if values_range:
-            ax.set_ylim(values_range)
-        else:
-            ax.set_ylim(min(Y_full), max(Y_full) + 0.1)  # Include a little extra space
-
-        # Determine Y-axis ticks
-        if y_tick_step is not None:
-            # Use the provided y_tick_step
-            min_y, max_y = ax.get_ylim()
-            y_ticks = np.arange(
-                round(min_y, -1), round(max_y, -1) + y_tick_step, y_tick_step)
-        else:
-            # Calculate y_tick_step or use a default value
-            y_ticks = np.arange(round(min(Y_full), -1),
-                                round(max(Y_full), -1) + 1, tick_step)
-
-        ax.set_yticks([tick for tick in y_ticks if tick != 0])
         # Display a single zero at the origin
         ax.text(-.5, -.75, '0', ha='center', va='center',
                 bbox=dict(boxstyle="round,pad=0.1", edgecolor="none", facecolor="white"), zorder=2)
 
         # Add a legend with a border and adjust its position
         legend = ax.legend(loc='upper center', frameon=True,
-                           bbox_to_anchor=(0.1, 1))
+                           bbox_to_anchor=(0.5, -0.1))
         legend.get_frame().set_edgecolor('black')
-
 
         # Save the figure before showing it
         plt.savefig(f'{GRAPHS_DIR}/{filename}', bbox_inches='tight')
-
 
 # Pre
 matplotlib.font_manager._load_fontmanager(try_read_cache=False)
@@ -208,29 +196,29 @@ plot_graph(domain=(-2, 6), func=quadratic_formula(h=2),
            label='$f(x) = (x-2)^2$', filename='quadratic_func_lsh_2.pdf')
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(v=2),
-           label='$f(x) = x^2+2$', filename='quadratic_func_ush_2.pdf')
+           label='$f(x) = x^2+2$', filename='quadratic_func_ush_2.pdf', values_range=(-2, 15))
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=-1),
-           label='$f(x) = -x^2$', filename='quadratic_func_flipped.pdf')
+           label='$f(x) = -x^2$', filename='quadratic_func_flipped.pdf', values_range=(-15, 2))
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=1/2),
-           label='$f(x) = \\frac{1}{2}x^2$', filename='quadratic_func_shrink_2.pdf')
+           label='$f(x) = \\frac{1}{2}x^2$', filename='quadratic_func_shrink_2.pdf', values_range=(-2, 15))
 
 # Example quadratics transformation usage
 plot_graph(domain=(-4, 4), func=quadratic_formula(),
-           label='$f(x) = x^2$', filename='quadratic_func_primary.pdf', values_range=(-2, 17), y_tick_step=2)
+           label='$f(x) = x^2$', filename='quadratic_func_primary.pdf', values_range=(-2, 15), y_tick_step=2)
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=2),
-           label='$2f(x)=2(x)^2$', filename='quadratic_func_transform_2.pdf',  values_range=(-2, 17), y_tick_step=2)
+           label='$2f(x)=2(x)^2$', filename='quadratic_func_transform_2.pdf',  values_range=(-2, 15), y_tick_step=2)
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(v=2),
-           label='$f(x)+2 = x^2+2$', filename='quadratic_func_transform_3.pdf',  values_range=(-2, 17), y_tick_step=2)
+           label='$f(x)+2 = x^2+2$', filename='quadratic_func_transform_3.pdf',  values_range=(-2, 15), y_tick_step=2)
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=.5),
-           label='$\\frac{1}{2}f(x) = \\frac{1}{2}x^2$', filename='quadratic_func_transform_4.pdf',  values_range=(-2, 17), y_tick_step=2)
+           label='$\\frac{1}{2}f(x) = \\frac{1}{2}x^2$', filename='quadratic_func_transform_4.pdf',  values_range=(-2, 15), y_tick_step=2)
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(v=-2),
-           label='$f(x)-2 = x^2-2$', filename='quadratic_func_transform_5.pdf',  values_range=(-2, 17), y_tick_step=2)
+           label='$f(x)-2 = x^2-2$', filename='quadratic_func_transform_5.pdf',  values_range=(-2, 15), y_tick_step=2)
 
 plot_graph(domain=(-4, 4), func=quadratic_formula(a=-1),
-           label='$-f(x) = -x^2$', filename='quadratic_func_transform_6.pdf',  values_range=(-2, 17), y_tick_step=2)
+           label='$-f(x) = -x^2$', filename='quadratic_func_transform_6.pdf',  values_range=(-15, 2), y_tick_step=2)
