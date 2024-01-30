@@ -164,6 +164,30 @@ def plot_graph(domain, func, label, filename: str, tick_step=2, values_range=Non
         # Save the figure before showing it
         plt.savefig(f'{GRAPHS_DIR}/{filename}', bbox_inches='tight')
 
+def plot_combined_lines():
+    with plt.xkcd():
+
+        # Define the points
+        points = [(-1, 1), (1, 1), (2, -2), (3, 0)]
+
+        # Create a figure and axis
+        fig, ax = plt.subplots()
+
+        # Plot each line segment
+        for i in range(len(points) - 1):
+            x_values = [points[i][0], points[i + 1][0]]
+            y_values = [points[i][1], points[i + 1][1]]
+            ax.plot(x_values, y_values, marker='o')
+
+        # Set labels and title (optional)
+        ax.set_xlabel('X-axis')
+        ax.set_ylabel('Y-axis')
+        ax.set_title('Combined Line Graph')
+
+    # Show the plot
+    plt.savefig(f'{GRAPHS_DIR}/exercise_4_plot', bbox_inches='tight')
+
+
 # Pre
 matplotlib.font_manager._load_fontmanager(try_read_cache=False)
 
@@ -229,3 +253,6 @@ plot_graph(domain=(-2, 6), func=quadratic_formula(h=-2),
 
 plot_graph(domain=(-6, 2), func=quadratic_formula(h=2),
            label='$f(x+2) = (x+2)^2$', filename='quadratic_func_transform_lshifted_2.pdf',  values_range=(-2, 15), y_tick_step=2)
+
+# Exercises
+plot_combined_lines()

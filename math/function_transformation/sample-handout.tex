@@ -15,13 +15,11 @@
 \usepackage{tikz-cd}
 \usepackage{pgfplots}
 
+\usepackage{tasks}
+
 \usepackage{booktabs}
-\usepackage{isotope}
 \usepackage{siunitx}
-\sisetup{
-  per-mode = fraction,
-  load-configurations = abbreviations,
-}
+
 
 \usepackage{graphicx} % allow embedded images
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
@@ -351,14 +349,19 @@ Paprasčiausia transformacija - apvertimas $OX$ ašies atžvilgiu.
     % First row
     \hspace*{-205pt} % Adjust this value as needed
     \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_primary.pdf}
+
     \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_2.pdf}\hspace{5pt}
+
     \includegraphics[width=0.25\linewidth]{./graphs/quadratic_func_transform_3.pdf}
     \\\vspace{\baselineskip}
 
     % Second row
     \hspace*{-205pt} % Keep this value consistent with the first row
+
     \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_4.pdf}\hspace{5pt}
+
     \includegraphics[width=0.24\linewidth]{./graphs/quadratic_func_transform_5.pdf}\hspace{5pt}
+
     \includegraphics[width=0.23\linewidth]{./graphs/quadratic_func_transform_6.pdf}
   \end{fullwidth}
   \label{fig:function_transformation_example}
@@ -372,26 +375,87 @@ ašimi.
 \begin{table}[!htpb]
   \centering
   \begin{tabular}{
-      S |
-      S[separate-uncertainty = true] |
-      S[table-format = 5]
+    l | % Left-aligned
+    >{\raggedleft\arraybackslash}p{3cm} | % Right-aligned with fixed width
+    r	% Right-aligned with fixed width
     }
     \toprule
-    Transformacija    & {Kaip pasikeičia $f(x)$ grafiko
-        taškai}
-                      & {Grafiko vizualinis pokytis}    \\
+    {Transformacija}  & {Kaip pasikeičia $f(x)$ grafiko taškai}
+                      & {Grafiko vizualinis pokytis}            \\
     \midrule
     {$f(x+d)$, $d>0$} & {$(a,b)\mapsto(a-d, b)$}
-                      & {Pasislenka į kairę per $d$}           \\
+                      & {Pasislenka į kairę per $d$}            \\
     {$f(x-d)$, $d>0$} & {$(a,b)\mapsto(a+d, b)$}
-                      & {Pasislenka į dešinę $d$}       \\
+                      & {Pasislenka į dešinę per $d$}           \\
     \bottomrule
   \end{tabular}
   \vspace{16pt} % Adjust the space as needed
-  \caption{Funkcijų transformacijos, modifikuojant jos argumentą $x$}.
+  \caption{Funkcijų transformacijos, modifikuojant jos argumentą $x$}
   \label{tbl:after_transformations}
 \end{table}
 
+Vėl paanalizuosime funkciją $f(x)$ ir poslinkis, kai pridedame skaičių prie
+argumento
+arba atimame skaičių prie argumento. Dvi skirtingas transformacijas -
+poslinkius $OX$ ašies kryptimi rasite dešinėje pusėje,
+\hyperref[fig:quadratic_func_transform_lshifted_2]{paveiksle
+  \ref*{fig:quadratic_func_transform_lshifted_2}} ir
+\hyperref[fig:quadratic_func_transform_rshifted_2]{paveiksle
+  \ref*{fig:quadratic_func_transform_rshifted_2}}. Pažvelgus į grafikus, turėtų
+atrodyti neintuityviai, prieštaringai, kad padidinus argumentą $x$ dviem,
+grafikas pasislinko į kairę pusę per dvi vietas. Šiuo atveju kiekvienas taškas
+$(a;b)$ tapo $(a-2;b)$. Tokia pat situacija su kita transformacija. Atėmus 2
+prie argumento $x$, grafikas pasislinko į dešinę pusę.
+
+\begin{marginfigure}%
+
+  \includegraphics[width=\linewidth]{./graphs/quadratic_func_transform_lshifted_2.pdf}
+  \caption{$f(x)=x^2$ funkcijos transformacija $f(x+2)=(x+2)^2$}
+  \label{fig:quadratic_func_transform_lshifted_2}
+\end{marginfigure}
+
+\begin{marginfigure}%
+
+  \includegraphics[width=\linewidth]{./graphs/quadratic_func_transform_rshifted_2.pdf}
+  \caption{$f(x)=x^2$ funkcijos transformacija $f(x-2)=(x-2)^2$}
+  \label{fig:quadratic_func_transform_rshifted_2}
+\end{marginfigure}
+
+Tad šitą principą reiktų įsiminti:
+\begin{center}
+  \textbf{Prie argumento pridedant, graifkas juda į kairę,\\ atimant iš
+    argumento, grafikas juda į dešinę}.
+\end{center}
+
+Grafikų transformacijas galima jungti tarpusavyje: apversti, paslinkti į dešinę
+per $n$, nuleisti žemyn per $m$, ištempti. Pavyzdžiui turime tiesinę funkciją
+$$f(x)=x$$
+tai šią galima paslinkti į kairę per 2, pakelti per 5, apversti ir
+ištempti 3 vienetais. Tokia transformacija užsirašys šitaip:
+
+$$-3f(x+3)+5=-3(x-3)+5$$
+
+Tokius atvejus pasižiūrėsime toliau, uždaviniuose.
+\section{Uždaviniai}\label{sec:exercises}
+
+\begin{enumerate}
+  \item Funkcija $f(x)$ paslinkta per 3 vienetus į kairę ir 4 vienetus aukštyn.
+        Paraškite naujosios funkcijos reiškinį.
+  \item Turime pradinę funkciją $f(x)=-3x-6$, šiai funkcijai buvo atlikta
+        kombinacija transformacijų ir gauta $g(x)=x+2$. Nurodykite kokios
+        transformacijos buvo atlitkos funkcijai $f(x)$.
+  \item (\textit{Iš išplėstinio kurso knygos, 361 užduotis}) Parašykite
+        funkcijos $y=g(x)$ reiškinį $g(x)$:
+
+        \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+          \task $g(x)=f(x)-2$,\\ $f(x)=7x^2$;
+          \task $g(x)=f(x-3)$,\\  $f(x)=\frac{9}{x}$;
+          \task $g(x)=f(x-2)+1$,\\  $f(x)=-\frac{2}{x}$;
+          \task $g(x)=f(x+2)-3$,\\ $f(x)=\frac{1}{3}x^2$;
+        \end{tasks}
+\end{enumerate}
+
+\clearpage
 \section{Page Layout}\label{sec:page-layout}
 \subsection{Headings}\label{sec:headings}
 This style provides \textsc{a}- and \textsc{b}-heads (that is,
