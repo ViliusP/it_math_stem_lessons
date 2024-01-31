@@ -277,11 +277,16 @@ def plot_quadratic_functions():
         ax.set_xlim(-6, 6)
         ax.set_ylim(-5, 5)
 
-        # Add arrowheads
+        # Make arrows with labels
         ax.plot((1), (0), ls="", marker=">", ms=10, color="k",
                 transform=ax.get_yaxis_transform(), clip_on=False, zorder=5)
+        ax.text(1, 1, 'X', transform=ax.get_yaxis_transform(),
+                ha='center', va='center')
+
         ax.plot((0), (1), ls="", marker="^", ms=10, color="k",
                 transform=ax.get_xaxis_transform(), clip_on=False, zorder=5)
+        ax.text(1, 1, 'Y', transform=ax.get_xaxis_transform(),
+                ha='center', va='center')
 
         # Move left y-axis and bottom x-axis to zero
         ax.spines['bottom'].set_position('zero')
@@ -294,6 +299,63 @@ def plot_quadratic_functions():
 
         # Save the plot to a file
         plt.savefig(f'{GRAPHS_DIR}/exercise_6_two_functions.pdf', bbox_inches='tight')
+
+
+# Convert degrees to radians for plotting
+def plot_sine_wave():
+    with plt.xkcd():
+        plt.rcParams.update({
+            'grid.linewidth': 0.5,
+            'axes.grid': True,
+        })
+        
+        # Generate x values from -90° to 360° in degrees, convert to radians
+        x_degrees = np.linspace(-360, 450, 1000)
+        x_radians = x_degrees * np.pi / 180  # Convert degrees to radians
+        y_values = np.sin(x_radians)
+
+        # Create the figure and axis
+        fig, ax = plt.subplots()
+
+        # Plot the sine wave
+        ax.plot(x_degrees, y_values, label='$f(x) = \sin x$')
+
+        # Set ticks to step of 90, remove zero, and the largest ticks
+        x_ticks = [-360, -270,-180,-90, 90, 180, 270, 360]
+        y_ticks = [-1, 0, 1]
+        ax.set_xticks(x_ticks)
+        ax.set_xticklabels([f'{int(tick)}°' for tick in x_ticks], fontsize=10)
+        ax.set_yticks(y_ticks)
+
+        # Set limits for x and y axes
+        ax.set_xlim(-360, 450)
+        ax.set_ylim(-1.25, 1.25)
+
+        # Move left y-axis and bottom x-axis to zero
+        ax.spines['left'].set_position('zero')
+        ax.spines['bottom'].set_position('zero')
+        ax.spines['right'].set_color('none')
+        ax.spines['top'].set_color('none')
+
+        # Make arrows with labels
+        ax.plot((1), (0), ls="", marker=">", ms=10, color="k",
+                transform=ax.get_yaxis_transform(), clip_on=False, zorder=5)
+        ax.text(1, .125, 'X', transform=ax.get_yaxis_transform(),
+                ha='center', va='center')
+
+        ax.plot((0), (1), ls="", marker="^", ms=10, color="k",
+                transform=ax.get_xaxis_transform(), clip_on=False, zorder=5)
+        ax.text(20, 1, 'Y', transform=ax.get_xaxis_transform(),
+                ha='center', va='center')
+
+        ax.text(250, 1, '$f(x) = \sin x$', fontsize=14, verticalalignment='center', horizontalalignment='left')
+
+        # Add grid
+        ax.grid(True, which='both')
+
+        # Save the plot to a file
+        plt.savefig(f'{GRAPHS_DIR}/exercise_8_sin_wave.pdf', bbox_inches='tight')
+       
 
 
 # Pre
@@ -367,3 +429,5 @@ plot_graph(domain=(-6, 2), func=quadratic_formula(h=2),
 plot_combined_lines()
 # 6
 plot_quadratic_functions()
+# 8
+plot_sine_wave()
