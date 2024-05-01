@@ -1,0 +1,165 @@
+% !TEX root = ./equation_test_2.tex
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+\mathchardef\period=\mathcode`.
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{siunitx}
+
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{lygtys | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{lygtys | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - lygtys}
+\author{Vilius Paliokas}
+\date{2024/05/010}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Išspręskite lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task \textit{(1 taškas)} $\frac{1}{2}x^3-\frac{1}{50}=50$;
+                  \task \textit{(1 taškas)} $\frac{1}{3}(5x-7)^3=-9$;
+                  \task \textit{(1 taškas)} $\frac{1}{5}\sqrt{x}+6=1$;
+                  \task \textit{(2 taškai)} $3-\frac{1}{3}\sqrt{x^2-x+7}=2$;
+                  \task \textit{(1 taškai)} $2\cdot5^x+5=55$;
+                  \task \textit{(2 taškas)} $\frac{5^{25-x^2+2x}}{25^x}=1$;
+                  \task \textit{(1 taškai)} $\log_3(2x-4)=\log_3(4x)$;
+                  \task \textit{(2 taškai)} $\lg(x-3)+\lg(x)=\lg4+1$;
+                  \task \textit{(1 taškai)} $\frac{1}{4}\cdot 4^{x+1}=201$;
+            \end{tasks}
+
+      \item Raskite abcises taškų, kuriuose susikerta funkcijų $f(x)=3\lg{x}$ ir $g(x)=\lg{x}-6$ grafikai.
+      \item Su kuria $x$ reikšme funkcijos $f(x)=8^{3x-4}$ reikšmė lygi $4$.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\vspace*{12mm}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Išspręskite lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task \textit{(1 taškas)} $\frac{1}{2}x^3-\frac{1}{50}=50$;
+                  \task \textit{(1 taškas)} $\frac{1}{3}(5x-7)^3=-9$;
+                  \task \textit{(1 taškas)} $\frac{1}{5}\sqrt{x}+6=1$;
+                  \task \textit{(2 taškai)} $3-\frac{1}{3}\sqrt{x^2-x+7}=2$;
+                  \task \textit{(1 taškai)} $2\cdot5^x+5=55$;
+                  \task \textit{(2 taškas)} $\frac{5^{25-x^2+2x}}{25^x}=1$;
+                  \task \textit{(1 taškai)} $\log_3(2x-4)=\log_3(4x)$;
+                  \task \textit{(2 taškai)} $\lg(x-3)+\lg(x)=\lg4+1$;
+                  \task \textit{(1 taškai)} $\frac{1}{4}\cdot 4^{x+1}=201$;
+            \end{tasks}
+
+      \item Raskite abcises taškų, kuriuose susikerta funkcijų $f(x)=3\lg{x}$ ir $g(x)=\lg{x}-6$ grafikai.
+      \item Su kuria $x$ reikšme funkcijos $f(x)=8^{3x-4}$ reikšmė lygi $4$.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\vspace*{12mm}
+
+\subsection*{3 variantas}
+
+\begin{enumerate}
+      \item Išspręskite lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task \textit{(1 taškas)} $\frac{1}{2}x^3-\frac{1}{50}=50$;
+                  \task \textit{(1 taškas)} $\frac{1}{3}(5x-7)^3=-9$;
+                  \task \textit{(1 taškas)} $\frac{1}{5}\sqrt{x}+6=1$;
+                  \task \textit{(2 taškai)} $3-\frac{1}{3}\sqrt{x^2-x+7}=2$;
+                  \task \textit{(1 taškai)} $2\cdot5^x+5=55$;
+                  \task \textit{(2 taškas)} $\frac{5^{25-x^2+2x}}{25^x}=1$;
+                  \task \textit{(1 taškai)} $\log_3(2x-4)=\log_3(4x)$;
+                  \task \textit{(2 taškai)} $\lg(x-3)+\lg(x)=\lg4+1$;
+                  \task \textit{(1 taškai)} $\frac{1}{4}\cdot 4^{x+1}=201$;
+            \end{tasks}
+
+      \item Raskite abcises taškų, kuriuose susikerta funkcijų $f(x)=3\lg{x}$ ir $g(x)=\lg{x}-6$ grafikai.
+      \item Su kuria $x$ reikšme funkcijos $f(x)=8^{3x-4}$ reikšmė lygi $4$.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
