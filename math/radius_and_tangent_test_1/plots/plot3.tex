@@ -8,6 +8,10 @@
     \coordinate (A) at ({3*cos(30)}, {3*sin(30)});  % First radius, 30 degrees
     \coordinate (C) at ({3*cos(110)}, {3*sin(110)}); % Second radius, 110 degrees
     
+    % Calculate intersection points on the smaller circle
+    \coordinate (A') at ({1.5*cos(30)}, {1.5*sin(30)}); % Intersection of first radius with smaller circle
+    \coordinate (B') at ({1.5*cos(110)}, {1.5*sin(110)}); % Intersection of second radius with smaller circle
+
     % Draw radius
     \draw[line width=0.5pt] (O) -- (A);
     \draw[line width=0.5pt] (O) -- (C);
@@ -23,5 +27,6 @@
     % Mark the center of the circle with a dot
     \fill (O) circle (2pt);
     \node at (O) [below=4pt] {$O$}; % Move the label slightly below
-
+    
+    \draw[line width=2.5pt] (A') arc[start angle=30, end angle=110, radius=1.5cm];
 \end{tikzpicture}

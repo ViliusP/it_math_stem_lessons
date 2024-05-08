@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=0]
     % Draw the outer circle with radius 3
     \draw (0,0) circle (3cm);
     
@@ -32,8 +32,8 @@
     \node at (D) [below] {$D$};
     
     % Bold arcs between AC and DB
-    \draw[line width=2pt] (A) arc[start angle=0,end angle=108,radius=3cm];
-    \draw[line width=2pt] (D) arc[start angle=288,end angle=180,radius=3cm];
+    \draw[line width=2.5pt] (A) arc[start angle=0,end angle=108,radius=3cm];
+    \draw[line width=2.5pt] (D) arc[start angle=288,end angle=180,radius=3cm];
 
     % Draw angles
     \pic [draw, "$108^\circ$", angle eccentricity=1.75, angle radius=0.5cm] {angle = B--O--D};

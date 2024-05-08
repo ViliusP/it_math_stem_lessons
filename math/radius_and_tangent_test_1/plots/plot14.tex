@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=0]
     % Circle parameters
     \def\r{3} % radius of the circle
     \def\q{5.5} % distance from the center to the external point
@@ -42,11 +42,11 @@
     \node at (O) [left] {$O$};
 
     % Label the external point and tangent points
-    \node at (P) [right] {$B$};
-    \node at (T1) [above] {$C$};
-    \node at (T2) [below] {$A$};
+    \node at (P) [right] {$P$};
+    \node at (T1) [above] {$M$};
+    \node at (T2) [below] {$N$};
 
-    \pic [draw, "$120^\circ$", angle radius=0.35cm, angle eccentricity=2.25] {angle = T2--O--T1};
+    \pic [draw, "$120^\circ$", angle radius=0.35cm, angle eccentricity=2.5] {angle = T2--O--T1};
 
 
 \end{tikzpicture}
