@@ -1,0 +1,37 @@
+\begin{tikzpicture}[baseline=0]
+    % Circle parameters
+    \def\r{3} % radius of the circle
+    \def\q{4.5} % distance from the center to the external point
+    \pgfmathsetmacro{\x}{\r^2/\q} % x coordinate of the point of tangency
+    \pgfmathsetmacro{\y}{\r*sqrt(\q^2-\r^2)/\q} % y coordinate of the point of tangency
+
+    % Define points
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (\q,0); % External point
+    \coordinate (T1) at (\x,\y); % Tangent point 1
+    \coordinate (T2) at (\x,-\y); % Tangent point 2
+
+    % Draw the circle
+    \draw[line width=.75pt] (0,0) circle (\r);
+
+    % Draw radii and tangent lines extended
+    \draw[line width=0.75pt] (P) -- ($(P)!1.5!(T1)$); % Extended
+    \draw[line width=0.75pt] (P) -- ($(P)!1.5!(T2)$); % Extended
+
+    % Calculate start and end angles for the arc
+    \pgfmathsetmacro{\startAngle}{atan2(\y,\x)}
+    \pgfmathsetmacro{\endAngle}{-atan2(\y,\x) + 360}
+
+    % Draw larger arc between tangent points and bold it
+    \draw[line width=1.5pt] (\x,\y) arc[start angle=\startAngle, end angle=\endAngle, radius=\r];
+
+    % Draw angle x between the tangent lines
+    \pic [draw, "$x$", angle radius=.5cm, angle eccentricity=1.5] {angle = T1--P--T2};
+
+    % Label the external point and tangent points
+    \node at (P) [right=5pt] {$N$};
+
+    % Position for the 260 degree label on the arc
+    \pgfmathsetmacro{\labelAngle}{(\startAngle+\endAngle)/2}
+    \node at ({\r*cos(\labelAngle) - 0.05},{\r*sin(\labelAngle)}) [left] {\large $260^\circ$};
+\end{tikzpicture}

@@ -1,0 +1,35 @@
+\begin{tikzpicture}[baseline=0]
+    % Draw the outer circle with radius 3
+    \draw (0,0) circle (3cm);
+    
+    % Define center point
+    \coordinate (O) at (0,0);
+    
+    % Define points for the diameters with a different rotation
+    \coordinate (A) at ({3*cos(20)}, {3*sin(20)});   % Start at 20 degrees
+    \coordinate (B) at ({3*cos(200)}, {3*sin(200)}); % Opposite to A
+    \coordinate (C) at ({3*cos(140)}, {3*sin(140)}); % 120 degrees from A
+    \coordinate (D) at ({3*cos(320)}, {3*sin(320)}); % Opposite to C
+    
+    % Draw diameters
+    \draw[line width=1.05pt] (A) -- (B);
+    \draw[line width=1.05pt] (C) -- (D);
+    
+    % Mark the center of the circle with a dot and label
+    \fill (O) circle (2pt);
+    \node at (O) [above right=4pt and 3pt] {$O$}; % Move the label slightly above and to the right
+
+    % Label the points
+    \node at (A) [right] {$A$};
+    \node at (B) [left] {$B$};
+    \node at (C) [left] {$C$};
+    \node at (D) [right] {$D$};
+
+    % Bold arcs between AC and DB
+    \draw[line width=2pt] (A) arc[start angle=20,end angle=140,radius=3cm];
+    \draw[line width=2pt] (D) arc[start angle=320,end angle=200,radius=3cm];
+    
+    % Draw angle with question mark
+    \pic [draw, angle radius=0.75cm, angle eccentricity=1.25, "$?$"] {angle = D--O--A};
+
+\end{tikzpicture}
