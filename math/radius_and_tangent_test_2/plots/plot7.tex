@@ -1,0 +1,52 @@
+\begin{tikzpicture}[baseline=0] % Adjust the scale as needed
+    % Circle parameters
+    \def\r{3} % radius of the circle
+    \def\q{5.5} % distance from the center to the external point
+    \def\angle{125} % Rotation angle for the setup (corrected to positive for easier understanding)
+
+    % Calculate coordinates for the tangent points, considering rotation
+    \pgfmathsetmacro{\x}{\r^2/\q} % x coordinate of the point of tangency
+    \pgfmathsetmacro{\y}{\r*sqrt(\q^2-\r^2)/\q} % y coordinate of the point of tangency
+
+    % Define points
+    \coordinate (O) at (0,0); % Center of the circle
+    \coordinate (A) at ({\x*cos(\angle/2) - \y*sin(\angle/2)}, {\x*sin(\angle/2) + \y*cos(\angle/2)});; % Point on the left aligned with the center
+    \coordinate (A2) at ({\x*cos(-55-\angle/2) - \y*sin(-55-\angle/2)}, {\x*sin(-55-\angle/2) + \y*cos(-55-\angle/2)});; % Point on the left aligned with the center
+
+    \coordinate (C) at ({\x*cos(\angle) - \y*sin(\angle)}, {\x*sin(\angle) + \y*cos(\angle)}); % Tangent point 1
+    \coordinate (D) at ({\x*cos(\angle) + \y*sin(\angle)}, {\x*sin(\angle) - \y*cos(\angle)}); % Tangent point 2
+
+    % Draw the circle with radius 3
+    \draw[line width=.75pt] (0,0) circle (\r);
+
+    % Draw lines
+    \draw[line width=1.25pt, name path=radius] (O) -- (A);
+    \draw[line width=1.25pt, name path=secant] (C) -- (D);
+    \draw[line width=1.25pt, name path=r2] (O) -- (C);
+    \draw[line width=1.25pt, name path=r3] (O) -- (D);
+    \draw[line width=1.25pt, name path=r3] (O) -- (A2);
+
+
+    % Calculate and mark intersection point
+    \path [name intersections={of=radius and secant, by=E}];
+    \node [label=-20:$K$] at (E) {};
+    \fill (E) circle (2pt);
+
+    % % Adding tick marks at 0.35cm above and below E on the secant
+    % % Lower tick mark (closer to D)
+    % \draw[thick] ($(E)!1.4cm!13:(D)$) -- ($(E)!1.4cm!-13:(D)$);
+    % % Upper tick mark (closer to C)
+    % \draw[thick] ($(E)!1.4cm!13:(C)$) -- ($(E)!1.4cm!-13:(C)$);
+    
+    % Mark the center of the circle with a dot
+    \fill (O) circle (2pt);
+    \node at (O) [right] {$O$};
+    \fill (A) circle (2pt);
+    \node at (A) [above] {$C$};
+    \fill (C) circle (2pt);
+    \node at (C) [left] {$B$};
+    \fill (D) circle (2pt);
+    \node at (D) [above right] {$D$};
+    \fill (A2) circle (2pt);
+    \node at (A2) [below] {$A$};
+\end{tikzpicture}

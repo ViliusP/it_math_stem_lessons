@@ -1,0 +1,28 @@
+\begin{tikzpicture}[baseline={(0,2.5)}, scale=1, rotate=20, use background]
+    \tkzSetUpLine[color=black, thick]
+    \tikzset{circle style/.style = {line style}}
+
+    % Define triangle vertices
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3.5,0);
+    \coordinate (C) at (4,3.5);
+
+    \tkzDefCircle[in](A,B,C)
+    \tkzGetPoint{O} \tkzGetLength{rIN}
+    \tkzDrawCircle[R](O,\rIN pt)
+    \tkzDrawPolygon(A,B,C)
+
+    \tkzInterLC[R](A,B)(O,\rIN) \tkzGetPoints{K'}{K}
+    \tkzInterLC[R](A,C)(O,\rIN) \tkzGetPoints{L'}{L}
+    \tkzInterLC[R](B,C)(O,\rIN) \tkzGetPoints{J'}{J}
+
+    \tkzDrawPoints(K,L, J)
+    \tkzLabelPoints[above](K)
+    \tkzLabelPoints[above=2pt](L)
+    \tkzLabelPoints[above=2pt](J)
+    
+    \tkzDrawPoints(A,B, C)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[above=2pt](B)
+    \tkzLabelPoints[above=2pt](C)
+\end{tikzpicture}
