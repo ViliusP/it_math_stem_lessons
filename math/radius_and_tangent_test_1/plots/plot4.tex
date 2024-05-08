@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+    % Draw the outer circle with radius 3
+    \draw (0,0) circle (3cm);
+    
+    % Define center point
+    \coordinate (O) at (0,0);
+    
+    % Define points for the diameters
+    \coordinate (A) at (3,0);   % End of first diameter on the right
+    \coordinate (B) at (-3,0);  % End of first diameter on the left
+    \coordinate (C) at ({3*cos(108)}, {3*sin(108)});  % End of second diameter
+    \coordinate (D) at ({3*cos(288)}, {3*sin(288)});  % Opposite end of second diameter
+    
+    % Draw diameters
+    \draw[line width=.75pt] (A) -- (B);
+    \draw[line width=.75pt] (C) -- (D);
+    
+    % Mark the center of the circle with a dot and label
+    \fill (O) circle (2pt);
+    \node at (O) [above right=4pt and 3pt] {$O$}; % Move the label slightly above and to the right
+    
+    % Draw points at the ends of the diameters
+    \fill (A) circle (2pt);
+    \fill (B) circle (2pt);
+    \fill (C) circle (2pt);
+    \fill (D) circle (2pt);
+
+    % Label the points
+    \node at (A) [right] {$A$};
+    \node at (B) [left] {$B$};
+    \node at (C) [above] {$C$};
+    \node at (D) [below] {$D$};
+    
+    % Bold arcs between AC and DB
+    \draw[line width=2pt] (A) arc[start angle=0,end angle=108,radius=3cm];
+    \draw[line width=2pt] (D) arc[start angle=288,end angle=180,radius=3cm];
+
+    % Draw angles
+    \pic [draw, "$108^\circ$", angle eccentricity=1.75, angle radius=0.5cm] {angle = B--O--D};
+\end{tikzpicture}

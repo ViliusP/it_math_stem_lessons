@@ -1,0 +1,34 @@
+\begin{tikzpicture}
+    % Draw the circle with radius 3
+    \draw (0,0) circle (3cm);
+    
+    % Define points
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (3,0);
+    \coordinate (B) at ({-3*cos(60)}, {-3*sin(60)}); % New diameter end opposite to A
+    \coordinate (C) at ({3*cos(60)}, {3*sin(60)}); % The remaining radius end
+    
+    % Draw diameter
+    \draw[line width=1.05pt] (O) -- (A);
+    \draw[line width=1.05pt] (O) -- (B); % Extend to the opposite side to form the diameter
+    
+    % Draw radius
+    \draw[line width=1.05pt] (O) -- (C);
+    
+    % Draw chord
+    \draw[line width=1.05pt] (A) -- (C);
+
+    % Label the points
+    \node at (A) [right] {$C$};
+    \node at (B) [below left] {$A$};
+    \node at (C) [above] {$B$};
+
+    % Mark the center of the circle with a dot
+    \fill (O) circle (2pt);
+    \node at (O) [above=4pt] {$O$}; % Move the label slightly below
+    
+    % Draw angle at the center
+    \pic [draw, "$x$", angle eccentricity=1.5, angle radius=.5cm] {angle = B--O--A};
+
+
+\end{tikzpicture}

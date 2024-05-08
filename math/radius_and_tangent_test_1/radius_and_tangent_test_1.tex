@@ -1,0 +1,174 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=3cm, right=3cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+
+% Lithuanian language
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% ----------------------------------
+
+% Tikz 
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usetikzlibrary{intersections, through}
+\usetikzlibrary{calc}
+% -----------------------------------
+
+% Layout
+\usepackage{fancyhdr}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+% German these -> ""
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+% ----------------------------------------------------
+
+% Lithuanian math things 
+\usepackage{amsmath,amssymb}
+\usepackage{icomma}
+\usepackage{siunitx}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+% -----------------------------------------------------------
+
+% Utilities
+\usepackage{import}
+% ----------------------------
+
+\usepackage{kantlipsum}   % Dummy text
+
+% Meta data
+\title{Kontrolinis darbas - spindulys ir liestinė}
+\author{Vilius Paliokas}
+\date{2024/05/08}
+% -----------------------------------------------
+
+% Fancy header
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{Spindulio ir liestinės savybės | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{Spindulio ir liestinės savybės | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+% -----------------------------------------------
+
+\begin{document}
+% First page layout
+\newcommand\blankpage{%
+      \null
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \newpage
+}
+
+\thispagestyle{fancy}
+% -------------------------
+
+\subsection*{1 variantas}
+\vspace*{5mm}
+
+\subsubsection*{1 užduotis}
+
+\begin{minipage}[t]{0.28\textwidth}
+      \resizebox{\linewidth}{!}{%
+            \subimport{plots/}{plot1.tex}
+      }
+      \centering
+\end{minipage}\hfill
+\begin{minipage}{0.69\textwidth}
+
+      (\textit{1 taškas}) Paryškinto lanko dydis yra yra $70^\circ$.
+      Apskaičiuokite kampo $x$
+      dydį.
+\end{minipage}
+
+\subsubsection*{2 užduotis}
+
+\begin{minipage}[t]{0.28\textwidth}
+      \resizebox{\linewidth}{!}{%
+            \subimport{plots/}{plot3.tex}
+      }
+      \centering
+\end{minipage}\hfill
+\begin{minipage}{0.69\textwidth}
+      Taškas $O$ yra abiejų pavaizduotų apskritimų centras. Didžiojo
+      apskritimo ilgis lygus $36$. Mažojo apskritimo spindulys yra
+      dvigubai mažesnis už didžiojo. Apskaičiuokite paryškinto
+      lanko ilgį, jei $\angle AOB = 80^\circ$.
+\end{minipage}
+
+\subsubsection*{3 užduotis}
+
+\begin{minipage}[t]{0.28\textwidth}
+      \resizebox{\linewidth}{!}{%
+            \subimport{plots/}{plot4.tex}
+      }
+      \centering
+\end{minipage}\hfill
+\begin{minipage}{0.69\textwidth}
+      Taškas $O$ yra abiejų pavaizduotų apskritimų centras. Didžiojo
+      apskritimo ilgis lygus $36$. Mažojo apskritimo spindulys yra
+      dvigubai mažesnis už didžiojo. Apskaičiuokite paryškinto
+      lanko ilgį, jei $\angle AOB = 80^\circ$.
+\end{minipage}
+
+\subsubsection*{4 užduotis}
+
+\begin{minipage}[t]{0.28\textwidth}
+      \resizebox{\linewidth}{!}{%
+            \subimport{plots/}{plot12.tex}
+      }
+      \centering
+\end{minipage}\hfill
+\begin{minipage}{0.69\textwidth}
+      $AC$ ir $AD$ yra apskritimo, kurio centras $B$, liestinės. 
+      Apskaičiuokite atkarpos $BA$ ilgį, jei AB = 15, AC = 12. 
+\end{minipage}
+
+\subsubsection*{5 užduotis}
+
+\begin{minipage}[t]{0.28\textwidth}
+      \resizebox{\linewidth}{!}{%
+            \subimport{plots/}{plot6.tex}
+      }
+      \centering
+\end{minipage}\hfill
+\begin{minipage}{0.69\textwidth}
+      Keturkampis $ABCO$ yra kvadratas. Taškas $O$ - apskritimo,
+      kurio spindulys lygus kvadrato kraštinei, centras.
+      Apskritimo spindulio ilgis lygus $6$.
+      Apskaičiuokite atkarpos $AC$ ilgį
+\end{minipage}
+
+\vfill
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+
+\end{document}
