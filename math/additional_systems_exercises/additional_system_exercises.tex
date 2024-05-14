@@ -1,0 +1,212 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+\usepackage{afterpage}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{+uždaviniai}
+% L for Left, you can also use R for Right or C for Center
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Tekstiniai egzaminų uždaviniai}
+\author{Vilius Paliokas}
+\date{2024/05/12}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\newcommand\blankpage{%      \null
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \newpage}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\begin{enumerate}
+      \item \textit{(ROL20191112)} Raskite visus lygčių sistemos
+            realiuosius sprendinius $(x,y)$.
+
+            $\left\{\begin{aligned}
+                        2x+3\{y\} & = -4,5 \\
+                        6\{x\}+7y & = 8,9
+                  \end{aligned}\right.$
+
+            Pastaba. Kiekvienam realiajam skaičiui $a$ didžiausias sveikasis skaičius,
+            neviršijantis $a$, vadinamas skaičiaus $a$ sveikąja dalimi ir žymimas $[a]$, o
+            skaičius a - $[a]$ vadinamas skaičiaus $a$ trupmenine dalimi ir žymimas
+            $\{a\}$.
+
+      \item \textit{(ROL20220910)} Raskite lygčių sistemos
+
+            $\left\{\begin{aligned}
+                        ab+c+d & = 0 \\
+                        bd+d+a & = 8 \\
+                        cd+a+b & =1  \\
+                        da+b+c & =7
+                  \end{aligned}\right.$
+
+            visus realiuosius sprendinius $(a,b,c,d)$.
+
+      \item \textit{(ROL20200910)} Raskite lygčių sistemos
+
+            $\left\{\begin{aligned}
+                         & x^2+3xy-3x = -27 \\
+                         & y^2-xy-3y = 25
+                  \end{aligned}\right.$
+
+            visus realiuosius sprendinius $(x, y)$.
+
+      \item \textit{(ROL20211112)} Raskite lygčių sistemos
+
+            $\left\{\begin{aligned}
+                         & x^2+y^2 = x+3y                 \\
+                         & x^4 + y^4 = \frac{(x+3y)^2}{2}
+                  \end{aligned}\right.$
+
+            visus realiuosius sprendinius $(x, y)$.
+
+      \item \textit{(UOL200811)} Metai, įėję į istoriją kaip spaudos išradimo metai, užrašomi keturiais
+            skaitmenimis. Šimtų skaitmuo yra lygus dešimčių ir tūkstančių skaitmenų sumai;
+            vienetų skaitmuo yra vienetu mažesnis už dešimčių ir šimtų skaitmenų sumą.
+            Jeigu ieškomąjį keturženklį skaičių padalintume iš dvigubos jo skaitmenų sumos,
+            tai gautume dalmenį 51 ir liekaną 8, o jeigu prie ieškomojo skaičiaus pridėtume
+            4905, tai gautoji suma būtų skaičius, kuriame ieškomojo skaičiaus skaitmenys
+            surašyti atvirkštine tvarka. Kokiais metais išrasta spauda?
+
+      \item \textit{(G1)} Išspręskite tiesinių lygčių sistema naudojantis elementariaisiais pertvarkiais:
+
+            $\left\{\begin{aligned}
+                        2x_1 & -x_2 & +x_3  & = 2 \\
+                        x_1  & -x_2 & +2x_3 & = 1 \\
+                        3x_1 &      & -4x_3 & =2  \\
+                        2x_1 & +x_2 & -3x_3 & =4
+                  \end{aligned}\right.$
+
+            Galimi tokie elementarūs petvarkymai:
+
+            \begin{enumerate}
+                  \item bet kurios eilutės elementus galima padauginti arba padalinti iš skaičiaus,
+                        nelygaus nuliui;
+                  \item bet kurią eilutę galima pakeisti, pridėjus prie jos kitą eilutę, padaugintą iš
+                        skaičiaus, nelygaus nuliui;
+                  \item nulinę eilutę, jei visi jos nariai lygūs nuliui ir laisvasis narys už brūkšnio
+                        taip pat lygus nuliui, galime atmesti;
+                  \item eilutes galima sukeisti vietomis.
+            \end{enumerate}
+
+      \item \textit{(G2)} Išspręskite tiesinių lygčių sistema naudojantis elementariaisiais pertvarkiais:
+
+            $\left\{\begin{aligned}
+                        2x_1 & +x_2-x_3 +4x_4    = 3 \\
+                        x_1  & -x_2+2x_3 - 2x_4 = 1  \\
+                        3x_1 & +x_3  +2x_4  =5
+                  \end{aligned}\right.$
+
+      \item \textit{(G3)} Išspręskite tiesinių lygčių sistema naudojantis elementariaisiais pertvarkiais:
+
+            $\left\{\begin{aligned}
+                        2x_1 & +x_2-x_3 +4x_4    = 5 \\
+                        2x_2 & + x_3 + x_4 = 2       \\
+                        x_1  & + x_2 +x_3  +x_4  =3  \\
+                        3x_1 & -x_3  +4x_4  =6
+                  \end{aligned}\right.$
+
+            \pagebreak
+
+      \item \textit{(IBLH)} Suraskite $a$ ir $b$ reikšmes, su kuriomis lygčių sistema
+
+            $\left\{\begin{aligned}
+                        x-3z         & = -2 \\
+                        -3x + y + 6z & = 3  \\
+                        2x-2y+(a-4)z & =b-3
+                  \end{aligned}\right.$
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=4mm](3)
+                  \task neturi sprendinių;
+                  \task turi vieną sprendinį;
+                  \task turi begalę sprendinių;
+            \end{tasks}
+
+      \item \textit{(GPTO1)} A farmer has 100 acres of land on which to plant two crops: wheat and corn.
+            Each acre of wheat requires 3 hours of labor and 2 units of fertilizer, while
+            each acre of corn requires 2 hours of labor and 4 units of fertilizer. The
+            farmer has a total of 240 hours of labor and 320 units of fertilizer available.
+            If the profit per acre of wheat is \$40 and the profit per acre of corn is \$30,
+            how should the farmer allocate the land to maximize profit?
+
+            Solve the problem analytically and present the solution graphically. Provide a
+            detailed argument for the best solution.
+
+      \item \textit{(O2)} The M \& M book publishers can produce at most 2000 books in one day. The company produces
+            Mathematics and Marketing texts. Production costs are \$10 for a mathematics text and \$30 for a
+            marketing text. The daily operating budget is \$30,000. How many of each text should be produced if
+                  the profit is \$1.50 for each mathematics text and \$1.60 for each marketing text?
+            Does the policy change if they must produce at least 600 mathematics books and 200 marketing
+            books in one day? Does the policy change (from the original set-up) if they must produce at least 600
+            marketing books in one day?
+
+            Solve the problem analytically and present the solution graphically. Provide a
+            detailed argument for the best solution.
+\end{enumerate}
+
+\pagenumbering{gobble}
+\end{document}

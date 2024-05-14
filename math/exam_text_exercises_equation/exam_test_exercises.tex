@@ -1,0 +1,165 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+\usepackage{afterpage}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{Tekstiniai uždaviniai iš VBE}
+% L for Left, you can also use R for Right or C for Center
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Tekstiniai egzaminų uždaviniai}
+\author{Vilius Paliokas}
+\date{2024/05/12}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\newcommand\blankpage{%      \null
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \newpage}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\begin{enumerate}
+      \item \textit{(2022 m. 27 užd.)} Įmonė turi naujos ir senos kartos lazerių. Naujos kartos lazerio per vieną valandą išpjautų detalių
+            skaičius yra sveikasis ir didesnis už $8$. Senos kartos lazeris per vieną valandą išpjauna keturiomis
+            detalėmis mažiau negu naujos kartos lazeris. Tam tikrą gautą užsakymą įmonė vienu naujos kartos
+            lazeriu gali atlikti per sveikąjį valandų skaičių, o trimis senos kartos lazeriais – dviem valandomis
+            greičiau. Kiek daugiausia detalių gali sudaryti šį užsakymą.
+
+      \item \textit{(2022 m. pakartotinė sesija, 28 užd.)} Iš vietovių A ir B tuo pačiu metu vienas priešais kitą išvažiavo du dviratininkai ir susitiko po
+            t minučių. Laikykime, kad visą kelią dviratininkai važiavo pastoviais greičiais (km/min). Jeigu
+            pirmojo dviratininko greitis būtų buvęs dvigubai didesnis, o antrojo liktų toks pat, tai dviratininkai
+            susitiktų $5$ minutėmis anksčiau. Jeigu antrojo dviratininko greitis būtų buvęs dvigubai didesnis, o
+            pirmojo liktų toks pat, tai dviratininkai susitiktų $8$ minutėmis anksčiau. Apskaičiuokite t skaitinę
+            reikšmę.
+
+      \item \textit{(2021 m. 26 užd.)} Skaičiai $a$, $b$ ir $c$ yra trys iš eilės einantys aritmetinės progresijos nariai (čia $a \neq b$), o
+            skaičiai $b$, $c$ ir $a$ yra trys iš eilės einantys geometrinės progresijos nariai. Apskaičiuokite
+            geometrinės progresijos vardiklį.
+
+      \item \textit{(2019 m. 25 užd.)} Skaičiai $a$, $b$, $10-a$ yra trys iš eilės einantys \textbf{didėjančiosios} aritmetinės progresijos nariai.
+            Skaičiai $a+1, b+4, 29-a$ yra trys iš eilės einantys geometrinės progresijos nariai. Raskite
+            skaičius $a$ ir $b$
+
+      \item \textit{(2018 m. 18 užd.)} Dvi sesutės – Irutė ir Birutė – kurį laiką gaudė pokemonus. Irutė kasdien sugaudavo po
+            $x$ pokemonų, o Birutė – trimis pokemonais daugiau. Irutė pokemonus gaudė viena diena ilgiau
+            negu Birutė. Birutė iš viso sugavo $484$ pokemonus, o Irutė iš viso sugavo $437$ pokemonus.
+            Apskaičiuokite $x$ reikšmę.
+
+      \item \textit{(2017 m. 25 užd.)} Per sausio ir kovo mėnesius kartu paėmus buvo pagaminta dvigubai daugiau produkcijos negu
+            per vasario mėnesį. Per vasario ir kovo mėnesius kartu paėmus buvo pagaminta trigubai daugiau
+            produkcijos negu per sausio mėnesį. Kurį iš šių mėnesių buvo pagaminta daugiausia produkcijos,
+            o kurį – mažiausia? Atsakymą argumentuokite.
+
+      \item \textit{(2016 m. 23 užd.)} 100 metrų plaukimo varžybose dalyvavo Rūta, Julija ir Džesika. \textbf{Rūta savo finišo momentu}
+            lenkė Juliją 2 metrais, o Julija \textbf{savo finišo momentu} lenkė Džesiką metru. Tarkime, kad jos
+            distanciją plaukė pastoviais greičiais. Keliais metrais Rūta savo finišo momentu lenkė Džesiką?
+            Skaičiuodami laikykite, kad plaukikės yra materialūs taškai, t. y. plaukikių matmenų
+            nepaisykite.
+
+      \item \textit{(2016 m. pakartotinė sesija, 24 užd.)} Du vandens siurbliai pripildo baseiną per $5$ valandas. Siurbliai, dirbdami po vieną, pripildo
+            baseiną per skirtingą valandų skaičių. Laikydami, kad šie skaičiai yra sveikieji1, raskite, per kiek
+            valandų baseiną pripildo kiekvienas siurblys, dirbdamas atskirai.
+
+      \item \textit{(2015 m. 25 užd.)} Tuo pačiu metu iš miestelių $A$ ir $B$ pastoviais greičiais vienas priešais kitą išvažiavo du
+            dviratininkai. Pirmasis važiavo iš miestelio $A$ į miestelį, $B$ o antrasis – iš miestelio $B$ į
+            miestelį. $A$ Pakeliui jie susitiko. Po susitikimo pirmasis dviratininkas į miestelįB atvyko po $36$
+            minučių, o antrasis į miestelį $A$ atvyko po $25$ minučių. Kiek minučių pirmasis dviratininkas
+            važiavo iš miestelio $A$ iki susitikimo su antruoju dviratininku?
+
+      \item \textit{(2015 m. pakartotinė sesija 25 užd.)} Lentoje buvo užrašyti skirtingi natūralieji skaičiai ir apskaičiuotas jų sumos ir sandaugos
+            santykis. Nutrynus mažiausią lentoje užrašytą skaičių, vėl apskaičiuotas likusių skaičių sumos ir
+            sandaugos santykis. Jis buvo tris kartus didesnis už pirmąjį santykį. Raskite skaičių, kuris buvo
+            nutrintas.
+
+            Patarimas: spręsdami pažymėkite likusių skaičių sumą $S$, likusių skaičių
+            sandaugą $P$ ir nutrintąjį skaičių $x$.
+
+      \item \textit{(2014 m. 27 užd.)} Duoti keturi teigiami skaičiai. Pirmas, antras ir trečias skaičiai sudaro aritmetinę progresiją, o
+            šių skaičių suma lygi $12$. Antras, trečias ir ketvirtas skaičiai sudaro geometrinę progresiją, jų suma lygi $19$. Raskite šiuos keturis skaičius.
+
+      \item \textit{(2013 m. 31 užd.)} Trys dviratininkai kas valandą išvažiuoja iš tos pačios vietos ir važiuoja viena kryptimi.
+      Pirmojo dviratininko greitis $12\, km/h$, antrojo – $10\, km/h$. Trečiasis dviratininkas, važiuodamas greičiau nei pirmasis, pirmiausia pavijo antrąjį, o praėjus dar $2$ valandoms – pirmąjį
+      dviratininką. Koks trečiojo dviratininko greitis?
+
+      \item \textit{(2010 m. 22 užd.)} Trys plaukikai turi nuplaukti m ilgio baseino takeliu iki galo, iškart apsisukti ir grįžti atgal į starto vietą.
+      pradžių startuoja pirmasis plaukikas, po sekundžių – antrasis, dar po $5\,sek.$ – trečiasis. Vienu momentu, dar nepasiekę takelio galo, visi plaukikai buvo nuplaukę vienodą atstumą. Trečiasis plaukikas, nuplaukęs iki takelio
+      galo ir apsisukęs, sutiko antrąjį plaukiką iki takelio galo buvo likę plaukti $4\,m$, po to sutiko pirmąjį plaukiką, kuriam iki takelio galo buvo likę
+      plaukti $7m$. Raskite trečiojo plaukiko greitį.
+
+      \item \textit{(2009 m. 18 užd.)} Dviejų irkluotojų greičiai stovinčiame vandenyje yra lygūs. Jie treniruojasi taip: Jonas iš bazės nuplaukia $5\,km$ upe prieš srovę ir grįžta
+      atgal į ją, o Domas iš kitos bazės nuplaukia $5\,km$ ežeru (stovinčiame vandenyje) ir grįžta atgal į ją.
+
+      Kuris irkluotojas sugaišta mažiau laiko treniruotėje? (Nekreipkite dėmesio į
+      laiką sugaištą apsigręžiant.)
+
+
+
+
+\end{enumerate}
+
+\pagenumbering{gobble}
+\end{document}
+
