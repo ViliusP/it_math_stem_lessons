@@ -1,0 +1,178 @@
+% !TEX root = ./equation_test_2.tex
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+\mathchardef\period=\mathcode`.
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{siunitx}
+
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{kurso kartojimas | reiškinių persitvarkymas | savarankiškas darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{kurso kartojimas | reiškinių persitvarkymas | savarankiškas darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - lygtys}
+\author{Vilius Paliokas}
+\date{2024/05/010}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+% Tasjks
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{2 variantas}
+
+\textit{Visi uždaviniai verti 1 taško.}
+
+\begin{enumerate}
+      \item Suprastinkite reiškinius.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](4)
+                  \task $\frac{3+4x}{8x^3}:\frac{4x+3}{16x^2}$;
+                  \task $(-3a^4b)^3:(-2a^2b)^2$;
+                  \task $\frac{4x^2-9y^2}{2x+3y}$;
+                  \task $\frac{2m-9}{21}:\frac{4m^2-81}{7m^2}$;
+            \end{tasks}
+
+      \item Subendravardiklinkite trupmenas ir atlikite veiksmus.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{5}{2x-2}+\frac{3}{4x-4}$;
+                  \task $\frac{4}{4x^3}+\frac{5}{6x}$;
+            \end{tasks}
+
+      \item Išskaidykite dauginamaisiais.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $-25a^2-5a^2b$;
+                  \task $15n^2+n-2$;
+            \end{tasks}
+
+      \item Išspręskite tiesinę lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{3x}{7}=\frac{4x}{5}-8$;
+                  \task $2,5x-1=4+2(1\frac{1}{4}x-3)$;
+            \end{tasks}
+
+      \item Išspręskite nelygybę $5x-3>\frac{x}{2}$.
+      \item Raskite nelygybės $3-\frac{5(1-4x)}{3}\geq2x(10x-4)$ didžiausią sveikąjį sprendinį.
+\end{enumerate}
+
+\vspace*{12mm}
+
+\subsection*{2 variantas}
+
+\textit{Visi uždaviniai verti 1 taško.}
+
+\begin{enumerate}
+      \item Suprastinkite reiškinius.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](4)
+                  \task $\frac{3+4x}{8x^3}:\frac{4x+3}{16x^2}$;
+                  \task $(-3a^4b)^3:(-2a^2b)^2$;
+                  \task $\frac{4x^2-9y^2}{2x+3y}$;
+                  \task $\frac{2m-9}{21}:\frac{4m^2-81}{7m^2}$;
+            \end{tasks}
+
+      \item Subendravardiklinkite trupmenas ir atlikite veiksmus.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{5}{2x-2}+\frac{3}{4x-4}$;
+                  \task $\frac{4}{4x^3}+\frac{5}{6x}$;
+            \end{tasks}
+
+      \item Išskaidykite dauginamaisiais.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $-25a^2-5a^2b$;
+                  \task $15n^2+n-2$;
+            \end{tasks}
+
+      \item Išspręskite tiesinę lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{3x}{7}=\frac{4x}{5}-8$;
+                  \task $2,5x-1=4+2(1\frac{1}{4}x-3)$;
+            \end{tasks}
+
+      \item Išspręskite nelygybę $5x-3>\frac{x}{2}$.
+      \item Raskite nelygybės $3-\frac{5(1-4x)}{3}\geq2x(10x-4)$ didžiausią sveikąjį sprendinį.
+\end{enumerate}
+\vspace*{12mm}
+
+\subsection*{2 variantas}
+
+\textit{Visi uždaviniai verti 1 taško.}
+
+\begin{enumerate}
+      \item Suprastinkite reiškinius.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](4)
+                  \task $\frac{3+4x}{8x^3}:\frac{4x+3}{16x^2}$;
+                  \task $(-3a^4b)^3:(-2a^2b)^2$;
+                  \task $\frac{4x^2-9y^2}{2x+3y}$;
+                  \task $\frac{2m-9}{21}:\frac{4m^2-81}{7m^2}$;
+            \end{tasks}
+
+      \item Subendravardiklinkite trupmenas ir atlikite veiksmus.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{5}{2x-2}+\frac{3}{4x-4}$;
+                  \task $\frac{4}{4x^3}+\frac{5}{6x}$;
+            \end{tasks}
+
+      \item Išskaidykite dauginamaisiais.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $-25a^2-5a^2b$;
+                  \task $15n^2+n-2$;
+            \end{tasks}
+
+      \item Išspręskite tiesinę lygtį.
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{3x}{7}=\frac{4x}{5}-8$;
+                  \task $2,5x-1=4+2(1\frac{1}{4}x-3)$;
+            \end{tasks}
+
+      \item Išspręskite nelygybę $5x-3>\frac{x}{2}$.
+      \item Raskite nelygybės $3-\frac{5(1-4x)}{3}\geq2x(10x-4)$ didžiausią sveikąjį sprendinį.
+\end{enumerate}
+
+\end{document}
