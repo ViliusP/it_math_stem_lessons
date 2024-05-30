@@ -1,0 +1,179 @@
+\mathchardef\period=\mathcode`.
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+\usetikzlibrary{fit,positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns,patterns.meta}
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{booktabs} % For better looking tables
+\usepackage{venndiagram}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{lygtys | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{lygtys | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - progresijos}
+\author{Vilius Paliokas}
+\date{2023/10/17}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{2 variantas}
+
+\begin{enumerate}
+      \item Išspręskite nelygybes (\textit{po 1 tašką}).
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{x+2}{3-x} \geqslant 0$;
+                  \task $x^2<16x$;
+                  \task $\frac{2x+2}{x-3}<2$;
+                  \task $\frac{3}{4-x}<0$;
+                  \task $-x^2+4x-4 \leqslant 0$;
+                  \task $(5x+4)(5-x)>0$;
+                  \task $\frac{25}{10-x} \leqslant x$;
+                  \task $-(x-5)^2 \leqslant 0$;
+                  \task $9x^2+9x \leq 0$;
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Raskite didžiausią sveikąjį skaičių, su kuriuo reikšinio $\frac{4-2x}{5}-x$ reikšmė yra neigiama;
+      \item \textit{(1 taškas)} Raskite nelygybės $x^2<13$ mažiausią neigiamą sveikąjį sprendinį.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\vspace*{12mm}
+
+\subsection*{2 variantas}
+
+\begin{enumerate}
+      \item Išspręskite nelygybes (\textit{po 1 tašką}).
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{x+2}{3-x} \geqslant 0$;
+                  \task $x^2<16x$;
+                  \task $\frac{2x+2}{x-3}<2$;
+                  \task $\frac{3}{4-x}<0$;
+                  \task $-x^2+4x-4 \leqslant 0$;
+                  \task $(5x+4)(5-x)>0$;
+                  \task $\frac{25}{10-x} \leqslant x$;
+                  \task $-(x-5)^2 \leqslant 0$;
+                  \task $9x^2+9x \leq 0$;
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Raskite didžiausią sveikąjį skaičių, su kuriuo reikšinio $\frac{4-2x}{5}-x$ reikšmė yra neigiama;
+      \item \textit{(1 taškas)} Raskite nelygybės $x^2<13$ mažiausią neigiamą sveikąjį sprendinį.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\vspace*{12mm}
+
+\subsection*{2 variantas}
+
+\begin{enumerate}
+      \item Išspręskite nelygybes (\textit{po 1 tašką}).
+
+            \begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+                  \task $\frac{x+2}{3-x} \geqslant 0$;
+                  \task $x^2<16x$;
+                  \task $\frac{2x+2}{x-3}<2$;
+                  \task $\frac{3}{4-x}<0$;
+                  \task $-x^2+4x-4 \leqslant 0$;
+                  \task $(5x+4)(5-x)>0$;
+                  \task $\frac{25}{10-x} \leqslant x$;
+                  \task $-(x-5)^2 \leqslant 0$;
+                  \task $9x^2+9x \leq 0$;
+            \end{tasks}
+
+      \item \textit{(1 taškas)} Raskite didžiausią sveikąjį skaičių, su kuriuo reikšinio $\frac{4-2x}{5}-x$ reikšmė yra neigiama;
+      \item \textit{(1 taškas)} Raskite nelygybės $x^2<13$ mažiausią neigiamą sveikąjį sprendinį.
+\end{enumerate}
+
+\begin{small}
+      \begin{enumerate*}[label={(\arabic*)}]
+            \item \textbf{Visur} \textbf{nurodykite atsakymus} ($Ats\ldots$);
+            \item Jokio sukčiavimo. Negalima naudotis užrašais, vadovėliais,
+            elektroniniais prietaisais;
+            \item Jokio kalbėjimo;
+            \item Rašyti aiškiai, nedviprasmiškai;
+            \item Galima naudotis tik savo skaičiuotuvu ir formulių lapu;
+      \end{enumerate*}
+\end{small}
+
+\end{document}
