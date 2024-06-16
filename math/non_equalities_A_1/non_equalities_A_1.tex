@@ -1,0 +1,147 @@
+% !TEX root = ./equation_test_2.tex
+\documentclass[a4paper]{article}
+\usepackage[top=1.45cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+\mathchardef\period=\mathcode`.
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{siunitx}
+
+\usepackage[inline]{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[main=lithuanian, german, shorthands=off]{babel}
+\usepackage{tgpagella}
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\AfterEndEnvironment{wrapfigure}{\setlength{\intextsep}{0mm}}
+
+\usepackage{icomma}
+
+% Header | Footer 
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{lygtys | kontrolinis darbas}
+% L for Left, you can also use R for Right or C for Center
+\fancyfoot[R]{lygtys | kontrolinis darbas}
+
+% L for Left, you can also use R for Right or C for Center
+\setlength{\headheight}{0.5pt} % Adjust the head height
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\renewcommand{\footrulewidth}{0.4pt} % Line above the footer
+% Header | Footer 
+
+\newcommand{\germanqq}[1]{{\selectlanguage{german}\glqq#1\grqq\selectlanguage{english}}}
+
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\tgx}{\tg x}
+
+\DeclareMathOperator{\arctg}{arctg}
+\newcommand{\arctgx}{\arctg x}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\title{Kontrolinis darbas - lygtys}
+\author{Vilius Paliokas}
+\date{2024/05/010}
+
+\setlist{after=\vspace{\baselineskip}}
+
+% Title spacing
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0.5\baselineskip}
+% ------------------------ 
+
+\begin{document}
+\thispagestyle{fancy}
+
+\titlespacing*{\subsection}{0pt}{.75ex}{0.75ex}
+
+\subsection*{1 variantas}
+
+Išspręskite lygtį (\textit{po 1 tašką}):
+\begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+      \task $\frac{x-\sqrt{2}}{x^2-2}\leqslant 0$;
+      \task $\frac{x-1}{x}-\frac{x+1}{x-1} \leqslant 2$;
+      \task $(\frac{1}{2})^{-3x} \geqslant (\frac{1}{2})^9$;
+      \task $4^{5-x} \geqslant \frac{1}{64}$;
+      \task $3^{\frac{-5x}{x-1}}-9^{\frac{x-12}{2}} \leqslant 0$;
+      \task $\log_{\frac{1}{2}}(4x-1) \geq -2$;
+      \task $\log_{4}x-\log_{4}27 \leqslant \log_{4}\frac{1}{9}$;
+      \task $\log_{6}(-x^2+9x-14) \geq 1$;
+      \task $\sqrt{(x+\sqrt{2})^2} \geqslant \sqrt{50}$;
+      \task Su kuriomis $y=f(x)=3|x+2|-1$ reikšmės yra mažesnės už 8;
+\end{tasks}
+\subsection*{1 variantas}
+
+Išspręskite lygtį (\textit{po 1 tašką}):
+\begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+      \task $\frac{x-\sqrt{2}}{x^2-2}\leqslant 0$;
+      \task $\frac{x-1}{x}-\frac{x+1}{x-1} \leqslant 2$;
+      \task $(\frac{1}{2})^{-3x} \geqslant (\frac{1}{2})^9$;
+      \task $4^{5-x} \geqslant \frac{1}{64}$;
+      \task $3^{\frac{-5x}{x-1}}-9^{\frac{x-12}{2}} \leqslant 0$;
+      \task $\log_{\frac{1}{2}}(4x-1) \geq -2$;
+      \task $\log_{4}x-\log_{4}27 \leqslant \log_{4}\frac{1}{9}$;
+      \task $\log_{6}(-x^2+9x-14) \geq 1$;
+      \task $\sqrt{(x+\sqrt{2})^2} \geqslant \sqrt{50}$;
+      \task Su kuriomis $y=f(x)=3|x+2|-1$ reikšmės yra mažesnės už 8;
+\end{tasks}
+
+\subsection*{1 variantas}
+
+Išspręskite lygtį (\textit{po 1 tašką}):
+\begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+      \task $\frac{x-\sqrt{2}}{x^2-2}\leqslant 0$;
+      \task $\frac{x-1}{x}-\frac{x+1}{x-1} \leqslant 2$;
+      \task $(\frac{1}{2})^{-3x} \geqslant (\frac{1}{2})^9$;
+      \task $4^{5-x} \geqslant \frac{1}{64}$;
+      \task $3^{\frac{-5x}{x-1}}-9^{\frac{x-12}{2}} \leqslant 0$;
+      \task $\log_{\frac{1}{2}}(4x-1) \geq -2$;
+      \task $\log_{4}x-\log_{4}27 \leqslant \log_{4}\frac{1}{9}$;
+      \task $\log_{6}(-x^2+9x-14) \geq 1$;
+      \task $\sqrt{(x+\sqrt{2})^2} \geqslant \sqrt{50}$;
+      \task Su kuriomis $y=f(x)=3|x+2|-1$ reikšmės yra mažesnės už 8;
+\end{tasks}
+
+\subsection*{1 variantas}
+
+Išspręskite lygtį (\textit{po 1 tašką}):
+\begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+      \task $\frac{x-\sqrt{2}}{x^2-2}\leqslant 0$;
+      \task $\frac{x-1}{x}-\frac{x+1}{x-1} \leqslant 2$;
+      \task $(\frac{1}{2})^{-3x} \geqslant (\frac{1}{2})^9$;
+      \task $4^{5-x} \geqslant \frac{1}{64}$;
+      \task $3^{\frac{-5x}{x-1}}-9^{\frac{x-12}{2}} \leqslant 0$;
+      \task $\log_{\frac{1}{2}}(4x-1) \geq -2$;
+      \task $\log_{4}x-\log_{4}27 \leqslant \log_{4}\frac{1}{9}$;
+      \task $\log_{6}(-x^2+9x-14) \geq 1$;
+      \task $\sqrt{(x+\sqrt{2})^2} \geqslant \sqrt{50}$;
+      \task Su kuriomis $y=f(x)=3|x+2|-1$ reikšmės yra mažesnės už 8;
+\end{tasks}
+
+\subsection*{1 variantas}
+
+Išspręskite lygtį (\textit{po 1 tašką}):
+\begin{tasks}[item-format={\normalfont}, after-item-skip=2mm](2)
+      \task $\frac{x-\sqrt{2}}{x^2-2}\leqslant 0$;
+      \task $\frac{x-1}{x}-\frac{x+1}{x-1} \leqslant 2$;
+      \task $(\frac{1}{2})^{-3x} \geqslant (\frac{1}{2})^9$;
+      \task $4^{5-x} \geqslant \frac{1}{64}$;
+      \task $3^{\frac{-5x}{x-1}}-9^{\frac{x-12}{2}} \leqslant 0$;
+      \task $\log_{\frac{1}{2}}(4x-1) \geq -2$;
+      \task $\log_{4}x-\log_{4}27 \leqslant \log_{4}\frac{1}{9}$;
+      \task $\log_{6}(-x^2+9x-14) \geq 1$;
+      \task $\sqrt{(x+\sqrt{2})^2} \geqslant \sqrt{50}$;
+      \task Su kuriomis $y=f(x)=3|x+2|-1$ reikšmės yra mažesnės už 8;
+\end{tasks}
+
+\end{document}
